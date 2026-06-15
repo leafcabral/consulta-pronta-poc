@@ -20,13 +20,38 @@
 
 @font-face {
 	font-family: "NunitoSans";
-	src: url("fonts/NunitoSans.ttf");
+	src: url("../fonts/NunitoSans.ttf");
 }
 
 * {
 	box-sizing: border-box;
+	font-family: "NunitoSans";
+	margin: 0;
 }
 
 body {
+	width: 100vw;
+	height: 100vh;
 	margin: 0;
+
+	display: grid;
+	grid-template-columns: 300px 1fr;
+	overflow: hidden;
+
+	color: var(--color-text-light);
+}
+
+aside {
+	background-color: var(--color-primary);
+	padding: 2em 2em;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+main {
+	background-color: var(--color-background);
+	padding: 1em 1.5em;
+	overflow-y: auto;
+	scrollbar-color: var(--color-accent) transparent;
 }
