@@ -56,7 +56,7 @@ if ($form_enviado) {
 
 		<fieldset class="simple_input">
 			<label for="email">Email:</label>
-			<input type="text" name="email" id="email" placeholder="teste@teste.com" required>
+			<input type="email" name="email" id="email" placeholder="teste@teste.com" required>
 		</fieldset>
 
 
@@ -65,6 +65,7 @@ if ($form_enviado) {
 			<input type="password" name="senha" id="senha" placeholder="123456" required>
 		</fieldset>
 
+		<a href="cadastro.php">Não possui conta?</a>
 		<button type="submit">Entrar</button>
 	</form>
 </body>

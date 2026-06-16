@@ -35,6 +35,11 @@ fieldset.simple_input {
 	display: grid;
 	grid-template-columns: 4em 1fr;
 	gap: 1em;
+	width: 100%;
+}
+
+a {
+	color: var(--color-accent);
 }
 
 button {
