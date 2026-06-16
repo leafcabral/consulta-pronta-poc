@@ -1,0 +1,4 @@
+## Funções especiais
+
+1. **Paciente** (sintoma para relatório): A função será a responsável por converter os sintomas seleciados pelo usuário em um relatório. O relatório irá calcular e armazenar a evolução de cada sintoma com o tempo, distribuição de intensidade e sintoma mais comum. Isso irá gerar um relatório que será inserido no banco de dados junto da data da criação.
+2. **Profissional** (anotações clínicas em relatórios): Acessada pelo prontuário do paciente, essa função será responsável por adicionar anotações (pré-diagnóstico e hipóteses diagnósticas) no relatório desse paciente. As anotações possuem uma tabela própria no banco de dados, portanto é necessário usar a chave estrangeira para salvar a qual relatório ela pertence.
