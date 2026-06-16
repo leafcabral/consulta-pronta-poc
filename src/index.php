@@ -12,7 +12,7 @@
 	<?php
 		session_start();
 
-		if (empty($SESSION["logged_in"])) {
+		if (empty($SESSION["logado"])) {
 			header("Location: " . PAGE_URL . "/auth/login.php");
 			exit;
 		}

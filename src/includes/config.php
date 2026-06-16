@@ -11,3 +11,5 @@ function get_src_url_from_root() {
 
 define("SRC_URL", get_src_url_from_root());
 define("PAGE_URL", SRC_URL . "/pages");
+
+session_start();

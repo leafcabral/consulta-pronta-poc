@@ -25,6 +25,13 @@ form {
 fieldset {
 	padding: 0;
 	border: none;
+}
+
+fieldset#tipo {
+	width: 100%;
+	
+}
+fieldset.simple_input {
 	display: grid;
 	grid-template-columns: 4em 1fr;
 	gap: 1em;
