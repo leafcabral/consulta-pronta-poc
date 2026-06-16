@@ -1,3 +1,5 @@
+<?php include_once "includes/config.php" ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,17 +9,8 @@
 	<link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
-	<aside>
-		<div id="aside_up">
-			icon and navigation
-		</div>
-
-		<div id="aside_bottom">
-			profile and notification
-		</div>
-	</aside>
-
-
+	<?php include_once "includes/aside.php" ?>
+	
 	<main>
 		<h1>Placeholder</h1>
 		<h2>Made to place your holder</h2>
