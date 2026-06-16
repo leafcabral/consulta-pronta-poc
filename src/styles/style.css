@@ -1,17 +1,7 @@
-@import url("variables.css");
-@import url("fonts.css");
 @import url("defaults.css");
 
 body {
-	width: 100vw;
-	height: 100vh;
-	margin: 0;
-
-	display: grid;
 	grid-template-columns: 300px 1fr;
-	overflow: hidden;
-
-	color: var(--color-text-light);
 }
 
 main {

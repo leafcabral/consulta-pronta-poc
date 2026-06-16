@@ -1,0 +1,42 @@
+@import url("../../styles/defaults.css");
+
+body {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+img#logo {
+	position: absolute;
+	top: 15vh;
+	width: 20em;
+}
+
+
+form {
+	width: fit-content;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 10px;
+}
+
+fieldset {
+	padding: 0;
+	border: none;
+	display: grid;
+	grid-template-columns: 4em 1fr;
+	gap: 1em;
+}
+
+button {
+	width: 8em;
+	background-color: var(--color-accent);
+	color: var(--color-text-dark);
+	border-radius: 6px;
+}
+
+button:hover {
+	filter: brightness(0.8);
+}

@@ -9,8 +9,17 @@
 	<link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
+	<?php
+		session_start();
+
+		if (empty($SESSION["logged_in"])) {
+			header("Location: " . PAGE_URL . "/auth/login.php");
+			exit;
+		}
+	?>
+
 	<?php include_once "includes/aside.php" ?>
-	
+
 	<main>
 		<h1>Placeholder</h1>
 		<h2>Made to place your holder</h2>
