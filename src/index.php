@@ -10,15 +10,13 @@
 </head>
 <body>
 	<?php
-		session_start();
-
-		if (empty($SESSION["logado"])) {
+		if (empty($_SESSION["logado"])) {
 			header("Location: " . PAGE_URL . "/auth/login.php");
 			exit;
+		} else {
+			header("Location: " . PAGE_URL . "/" . $_SESSION["tipo_usuario"]);
 		}
 	?>
-
-	<?php include_once "includes/aside.php" ?>
 
 	<main>
 		<h1>Placeholder</h1>

@@ -1,8 +1,8 @@
 @import url("defaults.css");
 
-body {
+/* body {
 	grid-template-columns: 300px 1fr;
-}
+} */
 
 main {
 	background-color: var(--color-background);
