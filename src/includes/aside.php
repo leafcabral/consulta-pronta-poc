@@ -31,7 +31,6 @@
 
 
 <aside>
-
 	<div id="aside_up">
 		<a href="<?= PAGE_URL ?>/paciente/relatorio">Relatórios</a>
 		<a href="<?= PAGE_URL ?>/paciente/sintoma">Sintomas</a>

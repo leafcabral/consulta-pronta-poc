@@ -1,12 +1,32 @@
 @import url("defaults.css");
 
-/* body {
+body {
+	display: grid;
 	grid-template-columns: 300px 1fr;
-} */
+}
 
-main {
+body main {
 	background-color: var(--color-background);
 	padding: 1em 1.5em;
 	overflow-y: auto;
 	scrollbar-color: var(--color-accent) transparent;
+}
+
+main > header {
+	margin-bottom: 24px;
+}
+
+article {
+	padding: 18px;
+	border-radius: 18px;
+}
+
+article.light {
+	background-color: var(--color-surface);
+	color: var(--color-text-dark);
+}
+
+article.dark {
+	background-color: var(--color-primary);
+	color: var(--color-text-light);
 }
