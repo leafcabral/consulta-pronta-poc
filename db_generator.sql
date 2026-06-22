@@ -69,9 +69,9 @@ CREATE TABLE IF NOT EXISTS autorizacao (
     data_revogacao DATE,
     status VARCHAR(15),
 
-    CONSTRAINT FK_AUTORIZACAO_id_paciente
+    CONSTRAINT FK_AUTORIZACAO_id_profissional
         FOREIGN KEY (id_profissional)
-        REFERENCES profissional(id_profissional);
+        REFERENCES profissional(id_profissional),
     CONSTRAINT FK_AUTORIZACAO_id_paciente
         FOREIGN KEY (id_paciente)
         REFERENCES paciente(id_paciente)
@@ -82,13 +82,13 @@ CREATE TABLE IF NOT EXISTS prescricao (
     id_paciente INTEGER,
     id_profissional INTEGER,
     medicamentos TEXT,
-    orientacoes_uso VARCHAR(,
+    orientacoes_uso VARCHAR(150),
     data_emissao DATE,
-    data DATE,
+    dados DATE,
 
     CONSTRAINT FK_PRESCRICAO_id_profissional
         FOREIGN KEY (id_profissional)
-        REFERENCES profissional(id_profissional);
+        REFERENCES profissional(id_profissional),
     CONSTRAINT FK_PRESCRICAO_id_paciente
         FOREIGN KEY (id_paciente)
         REFERENCES paciente(id_paciente)
@@ -105,7 +105,7 @@ CREATE TABLE IF NOT EXISTS exame (
 
     CONSTRAINT FK_EXAME_id_paciente
         FOREIGN KEY (id_paciente)
-        REFERENCES paciente(id_paciente);
+        REFERENCES paciente(id_paciente),
     CONSTRAINT FK_EXAME_id_profissional
         FOREIGN KEY (id_profissional)
         REFERENCES profissional(id_profissional)
@@ -134,7 +134,7 @@ CREATE TABLE IF NOT EXISTS anotacao_clinica (
 
     CONSTRAINT FK_ANOTACAO_CLINICA_id_profissional
         FOREIGN KEY (id_profissional)
-        REFERENCES profissional(id_profissional);
+        REFERENCES profissional(id_profissional),
     CONSTRAINT FK_ANOTACAO_CLINICA_id_relatorio
         FOREIGN KEY (id_relatorio)
         REFERENCES relatorio(id_relatorio)
