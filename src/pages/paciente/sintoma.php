@@ -97,7 +97,7 @@ if ($form_enviado) {
 
 				<div class="input_wrapper">
 					<input type="date" name="data" id="data" value="<?= date('Y-m-d') ?>">
-					<input type="time" name="hora" id="hora" value="<?= date('H:m') ?>">
+					<input type="time" name="hora" id="hora" value="<?= date('H:i') ?>">
 				</div>
 			</fieldset>
 			
