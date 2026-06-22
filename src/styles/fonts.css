@@ -2,3 +2,8 @@
 	font-family: "NunitoSans";
 	src: url("../fonts/NunitoSans.ttf");
 }
+
+@font-face {
+	font-family: "JetBrains";
+	src: url("../fonts/JetBrainsMono.ttf");
+}

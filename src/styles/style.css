@@ -19,14 +19,39 @@ main > header {
 article {
 	padding: 18px;
 	border-radius: 18px;
+
+	&.light {
+		background-color: var(--color-surface);
+		color: var(--color-text-dark);
+	}
+
+	&.dark {
+		background-color: var(--color-primary);
+		color: var(--color-text-light);
+	}
+
+	h3 {
+		margin-bottom: 1em;
+	}
 }
 
-article.light {
-	background-color: var(--color-surface);
-	color: var(--color-text-dark);
+div.lista {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	gap: 0.5em;
+	align-items: center;
+
+	article {
+		width: 100%;
+	}
+
+	&:has(.mensagem) {
+		justify-content: center;
+	}
 }
 
-article.dark {
-	background-color: var(--color-primary);
-	color: var(--color-text-light);
+.mensagem {
+	font-family: "JetBrains", monospace;
+	color: var(--color-primary-light);
 }

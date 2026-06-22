@@ -1,0 +1,34 @@
+section#dashboard_content {
+	display: grid;
+	grid-template-areas: 
+		"remedios sintomas"
+		"consultas sintomas";
+	gap: 1em;
+	height: min(500px, 60vh)
+}
+
+article {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+article#prescricoes {
+	grid-area: remedios;
+}
+
+article#consultas {
+	grid-area: consultas;
+}
+
+article#sintomas {
+	grid-area: sintomas;
+}
+
+article#sintomas .lista article {
+	border-radius: 8px;
+}
+
+article > .lista {
+	flex-grow: 1;
+}
