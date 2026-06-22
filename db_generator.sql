@@ -6,20 +6,20 @@ CREATE TABLE IF NOT EXISTS paciente (
     data_nascimento DATE,
     altura SMALLINT,
     peso NUMERIC(5,2),
-    alergias JSON,
-    historico_familiar JSON,
-    doencas JSON,
-    tipo_sanguineo VARCHAR(3)
+    alergias TEXT,
+    historico_familiar TEXT,
+    doencas TEXT,
+    tipo_sanguineo VARCHAR(3),
 
     CONSTRAINT FK_PACIENTE_id_usuario
         FOREIGN KEY (id_paciente)
-        REFERENCES usuario(id_usuario);
+        REFERENCES usuario(id_usuario)
 );
 
 CREATE TABLE IF NOT EXISTS profissional (
     id_profissional INTEGER PRIMARY KEY,
     crm VARCHAR(10),
-    especialidades JSON
+    especialidades TEXT,
 
     CONSTRAINT FK_PROFISSIONAL_id_usuario
         FOREIGN KEY (id_profissional)
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS sintoma (
     intensidade SMALLINT,
     data_inicio TIMESTAMP,
     local VARCHAR(50),
-    status VARCHAR(15)
+    status VARCHAR(15),
 
     CONSTRAINT FK_SINTOMA_id_paciente
         FOREIGN KEY (id_paciente)
@@ -48,7 +48,7 @@ CREATE TABLE IF NOT EXISTS usuario (
     email VARCHAR(100),
     senha_hash VARCHAR(255),
     tipo_usuario CHAR(2),
-    data_cadastro DATE
+    data_cadastro DATE,
 
     CONSTRAINT FK_USUARIO_id_contato
         FOREIGN KEY (id_contato)
@@ -61,7 +61,7 @@ CREATE TABLE IF NOT EXISTS autorizacao (
     id_profissional INTEGER,
     data_concessao DATE,
     data_revogacao DATE,
-    status VARCHAR(15)
+    status VARCHAR(15),
 
     CONSTRAINT FK_AUTORIZACAO_id_paciente
         FOREIGN KEY (id_profissional)
@@ -75,10 +75,10 @@ CREATE TABLE IF NOT EXISTS prescricao (
     id_prescricao INTEGER PRIMARY KEY,
     id_paciente INTEGER,
     id_profissional INTEGER,
-    medicamentos JSON,
+    medicamentos TEXT,
     orientacoes_uso VARCHAR(,
     data_emissao DATE,
-    data DATE
+    data DATE,
 
     CONSTRAINT FK_PRESCRICAO_id_profissional
         FOREIGN KEY (id_profissional)
@@ -95,7 +95,7 @@ CREATE TABLE IF NOT EXISTS exame (
     titulo VARCHAR(100),
     tipo VARCHAR(100),
     descricao_resultado VARCHAR(100),
-    data_resultado DATE
+    data_resultado DATE,
 
     CONSTRAINT FK_EXAME_id_paciente
         FOREIGN KEY (id_paciente)
@@ -117,7 +117,7 @@ CREATE TABLE IF NOT EXISTS relatorio (
     id_anotacao INTEGER,
     data_geracao DATE,
     periodo_analisado VARCHAR(30),
-    dados_analiticos VARCHAR(200)
+    dados_analiticos VARCHAR(200),
 
     CONSTRAINT FK_RELATORIO_id_paciente
         FOREIGN KEY (id_paciente)
@@ -132,7 +132,7 @@ CREATE TABLE IF NOT EXISTS anotacao_clinica (
     id_profissional INTEGER,
     data_hora TIMESTAMP,
     texto_evolucao VARCHAR(300),
-    hipotese_diagnostica VARCHAR(100)
+    hipotese_diagnostica VARCHAR(100),
 
     CONSTRAINT FK_ANOTACAO_CLINICA_id_profissional
         FOREIGN KEY (id_profissional)

@@ -43,7 +43,7 @@
         ($user_id, '$birth_date', '$height', '$weight', '$allergies', '$family_history', '$diseases', '$blood_type')";
 
         if (mysqli_query($connection, $sql_command)) {
-            // handle succesful query
+            return $user_id;
         } else {
             // handle failed query
         }
@@ -151,6 +151,25 @@
         } else {
             // handle failed query
         }
+    }
+
+    function check_if_user_exists($user_type, $email, $cpf) {
+        $connection = connect_to_database();
+        $error = [];
+
+        $table = ($user_type == "paciente") ? "paciente" : "profissional";
+        $sql_command_email = "SELECT * FROM $table WHERE email = $email";
+        $sql_command_cpf = "SELECT * FROM $table WHERE cpf = $cpf";
+
+        $query_email = mysqli_fetch_array(mysqli_query($connection, $sql_command_email, MYSQLI_NUM));
+        $query_cpf = mysqli_fetch_array(mysqli_query($connection, $sql_command_cpf, MYSQLI_NUM));
+        
+        
+        if (!empty($query_email)) $error["email"] = true;
+
+        if (!empty($query_cpf)) $error["cpf"] = true;
+
+        return $error;
     }
 
 ?>

@@ -1,5 +1,6 @@
 <?php
 include_once "../../includes/config.php";
+include_once "../../config/database.php";
 
 $erro = "";
 $form_enviado = ($_SERVER["REQUEST_METHOD"] == "POST");
@@ -8,11 +9,20 @@ if ($form_enviado) {
 	$tipo = filter_input(INPUT_POST, "tipo");
 	$nome = filter_input(INPUT_POST, "nome");
 	$email = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
+	$cpf = filter_input(INPUT_POST, "cpf");
 	$senha = filter_input(INPUT_POST, "senha");
 	$senha_confirmar = filter_input(INPUT_POST, "senha_confirmar");
 	$termos = filter_input(INPUT_POST, "termos");
 
 	if ($tipo && $nome && $email && $senha) {
+		$user_checked = check_if_user_exists($tipo, $email, $cpf);
+
+        if (isset($user_checked["cpf"])) {
+            $erro = "Usuário com esse CPF já existe";
+        } elseif (isset($user_checked["email"])) {
+            $erro = "Usuário com esse email já existe";
+        }
+
 		if ($senha != $senha_confirmar) {
 			$erro = "Senhas digitadas estão diferentes";
 		} elseif (!$termos) {
@@ -70,6 +80,11 @@ if ($form_enviado) {
 			<input type="email" name="email" id="email" placeholder="teste@teste.com" required>
 		</fieldset>
 
+		<fieldset class="simple_input">
+			<label for="cpf">CPF:</label>
+			<input type="text" name="cpf" id="cpf" placeholder="000.000.000-00" required>
+		</fieldset>
+
 
 		<fieldset class="simple_input">
 			<label for="senha">Senha:</label>
@@ -89,5 +104,18 @@ if ($form_enviado) {
 		<a href="login.php">Já possui conta?</a>
 		<button type="submit">Entrar</button>
 	</form>
+
+	<script>
+		document.getElementById('cpf').addEventListener('input', function(e) {
+		var value = e.target.value;
+		var cpfPattern = value
+			.replace(/\D/g, '') // Remove qualquer coisa que não seja número
+			.replace(/(\d{3})(\d)/, '$1.$2') // Adiciona ponto após o terceiro dígito
+			.replace(/(\d{3})(\d)/, '$1.$2') // Adiciona ponto após o sexto dígito
+			.replace(/(\d{3})(\d)/, '$1-$2') // Adiciona traço após o nono dígito
+			.replace(/(-\d{2})\d+?$/, '$1'); // Impede entrada de mais de 11 dígitos
+		e.target.value = cpfPattern;
+		});
+	</script>
 </body>
 </html>
