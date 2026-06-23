@@ -32,11 +32,12 @@
 
 <aside>
 	<div id="aside_up">
+		<a href="<?= PAGE_URL ?>/paciente">Página Inicial</a>
 		<a href="<?= PAGE_URL ?>/paciente/sintoma.php">Registrar Sintoma</a>
 		<a href="<?= PAGE_URL ?>/paciente/relatorio.php">Gerar Relatório</a>
 	</div>
 
 	<div id="aside_bottom">
-		profile and notification
+		<a href="<?= PAGE_URL ?>/paciente/perfil.php">Perfil</a>
 	</div>
 </aside>
