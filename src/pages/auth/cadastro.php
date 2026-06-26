@@ -56,6 +56,9 @@ if ($form_enviado) {
 	<img src="<?= SRC_URL ?>/icons/logo.png" alt="logo consulta pronta" id="logo">
 
 	<?php
+	echo "`teste`";
+	echo "'teste'";
+
 		if (!empty($erro)) {
 			echo "<p style='color: red;'>$erro</p>";
 		}
@@ -111,11 +114,11 @@ if ($form_enviado) {
 		});
 
 
-		document.addEventListener("submit", (e) => {
-			document.form.password.value = hash(message);
+		// document.addEventListener("submit", (e) => {
+		// 	document.form.password.value = hash(message);
 
-			return true;
-		})
+		// 	return true;
+		// })
 	</script>
 </body>
 </html>

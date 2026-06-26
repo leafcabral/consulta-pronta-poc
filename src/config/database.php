@@ -24,8 +24,9 @@
     }
 
     function add_new_user($connection, $name, $cpf, $email, $password, $user_type, $signup_date) {
-        $sql_command = "INSERT INTO usuario VALUES
-        (null, '$name', '$cpf', '$email', '$password', '$user_type', '$signup_date')";
+        $user_type = "pa"; // TEMPORARY
+        $sql_command = "INSERT INTO usuario (id_contato, nome, cpf, email, senha_hash, tipo_usuario, data_cadastro)
+        VALUES (null, '$name', '$cpf', '$email', '$password', '$user_type', '$signup_date')";
 
         if (mysqli_query($connection, $sql_command)) {
             return mysqli_insert_id($connection); // returns the id of the inserted row
@@ -176,9 +177,8 @@
         $connection = connect_to_database();
         $error = [];
 
-        $table = ($user_type == "paciente") ? "paciente" : "profissional";
-        $sql_command_email = "SELECT * FROM `$table` WHERE email = \"$email\"";
-        $sql_command_cpf = "SELECT * FROM `$table` WHERE cpf = \"$cpf\"";
+        $sql_command_email = "SELECT * FROM $user_type p INNER JOIN usuario usr ON usr.id_usuario = p.id_{$user_type} WHERE usr.email = '$email'";
+        $sql_command_cpf = "SELECT * FROM $user_type p INNER JOIN usuario usr ON usr.id_usuario = p.id_{$user_type} WHERE usr.cpf = '$cpf'";
     
         if (mysqli_num_rows(mysqli_query($connection, $sql_command_email)) > 0) $error["email"] = true;
         if (mysqli_num_rows(mysqli_query($connection, $sql_command_cpf)) > 0) $error["cpf"] = true;
