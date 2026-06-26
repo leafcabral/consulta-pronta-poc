@@ -114,11 +114,13 @@ if ($form_enviado) {
 		});
 
 
-		// document.addEventListener("submit", (e) => {
-		// 	document.form.password.value = hash(message);
+		document.addEventListener("submit", async (event) => {
+			event.preventDefault();
+			
+			this.senha_hash.value = await hash(this.senha.value);
 
-		// 	return true;
-		// })
+			document.form.submit();
+		})
 	</script>
 </body>
 </html>
