@@ -1,4 +1,4 @@
-<?php include_once "includes/config.php" ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/config/global.php" ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,10 +11,10 @@
 <body>
 	<?php
 		if (empty($_SESSION["logado"])) {
-			header("Location: " . PAGE_URL . "/auth/login.php");
+			header("Location: /pages/auth/login.php");
 			exit;
 		} else {
-			header("Location: " . PAGE_URL . "/" . $_SESSION["tipo_usuario"]);
+			header("Location: /pages/" . $_SESSION["tipo_usuario"]);
 		}
 	?>
 

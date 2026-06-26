@@ -1,5 +1,5 @@
 <?php
-include_once "../../includes/config.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/config/global.php";
 
 $erro = "";
 $form_enviado = ($_SERVER["REQUEST_METHOD"] == "POST");
@@ -48,12 +48,12 @@ if ($form_enviado) {
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="shortcut icon" href="<?= SRC_URL ?>/icons/icon.png" type="image/x-icon">
+	<link rel="shortcut icon" href="/icons/icon.png" type="image/x-icon">
 	<title>ConsultaPronta</title>
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-	<img src="<?= SRC_URL ?>/icons/logo.png" alt="logo consulta pronta" id="logo">
+	<img src="/icons/logo.png" alt="logo consulta pronta" id="logo">
 
 	<?php
 	echo "`teste`";
@@ -107,7 +107,7 @@ if ($form_enviado) {
 		<button type="submit">Entrar</button>
 	</form>
 
-	<script src="<?= SRC_URL ?>/scripts/script.js"></script>
+	<script src="/scripts/script.js"></script>
 	<script>
 		document.getElementById('cpf').addEventListener('input', function(e) {
 			e.target.value = format_cpf(e.target.value)

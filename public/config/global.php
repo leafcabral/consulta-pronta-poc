@@ -17,7 +17,7 @@ date_default_timezone_set("America/Sao_Paulo");
 session_start();
 
 
-require_once __DIR__ . "/../config/database.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/config/database.php";
 
 
 function get_post($name) {

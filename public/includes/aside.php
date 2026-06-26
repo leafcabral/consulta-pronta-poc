@@ -1,4 +1,4 @@
-<?php include_once "config.php"; ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/config/global.php"; ?>
 
 <style>
 	@scope (aside) {
@@ -32,13 +32,13 @@
 
 <aside>
 	<div id="aside_up">
-		<a href="<?= PAGE_URL ?>/paciente">Página Inicial</a>
-		<a href="<?= PAGE_URL ?>/paciente/sintoma.php">Registrar Sintoma</a>
-		<a href="<?= PAGE_URL ?>/paciente/relatorio.php">Gerar Relatório</a>
+		<a href="/pages/paciente">Página Inicial</a>
+		<a href="/pages/paciente/sintoma.php">Registrar Sintoma</a>
+		<a href="/pages/paciente/relatorio.php">Gerar Relatório</a>
 	</div>
 
 	<div id="aside_bottom">
-		<a href="<?= PAGE_URL ?>/paciente/perfil.php">Perfil</a>
-		<a href="<?= PAGE_URL ?>/sair.php">Sair</a>
+		<a href="/pages/paciente/perfil.php">Perfil</a>
+		<a href="/pages/sair.php">Sair</a>
 	</div>
 </aside>

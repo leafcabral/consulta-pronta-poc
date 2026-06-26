@@ -1,5 +1,5 @@
 <?php
-require_once "../../includes/config.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/config/global.php";
 
 $form_enviado = ($_SERVER["REQUEST_METHOD"] == "POST");
 
@@ -23,9 +23,9 @@ if ($form_enviado) {
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="shortcut icon" href="<?= SRC_URL ?>/icons/icon.png" type="image/x-icon">
+	<link rel="shortcut icon" href="/icons/icon.png" type="image/x-icon">
 	<title>Relatar Sintoma - ConsultaPronta</title>
-	<link rel="stylesheet" href="<?= SRC_URL ?>/styles/style.css">
+	<link rel="stylesheet" href="/styles/style.css">
 	<link rel="stylesheet" href="paciente.css">
 	<style>
 		form {
@@ -68,7 +68,7 @@ if ($form_enviado) {
 	</style>
 </head>
 <body>
-	<?php require_once "../../includes/aside.php" ?>
+	<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/aside.php" ?>
 
 	<main>
 		<header>

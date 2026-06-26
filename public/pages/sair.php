@@ -1,10 +1,10 @@
 <?php
 
-require_once "../includes/config.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/config/global.php";
 
 $_SESSION["logado"] = false;
 unset($_SESSION["id_usuario"]);
 unset($_SESSION["tipo_usuario"]);
 
-header("Location: " . PAGE_URL . "/auth/login.php");
+header("Location: /pages/auth/login.php");
 exit();
