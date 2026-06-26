@@ -30,16 +30,14 @@ if ($form_enviado) {
 			$erro = (isset($user_checked["cpf"])) ? "Usuário com esse CPF já existe" : "Usuário com esse email já existe";
 		} else {
 			$_SESSION["logado"] = true;
-			$_SESSION["id_usuario"] = add_new_pacient($nome, $cpf, $email, $senha, date("Y-m-d"), $data_nasc, $altura, $peso, "", "", "", "");
+			$_SESSION["id_usuario"] = add_new_pacient($nome, $cpf, $email, hash("sha256", $senha), date(DATE_FORMAT), $data_nasc, $altura, $peso, "", "", "", "");
 			$_SESSION["tipo_usuario"] = $tipo;
-			echo $_SESSION["id_usuario"];
-			// header("Location: ../$tipo/index.php");
-			// exit();
+			header("Location: ../$tipo/index.php");
+			exit();
 		}
 	} else {
 		$erro = "Inputs preenchidos incorretamente.";
 	}
-
 }
 ?>
 
@@ -56,9 +54,6 @@ if ($form_enviado) {
 	<img src="/icons/logo.png" alt="logo consulta pronta" id="logo">
 
 	<?php
-	echo "`teste`";
-	echo "'teste'";
-
 		if (!empty($erro)) {
 			echo "<p style='color: red;'>$erro</p>";
 		}
@@ -104,7 +99,7 @@ if ($form_enviado) {
 		</fieldset>
 
 		<a href="login.php">Já possui conta?</a>
-		<button type="submit">Entrar</button>
+		<button type="submit">Cadastrar</button>
 	</form>
 
 	<script src="/scripts/script.js"></script>
@@ -113,14 +108,13 @@ if ($form_enviado) {
 			e.target.value = format_cpf(e.target.value)
 		});
 
-
-		document.addEventListener("submit", async (event) => {
-			event.preventDefault();
-			
-			this.senha_hash.value = await hash(this.senha.value);
-
-			document.form.submit();
-		})
+		//document.addEventListener("submit", async (event) => {
+		//	event.preventDefault();
+		//	
+		//	this.senha_hash.value = await hash(this.senha.value);
+//
+		//	document.form.submit();
+		//})
 	</script>
 </body>
 </html>

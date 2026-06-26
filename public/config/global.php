@@ -11,7 +11,7 @@ function get_src_url_from_root() {
 
 define("SRC_URL", get_src_url_from_root());
 define("PAGE_URL", SRC_URL . "/pages");
-
+define("DATE_FORMAT", "Y-m-d");
 
 date_default_timezone_set("America/Sao_Paulo");
 session_start();

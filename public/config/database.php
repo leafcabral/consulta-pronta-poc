@@ -24,9 +24,8 @@
     }
 
     function add_new_user($connection, $name, $cpf, $email, $password, $user_type, $signup_date) {
-        $user_type = "pa"; // TEMPORARY
-        $sql_command = "INSERT INTO usuario (id_contato, nome, cpf, email, senha_hash, tipo_usuario, data_cadastro)
-        VALUES (null, '$name', '$cpf', '$email', '$password', '$user_type', '$signup_date')";
+        $sql_command = "INSERT INTO usuario (nome, cpf, email, senha_hash, tipo_usuario, data_cadastro)
+        VALUES ('$name', '$cpf', '$email', '$password', '$user_type', '$signup_date')";
 
         if (mysqli_query($connection, $sql_command)) {
             return mysqli_insert_id($connection); // returns the id of the inserted row
@@ -40,7 +39,7 @@
         $connection = connect_to_database();
         $user_id = add_new_user($connection, $name, $cpf, $email, $password, "paciente", $signup_date);
 
-        $sql_command = "INSERT INTO paciente (user_id, data_nascimento, altura, peso, alergias, historico_familiar, doencas, tipo_sanguineo)
+        $sql_command = "INSERT INTO paciente (id_paciente, data_nascimento, altura, peso, alergias, historico_familiar, doencas, tipo_sanguineo)
         VALUES ($user_id, '$birth_date', '$height', '$weight', '$allergies', '$family_history', '$diseases', '$blood_type')";
 
         if (mysqli_query($connection, $sql_command)) {
@@ -182,8 +181,6 @@
     
         if (mysqli_num_rows(mysqli_query($connection, $sql_command_email)) > 0) $error["email"] = true;
         if (mysqli_num_rows(mysqli_query($connection, $sql_command_cpf)) > 0) $error["cpf"] = true;
-
-        var_dump($connection);
 
         return $error;
     }

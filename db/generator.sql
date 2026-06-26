@@ -5,9 +5,9 @@ DROP TABLE IF EXISTS usuario;
 CREATE TABLE usuario (
 	id_usuario INTEGER AUTO_INCREMENT PRIMARY KEY,
 	nome VARCHAR(100),
-	cpf VARCHAR(11),
+	cpf CHAR(14),
 	email VARCHAR(100),
-	senha_hash CHAR(64), -- sha-265 hexadecimal
+	senha_hash CHAR(64), -- sha-265 hexadecimal hell yeah i love mysql php javascript yooooo
 	tipo_usuario ENUM('paciente', 'profissional'),
 	data_cadastro DATE
 );
