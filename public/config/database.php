@@ -6,7 +6,10 @@
         $password = "usbw";
         $database_name = "consultapronta_poc";
 
-        return mysqli_connect($server, $user, $password, $database_name);
+		$connection = mysqli_connect($server, $user, $password, $database_name);
+		mysqli_set_charset($connection, "utf8mb4");
+
+        return $connection;
     }
 
     function add_new_contact($type, $value) {
@@ -205,6 +208,6 @@
 		";
 		$result = mysqli_query($connection, $sql_command);
 
-		return mysqli_fetch_all($result, MYSQLI_ASSOC);
+		return ($result) ? mysqli_fetch_all($result, MYSQLI_ASSOC) : [];
 	}
 ?>

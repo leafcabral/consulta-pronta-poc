@@ -26,7 +26,7 @@
 				<div class="lista">
 					<?php
 						$prescricoes = get_patient_data($_SESSION["id_usuario"], "prescricao");
-						if (empty($sintomas)) {
+						if (empty($prescricoes)) {
 							echo "<p class=\"mensagem\">Não há prescrições</p>";
 						} else {
 							foreach ($prescricoes as $prescricao) {
@@ -34,7 +34,6 @@
 							}
 						}
 					?>
-					<p class="mensagem"></p>
 				</div>
 			</article>
 
