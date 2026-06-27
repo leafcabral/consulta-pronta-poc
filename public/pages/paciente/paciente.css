@@ -7,6 +7,14 @@ section#dashboard_content {
 	height: min(500px, 60vh)
 }
 
+@media (max-width: 1000px) {
+	section#dashboard_content {
+		display: flex;
+		flex-direction: column;
+	}
+	
+}
+
 article {
 	display: flex;
 	flex-direction: column;

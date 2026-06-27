@@ -210,4 +210,19 @@
 
 		return ($result) ? mysqli_fetch_all($result, MYSQLI_ASSOC) : [];
 	}
+
+	function get_patient_data_html($id, $table, $null_message = "Vazio") {
+		$data = get_patient_data($id, $table);
+
+		if (empty($data)) {
+			return "<p class=\"mensagem\">$null_message</p>";
+		}
+
+		$html = "";
+		foreach ($data as $item) {
+			$html .= "<article class=\"light\">". implode(", ", $item) ."</article>";
+		}
+
+		return $html;
+	}
 ?>
