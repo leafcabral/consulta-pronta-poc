@@ -174,6 +174,15 @@
 		return mysqli_fetch_assoc($result);
 	}
 
+	function get_user_by_id($id) {
+		$connection = connect_to_database();
+
+		$sql_command = "SELECT * FROM usuario WHERE id_usuario = '$id'";
+		$result = mysqli_query($connection, $sql_command);
+
+		return mysqli_fetch_assoc($result);
+	}
+
 	// DEPRECATED (maybe)
     function check_if_user_exists($user_type, $email, $cpf) {
         $connection = connect_to_database();
