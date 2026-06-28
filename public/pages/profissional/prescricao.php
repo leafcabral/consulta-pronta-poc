@@ -14,8 +14,11 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/config/global.php";
 	<link rel="stylesheet" href="paciente.css">
 	<style>
         form{
+			display: flex;
+			flex-direction: column;
             background-color: #4D4A73;
             width: fit-content;
+			gap:10px
         }
 		fieldset {
 			display: flex;
