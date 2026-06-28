@@ -20,9 +20,7 @@ define("DATE_FORMAT", "Y-m-d");
 date_default_timezone_set("America/Sao_Paulo");
 session_start();
 
-
 require_once $_SERVER['DOCUMENT_ROOT'] . "/config/database.php";
-
 
 function get_post($name) {
 	return filter_input(INPUT_POST, $name);
@@ -39,4 +37,11 @@ function get_rendered_template($file, $data = []) {
 	ob_start();
 	render_template($file, $data);
 	return ob_get_clean();
+}
+
+function verify_user_logged_in() {
+	if (!isset($_SESSION["id_usuario"])) {
+		header("Location: /pages/auth/login.php");
+		exit;
+	}
 }

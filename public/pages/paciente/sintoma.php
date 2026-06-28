@@ -1,5 +1,6 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . "/config/global.php";
+verify_user_logged_in();
 
 $form_enviado = ($_SERVER["REQUEST_METHOD"] == "POST");
 
