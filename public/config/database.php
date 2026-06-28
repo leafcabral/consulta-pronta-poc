@@ -206,6 +206,20 @@
 		return mysqli_fetch_assoc($result);
 	}
 
+	function get_user_contacts($id) {
+		$connection = connect_to_database();
+
+		$sql_command = "
+			SELECT contato.tipo, contato.valor
+			FROM usuario
+			INNER JOIN contato ON usuario.id_usuario = contato.id_usuario
+			WHERE usuario.id_usuario = $id
+		";
+		$result = mysqli_query($connection, $sql_command);
+
+		return ($result) ? mysqli_fetch_all($result, MYSQLI_ASSOC) : [];
+	}
+
 	function get_patient_data($id, $table) {
 		$connection = connect_to_database();
 
