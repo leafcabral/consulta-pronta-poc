@@ -73,6 +73,16 @@ if ($form_enviado) {
 				filter: brightness(0.8);
 			}
 		}
+		.pesquisa{
+			display: flex;
+			align-items: center;
+			background-color: #F4EFE6;
+			width: 400px;
+			margin: 20px auto;
+			border-radius: 20px;
+			padding: 5px 10px;
+			color: #2B254D;
+		}
 	</style>
 </head>
 <body>
@@ -82,7 +92,11 @@ if ($form_enviado) {
 		<header>
 			<h1>Exame</h1>
 		</header>
-
+		<div class="pesquisa">
+			<label>
+				<input type="text" placeholder="Buscar exames">
+			</label>
+		</div>
 		<table>
 			<tr>
 				<th>Exame</th>
