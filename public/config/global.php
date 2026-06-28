@@ -1,5 +1,9 @@
 <?php
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 function get_src_url_from_root() {
 	// drive (C:) -> root (localhost) -> this (config.php)
 	$drive_to_root = str_replace('\\', '/', $_SERVER['DOCUMENT_ROOT']);
