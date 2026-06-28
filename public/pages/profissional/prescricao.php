@@ -16,6 +16,9 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/config/global.php";
 		.botaoregistro{
 			background-color: #E5D5B8;
 			width: 250px;
+			border: none;
+			border-radius: 10px;
+			cursor: pointer;
 		}
         form{	
 			display: flex;
