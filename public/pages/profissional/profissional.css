@@ -1,0 +1,45 @@
+section#dashboard_content {
+	display: grid;
+	grid-template-areas: 
+		"triagem pacientes"
+		"relatorios pacientes";
+	gap: 1em;
+	height: min(500px, 60vh);
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+}
+
+@media (max-width: 1000px) {
+	section#dashboard_content {
+		display: flex;
+		flex-direction: column;
+	}
+	
+}
+
+article {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+
+article#prescricoes {
+	grid-area: triagem;
+}
+
+article#consultas {
+	grid-area: relatorios;
+}
+
+article#sintomas {
+	grid-area: pacientes;
+}
+
+article#sintomas .lista article {
+	border-radius: 8px;
+}
+
+article > .lista {
+	flex-grow: 1;
+}

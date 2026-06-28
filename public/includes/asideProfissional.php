@@ -26,20 +26,19 @@
 		a:hover {
 			background-color: #ffffff2e;
 		}
-	}W
+	}
 </style>
 
 
 <aside>
 	<div id="aside_up">
-		<a href="/pages/paciente">Página Inicial</a>
-		<a href="/pages/paciente/sintoma.php">Registrar Sintoma</a>
-		<a href="/pages/paciente/relatorio.php">Gerar Relatório</a>
+		<a href="/pages/profissional">Página Inicial</a>
+		<a href="\pages\profissional\exame.php">Exames</a>
+		<a href="\pages\profissional\prescricao.php">Farmácia</a>
 	</div>
 
 	<div id="aside_bottom">
 		<a href="/pages/paciente/perfil.php">Perfil</a>
-		<a href="/pages/profissional/index.php">profi</a>
 		<a href="/pages/sair.php">Sair</a>
 	</div>
 </aside>
