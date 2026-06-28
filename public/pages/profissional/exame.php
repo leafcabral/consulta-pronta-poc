@@ -81,7 +81,8 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/config/global.php";
 		.botao-exame {
 			border: 1px solid #2B254D;
 			background-color: transparent;
-			font-size: 12px;
+			font-size: 14px;
+    		width: 200px;
 		}
 	</style>
 </head>
