@@ -9,7 +9,7 @@ section#dashboard_content_profissional {
 }
 
 @media (max-width: 1000px) {
-	section#dashboard_content {
+	section#dashboard_content_profissional {
 		display: flex;
 		flex-direction: column;
 	}
