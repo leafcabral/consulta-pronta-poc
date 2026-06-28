@@ -81,7 +81,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/config/global.php";
 		.botao-exame {
 			border: 1px solid #2B254D;
 			background-color: transparent;
-			font-size: 10px;
+			font-size: 12px;
 		}
 	</style>
 </head>
@@ -92,16 +92,16 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/config/global.php";
 		<header>
 			<h1>Exame</h1>
 		</header>
+		<div class="containerhead">
 			<div class="pesquisa">
-				<div class="pesquisa">
-					<span>⌕</span>
+				<span>⌕</span>
 				<input type="text" id="inputpesquisa" placeholder="Buscar exames">
-			</div>
-				
 				<button class="botao-exame">
 					<span>⊕</span> Solicitar exame
 				</button>
-			</div>		
+			</div>
+		</div>
+		
 		<table>
 			<tr>
 				<th>Exame</th>
