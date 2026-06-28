@@ -22,7 +22,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/config/global.php";
 			flex-direction: column;
 			gap: 6px;
             padding: 15px;
-			width: 300px;
+			width: 450px;
 			padding: 0;
 			border: none;
             background-color: #4D4A73;
