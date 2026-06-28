@@ -79,7 +79,7 @@ if ($form_enviado) {
 			background-color: #F4EFE6;
 			width: 400px;
 			margin: 20px auto;
-			border-radius: px;
+			border-radius: 5px;
 			padding: 5px 10px;
 			color: #2B254D;
 		}
