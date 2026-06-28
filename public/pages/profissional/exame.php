@@ -1,21 +1,6 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . "/config/global.php";
 
-$form_enviado = ($_SERVER["REQUEST_METHOD"] == "POST");
-
-if ($form_enviado) {
-	$id_usuario = $_SESSION["id_usuario"];
-	$descricao = get_post("descricao");
-	$intensidade = get_post("intensidade");
-	$data_hora = get_post("data") . " "  . get_post("hora");
-	$local = get_post("local");
-
-	add_new_symptom($id_usuario, $descricao, $intensidade, $data_hora, $local, "presente");
-
-	header("Location: index.php");
-	exit();
-}
-
 ?>
 
 <!DOCTYPE html>
@@ -78,7 +63,7 @@ if ($form_enviado) {
 			align-items: center;
 			background-color: #F4EFE6;
 			width: 500px;
-			margin: 20px auto;
+			margin: 60px auto 20px;
 			border-radius: 5px;
 			padding: 5px 10px;
 			color: #2B254D;
@@ -89,20 +74,29 @@ if ($form_enviado) {
 			width: 100%;
 			outline: none;
 		}
+		.containerhead {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 20px;
+		}
 	</style>
 </head>
 <body>
-	<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/aside.php" ?>
+	<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/asideProfissional.php" ?>
 
 	<main>
 		<header>
 			<h1>Exame</h1>
 		</header>
-		<div class="pesquisa">
-			<label for="inputpesquisa">
-				<input type="text" id="inputpesquisa" placeholder="Buscar exames">
-			</label>
-		</div>
+		<label class="containerhead">
+			<div class="pesquisa">
+				<label for="inputpesquisa">
+					<input type="text" id="inputpesquisa" placeholder="Buscar exames">
+				</label>
+			</div>
+			<input type="button">
+		</label>
+		
 		<table>
 			<tr>
 				<th>Exame</th>
@@ -130,10 +124,7 @@ if ($form_enviado) {
 	</main>
 
 	<script>
-		function atualizarIntensidadeAtual(event) {
-			const amostradinho = document.getElementById("intensidade_atual")
-			amostradinho.innerText = event.currentTarget.value
-		}
+		
 	</script>
 </body>
 </html>
