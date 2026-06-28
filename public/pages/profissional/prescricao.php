@@ -30,6 +30,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/config/global.php";
             background-color: transparent;
 			padding-left: 20px
 			padding-right: 20px;
+			align-items: center;
 		}
 
 		input, select, textarea, button {
