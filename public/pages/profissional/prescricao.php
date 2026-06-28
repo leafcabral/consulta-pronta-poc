@@ -13,6 +13,11 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/config/global.php";
 	<link rel="stylesheet" href="/styles/style.css">
 	<link rel="stylesheet" href="paciente.css">
 	<style>
+		.botaoregistro{
+			align-items: center;
+			background-color: #E5D5B8;
+			width: 250px;
+		}
         form{	
 			display: flex;
 			flex-direction: column;
@@ -139,7 +144,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/config/global.php";
 				</section>
 				
 			</fieldset>
-			<fieldset style="align-items: center;">
+			<fieldset>
 				<button>Registrar</button>
 			</fieldset>
 			
