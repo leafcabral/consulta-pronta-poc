@@ -28,11 +28,13 @@ if ($form_enviado) {
 	<link rel="stylesheet" href="/styles/style.css">
 	<link rel="stylesheet" href="paciente.css">
 	<style>
-		form {
+		table {
 			display: flex;
 			flex-direction: column;
 			align-items: center;
 			gap: 28px;
+			border-radius: 20px;
+			background-color: #F4EFE6;
 		}
 		fieldset {
 			display: flex;
