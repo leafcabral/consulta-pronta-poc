@@ -13,12 +13,13 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/config/global.php";
 	<link rel="stylesheet" href="/styles/style.css">
 	<link rel="stylesheet" href="paciente.css">
 	<style>
-        form{
+        form{	
 			display: flex;
 			flex-direction: column;
             background-color: #4D4A73;
             width: fit-content;
-			gap:10px
+			border-radius: 15px;
+			gap:25px
         }
 		fieldset {
 			display: flex;
@@ -26,9 +27,10 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/config/global.php";
 			gap: 6px;
             padding: 15px;
 			width: 450px;
-			padding: 0;
 			border: none;
-            background-color: #4D4A73;
+            background-color: transparent;
+			padding-left: 20px
+			padding-right: 20px;
 		}
 
 		input, select, textarea, button {
