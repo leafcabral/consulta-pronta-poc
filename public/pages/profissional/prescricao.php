@@ -139,7 +139,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/config/global.php";
 				</section>
 				
 			</fieldset>
-			<fieldset style="alling-itens: center">
+			<fieldset style="aling-itens: center">
 				<button>Registrar</button>
 			</fieldset>
 			
