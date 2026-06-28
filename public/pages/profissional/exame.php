@@ -97,9 +97,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/config/global.php";
 			<div class="pesquisa">
 				<span>⌕</span>
 				<input type="text" id="inputpesquisa" placeholder="Buscar exames">
-				<input type="button" class="botao-exame">
-					<span>⊕</span> Solicitar exame
-				</input>
+				<input type="button" class="botao-exame" placeholder="⊕ Solicitar exame">
 			</div>
 		</div>
 		
