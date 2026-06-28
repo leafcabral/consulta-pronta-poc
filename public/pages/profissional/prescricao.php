@@ -13,6 +13,10 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/config/global.php";
 	<link rel="stylesheet" href="/styles/style.css">
 	<link rel="stylesheet" href="paciente.css">
 	<style>
+        form{
+            background-color: #4D4A73;
+            padding: 15px;
+        }
 		fieldset {
 			display: flex;
 			flex-direction: column;
@@ -20,7 +24,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/config/global.php";
 			width: 300px;
 			padding: 0;
 			border: none;
-            background-color: #4D4A73;
+            background-color: #F4EFE6;
 		}
 
 		input, select, textarea, button {
@@ -45,35 +49,26 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/config/global.php";
 			}
 		}
 
-        section#periodos{
+        section#periodos {
             display: grid;
-            grid-template-areas: 
+            grid-template-areas:
                 "n_comprimidos intervalo_horas"
-                "quant_dias";
-            gap: 1em;
-            height: min(50px, 100px);
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: 1fr 1fr;
+                "quant_dias quant_dias";
+            gap: 6px;
+            width: 100%;
         }
 
-        article {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+        #n_comprimidos {
+            grid-area: n_comprimidos;
         }
 
-
-        article#n_comprimidos {
-            grid-area: triagem;
+        #intervalo_horas {
+            grid-area: intervalo_horas;
         }
 
-        article#intervalo_horas {
-            grid-area: relatorios;
+        #quant_dias {
+            grid-area: quant_dias;
         }
-
-        article#quant_dias {
-            grid-area: pacientes;
-}
 
 	</style>
 </head>
