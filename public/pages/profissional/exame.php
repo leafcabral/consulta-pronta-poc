@@ -29,18 +29,19 @@ if ($form_enviado) {
 	<link rel="stylesheet" href="paciente.css">
 	<style>
 		table {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			border-radius: 15px;
-			background-color: #F4EFE6;
 			width: fit-content;
 			margin: 0 auto;
+			border-radius: 15px;
+			overflow: hidden;
+			border-collapse: separate;
+			border-spacing: 0;
+			background-color: #F4EFE6;
 			color: #2B254D;
 		}
 		th, td {
 			padding: 10px 40px;
 			border-bottom: 1px solid #231C44;
+			text-align: center;
 		}
 		fieldset {
 			display: flex;
