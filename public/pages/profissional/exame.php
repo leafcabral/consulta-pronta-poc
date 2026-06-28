@@ -76,7 +76,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/config/global.php";
 		}
 		.containerhead {
 			display: grid;
-			grid-template-columns: repeat(3, 1fr);
+			grid-template-columns: repeat(2, 1fr);
 			gap: 20px;
 		}
 	</style>
@@ -88,14 +88,16 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/config/global.php";
 		<header>
 			<h1>Exame</h1>
 		</header>
-		<label class="containerhead">
+		<div class="containerhead">
 			<div class="pesquisa">
-				<label for="inputpesquisa">
-					<input type="text" id="inputpesquisa" placeholder="Buscar exames">
-				</label>
+				<span>⌕</span>
+				<input type="text" id="inputpesquisa" placeholder="Buscar exames">
 			</div>
-			<input type="button">
-		</label>
+
+			<button class="botao-exame">
+				<span>⊕</span> Solicitar exame
+			</button>
+		</div>
 		
 		<table>
 			<tr>
