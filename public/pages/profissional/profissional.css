@@ -1,11 +1,11 @@
 section#dashboard_content {
 	display: grid;
 	grid-template-areas: 
-		"remedios exames sintomas"
-		"consultas exames sintomas";
+		"triagem pacientes"
+		"relatorios pacientes";
 	gap: 1em;
 	height: min(500px, 60vh);
-	grid-template-columns: repeat(3, 1fr);
+	grid-template-columns: 1fr 1fr;
 }
 
 @media (max-width: 1000px) {
@@ -30,9 +30,7 @@ article#consultas {
 	grid-area: consultas;
 }
 
-article#exames {
-	grid-area: exames;
-}
+
 
 article#sintomas {
 	grid-area: sintomas;
