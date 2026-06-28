@@ -80,7 +80,7 @@
 
 		<section id="dados_pessoais">
 			<h3>Dados pessoais:</h3>
-			<button onclick="abrir_edicao('Editar Dados Pessoais', 'dados_pessoais')">Editar</button>
+			<!-- <button onclick="abrir_edicao('Editar Dados Pessoais', 'dados_pessoais')">Editar</button> -->
 
 			<?php 
 				render_profile_field("CPF", "cpf", $user_info["cpf"]);
@@ -97,8 +97,8 @@
 			<button onclick="abrir_edicao('Editar Dados de Saúde', 'dados_saude')">Editar</button>
 			
 			<?php 
-				render_profile_field("Altura", "altura", $patient_info["altura"]);
-				render_profile_field("Peso", "peso", $patient_info["peso"]);
+				render_profile_field("Altura (cm)", "altura", $patient_info["altura"]);
+				render_profile_field("Peso (kg)", "peso", $patient_info["peso"]);
 				render_profile_field("Tipo sanguíneo", "tipo_sanguineo", $patient_info["tipo_sanguineo"]);
 				render_profile_field("Alergias", "alergias", $patient_info["alergias"]);
 				render_profile_field("Doenças", "doencas", $patient_info["doencas"]);
