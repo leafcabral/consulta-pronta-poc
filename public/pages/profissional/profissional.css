@@ -1,4 +1,4 @@
-section#dashboard_content {
+section#dashboard_content_profissional {
 	display: grid;
 	grid-template-areas:
 		"prescricoes sintomas"

@@ -19,7 +19,7 @@
 			<h2>Seja bem vindo, <?= get_user_by_id($_SESSION["id_usuario"])["nome"] ?></h2>
 		</header>
 
-		<section id="dashboard_content">
+		<section id="dashboard_content_profissional">
 			<article class="dark" id="prescricoes">
 				<h3>Triagem</h3>
 
