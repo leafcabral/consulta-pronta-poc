@@ -100,7 +100,7 @@ if ($form_enviado) {
 		</header>
 		<div class="pesquisa">
 			<label for="inputpesquisa">
-				<input type="text" placeholder="Buscar exames">
+				<input type="text" id="inputpesquisa" placeholder="Buscar exames">
 			</label>
 		</div>
 		<table>
