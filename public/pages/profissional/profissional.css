@@ -1,12 +1,11 @@
 section#dashboard_content {
 	display: grid;
-	grid-template-areas: 
-		"triagem pacientes"
-		"relatorios pacientes";
+	grid-template-areas:
+		"prescricoes sintomas"
+		"consultas sintomas";
+	grid-template-columns: 1fr 1fr;
 	gap: 1em;
 	height: min(500px, 60vh);
-	grid-template-columns: 1fr 1fr;
-	grid-template-rows: 1fr 1fr;
 }
 
 @media (max-width: 1000px) {
@@ -25,15 +24,15 @@ article {
 
 
 article#prescricoes {
-	grid-area: triagem;
+	grid-area: prescricoes;
 }
 
 article#consultas {
-	grid-area: relatorios;
+	grid-area: consultas;
 }
 
 article#sintomas {
-	grid-area: pacientes;
+	grid-area: sintomas;
 }
 
 article#sintomas .lista article {
