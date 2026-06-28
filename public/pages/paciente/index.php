@@ -1,4 +1,8 @@
-<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/config/global.php" ?>
+<?php
+require_once $_SERVER['DOCUMENT_ROOT'] . "/config/global.php";
+verify_user_logged_in();
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">

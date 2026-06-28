@@ -11,7 +11,7 @@
 	<link rel="stylesheet" href="profissional.css">
 </head>
 <body>
-	<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/aside.php" ?>
+	<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/asideProfissional.php" ?>
 
 	<main>
 		<header>
@@ -33,14 +33,6 @@
 
 				<div class="lista">
 					<?= get_patient_data_html($_SESSION["id_usuario"], "relatorios", "Não há relatórios") ?>
-				</div>
-			</article>
-
-			<article class="dark" id="exames">
-				<h3>Exames</h3>
-
-				<div class="lista">
-					<?= get_patient_data_html($_SESSION["id_usuario"], "exame", "Não há exames") ?>
 				</div>
 			</article>
 

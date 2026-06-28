@@ -32,10 +32,9 @@
 
 <aside>
 	<div id="aside_up">
-		<a href="/pages/paciente">Página Inicial</a>
+		<a href="/pages/profissional">Página Inicial</a>
 		<a href="\pages\profissional\exame.php">Exames</a>
-		<a href="/pages/paciente/sintoma.php">Pacientes</a>
-		<a href="/pages/paciente/relatorio.php">Farmácia</a>
+		<a href="\pages\profissional\prescricao.php">Farmácia</a>
 	</div>
 
 	<div id="aside_bottom">

@@ -206,6 +206,20 @@
 		return mysqli_fetch_assoc($result);
 	}
 
+	function get_user_contacts($id) {
+		$connection = connect_to_database();
+
+		$sql_command = "
+			SELECT contato.tipo, contato.valor
+			FROM usuario
+			INNER JOIN contato ON usuario.id_usuario = contato.id_usuario
+			WHERE usuario.id_usuario = $id
+		";
+		$result = mysqli_query($connection, $sql_command);
+
+		return ($result) ? mysqli_fetch_all($result, MYSQLI_ASSOC) : [];
+	}
+
 	function get_patient_data($id, $table) {
 		$connection = connect_to_database();
 
@@ -239,5 +253,37 @@
 
 		// var_dump($data);
 		return $html;
+	}
+
+	function update_patient_data($id, $dados) {
+		$connection = connect_to_database();
+		
+		if (empty($dados)) return false;
+
+		$sets = [];
+		foreach ($dados as $key => $value) {
+			$sets[] = "$key = '$value'";
+		}
+		$sql_set_string = implode(", ", $sets);
+
+		$sql_command = "UPDATE paciente SET $sql_set_string WHERE id_paciente = $id";
+
+		return mysqli_query($connection, $sql_command);
+	}
+
+	function update_patient_contacts($id, $dados) {
+		$connection = connect_to_database();
+		
+		if (empty($dados)) return false;
+
+		foreach ($dados as $tipo => $valor) {
+			$sql_command = "UPDATE contato 
+							SET valor = '$valor' 
+							WHERE id_usuario = $id AND LOWER(tipo) = LOWER('$tipo')";
+			
+			mysqli_query($connection, $sql_command);
+		}
+		
+		return true;
 	}
 ?>

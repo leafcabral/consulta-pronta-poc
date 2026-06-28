@@ -8,3 +8,4 @@ unset($_SESSION["tipo_usuario"]);
 
 header("Location: /pages/auth/login.php");
 exit();
+?>

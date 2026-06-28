@@ -26,7 +26,7 @@
 		a:hover {
 			background-color: #ffffff2e;
 		}
-	}
+	}W
 </style>
 
 
@@ -39,6 +39,7 @@
 
 	<div id="aside_bottom">
 		<a href="/pages/paciente/perfil.php">Perfil</a>
+		<a href="/pages/profissional/index.php">profi</a>
 		<a href="/pages/sair.php">Sair</a>
 	</div>
 </aside>
