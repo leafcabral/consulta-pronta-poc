@@ -83,8 +83,7 @@ if ($form_enviado) {
 			padding: 5px 10px;
 			color: #2B254D;
 		}
-		.inputpesquisa{
-			padding: 8px;
+		#inputpesquisa{
 			border: none;
 			background-color: transparent;
 			width: 100%;
@@ -100,7 +99,7 @@ if ($form_enviado) {
 			<h1>Exame</h1>
 		</header>
 		<div class="pesquisa">
-			<label class="inputpesquisa">
+			<label for="inputpesquisa">
 				<input type="text" placeholder="Buscar exames">
 			</label>
 		</div>
