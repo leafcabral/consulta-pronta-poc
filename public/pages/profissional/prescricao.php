@@ -102,10 +102,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/config/global.php";
 	<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/asideProfissional.php" ?>
 
 	<main>
-		<header>
-			<h1>Exame</h1>
-		</header>
-		
+
 		<form method="post">
             <fieldset style="text-align: center;">
                 <h1>Preescrever Medicamento</h1>
