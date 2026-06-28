@@ -14,7 +14,6 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/config/global.php";
 	<link rel="stylesheet" href="paciente.css">
 	<style>
 		.botaoregistro{
-			align-items: center;
 			background-color: #E5D5B8;
 			width: 250px;
 		}
@@ -144,8 +143,8 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/config/global.php";
 				</section>
 				
 			</fieldset>
-			<fieldset class="botaoregistro">
-				<button>Registrar</button>
+			<fieldset style="align-items: center;">
+				<button class="botaoregistro">Registrar</button>
 			</fieldset>
 			
 		</form>
