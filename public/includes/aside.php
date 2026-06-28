@@ -35,6 +35,7 @@
 		<a href="/pages/paciente">Página Inicial</a>
 		<a href="/pages/paciente/sintoma.php">Registrar Sintoma</a>
 		<a href="/pages/paciente/relatorio.php">Gerar Relatório</a>
+		<a href="public\pages\profissional\index.php">profissional</a>
 	</div>
 
 	<div id="aside_bottom">
