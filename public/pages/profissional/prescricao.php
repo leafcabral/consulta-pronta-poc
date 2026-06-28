@@ -128,11 +128,11 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/config/global.php";
 			<fieldset>
 				<label for="descricao">Preencha</label>
                 
-                <div id="periodos">
+                <section id="periodos">
                     <input type="text" name="comprimidos" id="n_comprimidos" placeholder="Num. de comprimidos" required>
                     <input type="text" name="horas" id="intervalo_horas" placeholder="Intervalo de horas" required>
                     <input type="text" name="dias" id="quant_dias" placeholder="Quantidade de dias" required>
-                </div>
+				</section>
 				
 			</fieldset>
 
