@@ -12,11 +12,11 @@
         return $connection;
     }
 
-    function add_new_contact($type, $value) {
+    function add_new_contact($user_id, $type, $value) {
         $connection = connect_to_database();
 
-        $sql_command = "INSERT INTO contato VALUES
-        ('$type', '$value')";
+        $sql_command = "INSERT INTO contato (id_usuario, tipo, valor)
+        VALUES ($user_id, '$type', '$value')";
 
         if (mysqli_query($connection, $sql_command)) {
             return mysqli_insert_id($connection); // returns the id of the inserted row
