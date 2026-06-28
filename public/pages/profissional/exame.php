@@ -77,7 +77,7 @@ if ($form_enviado) {
 			display: flex;
 			align-items: center;
 			background-color: #F4EFE6;
-			width: 400px;
+			width: 500px;
 			margin: 20px auto;
 			border-radius: 5px;
 			padding: 5px 10px;
