@@ -144,7 +144,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/config/global.php";
 				</section>
 				
 			</fieldset>
-			<fieldset>
+			<fieldset class="botaoregistro">
 				<button>Registrar</button>
 			</fieldset>
 			
