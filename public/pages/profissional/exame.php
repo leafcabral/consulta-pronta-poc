@@ -34,6 +34,8 @@ if ($form_enviado) {
 			align-items: center;
 			border-radius: 15px;
 			background-color: #F4EFE6;
+		}
+		th {
 			text-color: #2B254D;
 		}
 		fieldset {
