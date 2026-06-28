@@ -25,6 +25,15 @@
 	$data_hora = new DateTime($patient_info["data_nascimento"]);
 	$patient_info["data_nascimento"] = $data_hora->format("d/m/Y");
 	
+	function render_profile_field($label, $key, $value) {
+		$html_label = htmlspecialchars($label);
+		$html_key = htmlspecialchars($key);
+		$html_value = htmlspecialchars($value);
+
+		echo "<p data-key=\"$html_key\" data-value=\"$html_value\">";
+		echo "$html_label: $html_value";
+		echo "</p>";
+	}
 ?>
 
 
@@ -51,6 +60,13 @@
 		dialog::backdrop {
 			background-color: rgba(0,0,0, 0.5);
 		}
+
+		fieldset {
+			border: 0;
+			padding: 0;
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+		}
 	 </style>
 </head>
 <body>
@@ -62,51 +78,62 @@
 			<h2>Seu perfil</h2>
 		</header>
 
-		<section>
+		<section id="dados_pessoais">
 			<h3>Dados pessoais:</h3>
-			<button onclick="editar_dados_pessoais()">Editar</button>
-			<p>CPF: <?= $user_info["cpf"] ?></p>
-			<p>Email: <?= $user_info["email"] ?></p>
-			<p>Data de nascimento: <?= $patient_info["data_nascimento"] ?></p>
-			<p>Conta criada em <?= $user_info["data_cadastro"] ?></p>
+			<button onclick="abrir_edicao('Editar Dados Pessoais', 'dados_pessoais')">Editar</button>
+
+			<?php 
+				render_profile_field("CPF", "cpf", $user_info["cpf"]);
+				render_profile_field("Email", "email", $user_info["email"]);
+				render_profile_field("Data de nascimento", "data_nascimento", $patient_info["data_nascimento"]);
+				render_profile_field("Conta criada em", "data_cadastro", $user_info["data_cadastro"]);
+			?>
 		</section>
 		
 		<br>
 		
-		<section>
+		<section id="dados_saude">
 			<h3>Dados de saúde:</h3>
-			<button onclick="editar_dados_saude()">Editar</button>
-			<p>Altura: <?= $patient_info["altura"] ?></p>
-			<p>Peso: <?= $patient_info["peso"] ?></p>
-			<p>Tipo sanguíneo: <?= $patient_info["tipo_sanguineo"] ?></p>
-			<p>Alergias: <?= $patient_info["alergias"] ?></p>
-			<p>Doenças: <?= $patient_info["doencas"] ?></p>
-			<p>Histórico Familiar: <?= $patient_info["historico_familiar"] ?></p>
+			<button onclick="abrir_edicao('Editar Dados de Saúde', 'dados_saude')">Editar</button>
+			
+			<?php 
+				render_profile_field("Altura", "altura", $patient_info["altura"]);
+				render_profile_field("Peso", "peso", $patient_info["peso"]);
+				render_profile_field("Tipo sanguíneo", "tipo_sanguineo", $patient_info["tipo_sanguineo"]);
+				render_profile_field("Alergias", "alergias", $patient_info["alergias"]);
+				render_profile_field("Doenças", "doencas", $patient_info["doencas"]);
+				render_profile_field("Histórico Familiar", "historico_familiar", $patient_info["historico_familiar"]);
+			?>
 		</section>
 		
 		<br>
 		
-		<section>
+		<section id="dados_contato">
 			<h3>Dados de contato:</h3>
-			<button onclick="editar_dados_contato()">Editar</button>
-			<p>
-				<?php
-					foreach ($contacts as $contact) {
-						echo "<p>" . $contact["tipo"] . ": " . $contact["valor"] . "</p>";
-					}
-				?>
-				</p>
+			<button onclick="abrir_edicao('Editar Dados de Contato', 'dados_contato')">Editar</button>
+			
+			<?php
+				foreach ($contacts as $contact) {
+					$tipo = $contact["tipo"];
+					$valor = $contact["valor"];
+					render_profile_field($contact["tipo"], strtolower($contact["tipo"]), $contact["valor"]);
+				}
+			?>
 		</section>
 
 		<dialog id="editar_dados">
 			<article class="dark">
 				<h3>Editar dados: </h3>
 				
-				<label for="coisa">Coisa:</label>
-				<input type="text" value="das">
-
-				<br>
-				<button onclick="fechar_overlay()">Fechar</button>
+				<form action="atualizar_perfil.php" method="post">
+					<input id="secao" type="hidden" name="secao" value="">
+					
+					<fieldset></fieldset>
+				
+					<br>
+					<button type="submit">Salvar</button>
+					<button type="button" onclick="fechar_overlay()">Fechar</button>
+				</form>
 			</article>
 		</dialog>
 	</main>
@@ -114,23 +141,36 @@
 	<script>
 		const overlay = document.getElementById('editar_dados');
 
-		function abrir_overlay() {
+		const formSection = overlay.querySelector("input#secao")
+		const formTitle = overlay.querySelector("h3")
+		const formInputs = overlay.querySelector("fieldset")
+
+		function abrir_edicao(titulo, secaoID) {
+			formTitle.innerText = titulo
+			formSection.value = secaoID
+			formInputs.innerHTML = ""
+			
+			const paragraphs = document.getElementById(secaoID)
+				.querySelectorAll("p")
+			
+			paragraphs.forEach(p => {
+				const key = p.dataset.key
+				const value = p.dataset.value
+				const label = p.innerText.split(':')[0].trim()
+
+				if (key === 'data_cadastro' || key === 'cpf') return
+
+				formInputs.innerHTML += `
+					<label for="input_${key}">${label}: </label>
+					<input type="text" id="input_${key}" name="${key}" value="${value}">
+				`
+			})
+
 			overlay.showModal();
 		}
+		
 		function fechar_overlay() {
 			overlay.close();
-		}
-
-		function editar_dados_pessoais() {
-			abrir_overlay()
-		}
-
-		function editar_dados_saude() {
-			abrir_overlay()
-		}
-
-		function editar_dados_contato() {
-			abrir_overlay()
 		}
 	</script>
 </body>
