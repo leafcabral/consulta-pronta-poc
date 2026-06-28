@@ -19,7 +19,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/config/global.php";
             background-color: #4D4A73;
             width: fit-content;
 			border-radius: 15px;
-			gap:25px
+			gap:15px
         }
 		fieldset {
 			display: flex;
@@ -140,8 +140,10 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/config/global.php";
 				</section>
 				
 			</fieldset>
-
-			<button>Registrar</button>
+			<fieldset>
+				<button>Registrar</button>
+			</fieldset>
+			
 		</form>
 
 	</main>
