@@ -6,6 +6,7 @@ section#dashboard_content {
 	gap: 1em;
 	height: min(500px, 60vh);
 	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
 }
 
 @media (max-width: 1000px) {
@@ -22,18 +23,17 @@ article {
 	justify-content: space-between;
 }
 
+
 article#prescricoes {
-	grid-area: remedios;
+	grid-area: triagem;
 }
 
 article#consultas {
-	grid-area: consultas;
+	grid-area: relatorios;
 }
 
-
-
 article#sintomas {
-	grid-area: sintomas;
+	grid-area: pacientes;
 }
 
 article#sintomas .lista article {
