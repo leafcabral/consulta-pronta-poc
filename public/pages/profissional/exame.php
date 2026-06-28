@@ -1,4 +1,6 @@
 <?php
+	date_default_timezone_set('America/Sao_Paulo');
+	
 	if (!isset($titulo)) { $titulo = "Hemograma completo"; }
 	if (!isset($tipo)) { $tipo = "Sangue"; }
 	if (!isset($descricao_resultado)) { $descricao_resultado = "Baixo número de plaquetas"; }
@@ -14,5 +16,5 @@
 	<hr>
     <p>Tipo de exame: <?= $tipo ?></p>
     <p>Resultado: <?= $descricao_resultado ?></p>
-	<p>Data do reultado: <?= $data_resultado->format("H:i - d/m/Y") ?></p>
+	<p>Data do resultado: <?= $data_resultado->format("H:i - d/m/Y") ?></p>
 </article>
