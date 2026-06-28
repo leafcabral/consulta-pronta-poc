@@ -15,21 +15,32 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/config/global.php";
 	<style>
         form{
             background-color: #4D4A73;
-            padding: 15px;
+            width: fit-content;
         }
 		fieldset {
 			display: flex;
 			flex-direction: column;
 			gap: 6px;
+            padding: 15px;
 			width: 300px;
 			padding: 0;
 			border: none;
-            background-color: #F4EFE6;
+            background-color: #4D4A73;
 		}
 
 		input, select, textarea, button {
 			flex-grow: 1;
 			padding: 0.5em;
+		}
+
+        input, select {
+			flex-grow: 1;
+			padding: 0.5em;
+            background-color: #F4EFE6;
+            padding: 0.5em;
+            border-radius: 10px;
+            height: 40px;
+            border: none;
 		}
 
 		.input_wrapper {
@@ -70,6 +81,10 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/config/global.php";
             grid-area: quant_dias;
         }
 
+        .select {
+            background-color: F4EFE6;
+        }
+
 	</style>
 </head>
 <body>
@@ -81,7 +96,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/config/global.php";
 		</header>
 		
 		<form method="post">
-            <fieldset>
+            <fieldset style="text-align: center;">
                 <h1>Preescrever Medicamento</h1>
             </fieldset>
 			<fieldset>
