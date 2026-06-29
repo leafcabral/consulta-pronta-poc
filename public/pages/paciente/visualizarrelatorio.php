@@ -13,8 +13,12 @@
 <style>
 	section#dashboard_content_visu {
 		display: grid;
-		grid-template-columns: 1fr;
+		grid-template-areas:
+			"re_dores lorem"
+			"lorem";
+		grid-template-columns: 10fr 15fr;
 		gap: 1em;
+		height: min(150px, 60vh);
 	}
 	.bloco {
 		gap: 25px;
