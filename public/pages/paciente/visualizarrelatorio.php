@@ -1,19 +1,11 @@
-<?php
-require_once $_SERVER['DOCUMENT_ROOT'] . "/config/global.php";
-
-?>
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="shortcut icon" href="/icons/icon.png" type="image/x-icon">
-	<title>Relatar Sintoma - ConsultaPronta</title>
-	<link rel="stylesheet" href="/styles/style.css">
-	<link rel="stylesheet" href="paciente.css">
-	<style>
-* {
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Sintomas</title>
+    <style>
+        * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
