@@ -147,9 +147,12 @@
 
 		<div class="containermid">
 			<section id="dados_pessoais">
-				<h3>Dados pessoais:</h3>
+				<<div class="titulo" onclick="toggleSecao('pessoais')">
+					<span class="seta">▶</span>
+					<h3>Dados pessoais:</h3>
+				</div>
 				<!-- <button onclick="abrir_edicao('Editar Dados Pessoais', 'dados_pessoais')">Editar</button> -->
-				<div class="info" id="pessoais">
+				<div class="info conteudo" id="pessoais">
 					<?php 
 						render_profile_field("CPF", "cpf", $user_info["cpf"]);
 						render_profile_field("Email", "email", $user_info["email"]);
@@ -164,10 +167,11 @@
 				<div class="titulo" onclick="toggleSecao('saude')">
 					<span class="seta">▶</span>
 					<h3>Dados de saúde:</h3>
+
 					<button onclick="abrir_edicao('Editar Dados de Saúde', 'dados_saude')">Editar</button>
 				</div>
 				
-				<div class="info" id="saude">
+				<div class="info conteudo" id="saude">
 					<?php 
 						render_profile_field("Altura (cm)", "altura", $patient_info["altura"]);
 						render_profile_field("Peso (kg)", "peso", $patient_info["peso"]);
@@ -220,13 +224,25 @@
 						</form>
 					</article>
 				</dialog>
-					<div class="titulo" onclick="toggleSecao('contato')>
-						<h3>Dados de contato:</h3>
-						<section>
-							<button onclick="abrir_edicao('Editar Dados de Contato', 'dados_contato')">Editar</button>
-							<button onclick="abrir_adicionar('Editar Dados de Contato', 'dados_contato')">Adicionar</button>
-						</section>
-					</div>
+					<div class="titulo" onclick="toggleSecao('contato')">
+
+					<span class="seta">▶</span>
+
+					<h3>Dados de contato:</h3>
+
+					<section>
+
+						<button onclick="event.stopPropagation(); abrir_edicao('Editar Dados de Contato', 'dados_contato')">
+							Editar
+						</button>
+
+						<button onclick="event.stopPropagation(); abrir_adicionar('Adicionar Dados de Contato', 'dados_contato')">
+							Adicionar
+						</button>
+
+					</section>
+
+				</div>
 				
 				<div class="info" id="contato">
 					<?php
