@@ -88,7 +88,7 @@
 			color: var(--color-background);
 			border-radius: 10px;
 			padding: 5px;
-    		margin: 10px;
+    		margin: 5px 5px;
 		}
 		.titulo {
 			display: flex;
@@ -99,6 +99,8 @@
 			background-color: transparent;
 			color: var(--color-surface);
 			border: none;
+			cursor: pointer;
+			font-weight: 700;
 		}
 	 </style>
 </head>
