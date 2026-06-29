@@ -54,10 +54,11 @@
 		padding: 10px
 	}
 	table {
-			width: fit-content;
-			overflow: hidden;
-			background-color: transparent;
-		}
+		width: fit-content;
+		overflow: hidden;
+		background-color: transparent;
+		gap: 10px
+	}
 	th, td {
 		padding: 10px 40px;
 		border: 1px solid var(--color-background);
@@ -119,7 +120,7 @@
 				</div>	
 
 				<div>
-					<h3>CronoLogia do Sintoma</h3>
+					<h3>Cronologia do Sintoma</h3>
 					<div>
 						<table>
 							<tr>
