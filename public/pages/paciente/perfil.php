@@ -6,15 +6,16 @@
 	$user_info = get_user_by_id($_SESSION["id_usuario"]);
 	$patient_info = get_patient($_SESSION["id_usuario"]);
 	$contacts = get_user_contacts($_SESSION["id_usuario"]);
-	$mensagem_perfil = $_SESSION["mensagem_perfil"] ?? "";
-	unset($_SESSION["mensagem_perfil"]);
-	$pending_email_change = $_SESSION["pending_email_change"] ?? null;
 	unset(
 		$user_info["id_usuario"],
 		$user_info["senha_hash"],
 		$user_info["tipo_usuario"],
 		$patient_info["id_paciente"]
 	);
+
+	// $mensagem_perfil = $_SESSION["mensagem_perfil"];
+	// unset($_SESSION["mensagem_perfil"]);
+	// $pending_email_change = $_SESSION["pending_email_change"];
 
 	// (\d{3}) -> 3 digitos
 	// (\d{2}) -> 2 digitos
