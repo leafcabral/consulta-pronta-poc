@@ -17,12 +17,12 @@ verify_user_logged_in();
 <style>
 	section#dashboard_content_visu {
 		display: grid;
-		grid-template-areas: 
-			"relatorio1 visu"
+    	grid-template-areas:         
+			"relatorio1 visu"        
 			"relatorio1 visu";
 		gap: 1em;
 		height: min(500px, 60vh);
-		grid-template-columns: 1fr 1fr;
+		grid-template-columns: 10fr 15fr;
 	}
 	
 </style>
@@ -31,17 +31,15 @@ verify_user_logged_in();
 
 	<main>
 		<header>
-			<h1>Dashboard</h1>
-			<h2>Seja bem vindo, <?= get_user_by_id($_SESSION["id_usuario"])["nome"] ?></h2>
+			<h1>Meus Relatórios</h1>
 		</header>
 
 		<section id="dashboard_content_visu">
 			<article class="dark" id="relatorio1">
-				<h3>relatorio</h3>
-
-				<div class="lista">
-					<?= get_patient_data_html($_SESSION["id_usuario"], "prescricao", "Não há prescrições") ?>
-				</div>
+				<h3>relatorio: Dores</h3>
+				<h2>ID: 123456789/1242</h2>
+				<h2>Data: 01/04/2026</h2>
+				<h2>Horário: 14:00</h2>
 			</article>
 			<article class="dark" id="relatorio2">
 				<h3>relatorio</h3>
