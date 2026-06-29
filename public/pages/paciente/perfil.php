@@ -113,8 +113,6 @@
 				?>
 			</section>
 			
-			<br>
-			
 			<section id="dados_saude">
 				<h3>Dados de saúde:</h3>
 				<button onclick="abrir_edicao('Editar Dados de Saúde', 'dados_saude')">Editar</button>
@@ -139,8 +137,7 @@
 							<input id="operacao" type="hidden" name="operacao" value="editar">
 							
 							<fieldset></fieldset>
-						
-							<br>
+					
 							<button type="submit">Salvar</button>
 							<button type="button" onclick="fechar_overlay('editar')">Fechar</button>
 						</form>
@@ -162,8 +159,7 @@
 								<label for="input_valor">Qual é a forma  de contato?</label>
 								<input type="text" id="input_valor" name="valor" value="">
 							</fieldset>
-						
-							<br>
+							
 							<button type="submit">Adicionar</button>
 							<button type="button" onclick="fechar_overlay('adicionar')">Fechar</button>
 						</form>
