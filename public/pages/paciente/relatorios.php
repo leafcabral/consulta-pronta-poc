@@ -25,10 +25,16 @@ if ($form_enviado) {
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="shortcut icon" href="/icons/icon.png" type="image/x-icon">
-	<title>Relatar Sintoma - ConsultaPronta</title>
+	<title>Seus relatórios - ConsultaPronta</title>
 	<link rel="stylesheet" href="/styles/style.css">
 	<link rel="stylesheet" href="paciente.css">
 	<style>
+		body main {
+			display: flex;
+			flex-direction: column;
+			padding-bottom: 0;
+		}
+
 		form {
 			display: flex;
 			flex-direction: column;
@@ -66,6 +72,16 @@ if ($form_enviado) {
 				filter: brightness(0.8);
 			}
 		}
+
+		#lista {
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+			width: 400px;
+			min-height: 0;
+			overflow-y: auto;
+			padding-bottom: 1em;
+		}
 	</style>
 </head>
 <body>
@@ -77,30 +93,34 @@ if ($form_enviado) {
 			<h2>Gera um relatório dos seus sintomas</h2>
 		</header>
 
-		<form method="post">
-			<fieldset>
-				<label for="descricao">Titulo do relatório</label>
-
-				<input type="text" name="titulo" id="titulo" placeholder="Insira um titulo descritivo" required>
-			</fieldset>
+		<dialog>
+			<form method="post">
+				<fieldset>
+					<label for="descricao">Titulo do relatório</label>
+					<input type="text" name="titulo" id="titulo" placeholder="Insira um titulo descritivo" required>
+				</fieldset>
 			
-			<fieldset>
-				<p>Período</p>
-
-				<div class="input_wrapper">
-					<div>
-						<label for="data_inicio">Data de inicio</label>
-						<input type="date" name="data_inicio" id="data_inicio" required>
+				<fieldset>
+					<p>Período</p>
+					<div class="input_wrapper">
+						<div>
+							<label for="data_inicio">Data de inicio</label>
+							<input type="date" name="data_inicio" id="data_inicio" required>
+						</div>
+						<div>
+							<label for="data_fim">Data de fim</label>
+							<input type="date" name="data_fim" id="data_fim" value="<?= date('Y-m-d') ?>" required>
+						</div>
 					</div>
-					<div>
-						<label for="data_fim">Data de fim</label>
-						<input type="date" name="data_fim" id="data_fim" value="<?= date('Y-m-d') ?>" required>
-					</div>
-				</div>
-			</fieldset>
+				</fieldset>
 			
-			<button>Gerar</button>
-		</form>
+				<button>Gerar</button>
+			</form>
+		</dialog>
+
+		<section id="lista">
+			<?= get_patient_reports_html($_SESSION["id_usuario"]) ?>
+		</section>
 	</main>
 
 	<script>

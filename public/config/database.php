@@ -333,4 +333,34 @@
 
 		return $result;
 	}
+
+
+	function get_patient_reports($id_paciente) {
+		$connection = connect_to_database();
+
+		$sql_command = "
+			SELECT relatorio.*
+			FROM paciente
+			INNER JOIN relatorio ON paciente.id_paciente = relatorio.id_paciente
+			WHERE paciente.id_paciente = $id_paciente
+		";
+		$result = mysqli_query($connection, $sql_command);
+
+		return ($result) ? mysqli_fetch_all($result, MYSQLI_ASSOC) : [];
+	}
+
+	function get_patient_reports_html($id_paciente) {
+		$data = get_patient_reports($id_paciente);
+
+		if (empty($data)) {
+			return "<p class=\"mensagem\">Você não possui nenhum relatório</p>";
+		}
+
+		$html = "";
+		foreach ($data as $item) {
+			$html .= get_rendered_template(ROOT."/includes/relatorio_card.php", $item);
+		}
+
+		return $html;
+	}
 ?>
