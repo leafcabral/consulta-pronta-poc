@@ -93,6 +93,12 @@
 		.titulo {
 			display: flex;
 			justify-content: space-between;
+			color: var(--color-surface);
+		}
+		button{
+			background-color: transparent;
+			color: var(--color-surface);
+			border: none;
 		}
 	 </style>
 </head>
