@@ -34,6 +34,14 @@
 		overflow: auto;
   		max-height: 150px; 
 	}
+	#lorem{
+		overflow: auto;
+  		min-height: 400px; 
+	}
+	#atualizações{
+		display: grid;
+		grid-template-columns: 1fr;
+	}
 </style>
 <body>
 	<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/aside.php" ?>
@@ -56,12 +64,12 @@
 				</div>
 			</article>
 
-			<article class="bloco" id="lorem" style="height: 300px">
-				<h3>Relatório</h3>
-				<h2>Lorem Ipsum</h2>
+			<article class="bloco" id="lorem" style="height: 450px">
+				<h1>Dores Constantes nas Costas</h1>
+				<h2>Cláudio Silva</h2>
 				<div>
-					<label>ID: 123456789/1242</label>
-					<div>
+					<h3>CronoLogia do Sintoma</h3>
+					<div id="atualizações">
 						<label>Data: 01/04/2026</label>
 						<label>Horário: 14:00</label>
 					</div>
