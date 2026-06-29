@@ -41,9 +41,11 @@
 	#atualizações{
 		display: grid;
 		grid-template-columns: 1fr;
+		gap: 15px;
 	}
 	.atuali_filhos{
 		border: 1px solid var(--color-background);
+		border-radius: 10px;
 	}
 </style>
 <body>
