@@ -127,16 +127,16 @@
 								<th>Duraçao</th>
 								<th>Ocorrência</th>
 							</tr>
-							<td>
+							<tr>
 								<th>Dor nas costas</th>
 								<th>20 Dias</th>
 								<th>9 Ocorrências</th>
-							</td>
-							<td>
+							</tr>
+							<tr>
 								<th>Estomâgo Ardendo</th>
 								<th>4 Dias</th>
 								<th>3 Ocorrências</th>
-							</td>
+							</tr>
 						</table>
 
 					</div>
