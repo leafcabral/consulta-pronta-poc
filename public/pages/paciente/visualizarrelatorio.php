@@ -42,10 +42,12 @@
 		display: grid;
 		grid-template-columns: 1fr;
 		gap: 15px;
+		scrollbar-color: var(--color-accent) transparent;
 	}
 	.atuali_filhos{
 		border: 1px solid var(--color-background);
 		border-radius: 10px;
+		padding: 10px
 	}
 </style>
 <body>
@@ -75,6 +77,12 @@
 				<div>
 					<h3>CronoLogia do Sintoma</h3>
 					<div id="atualizações">
+						<div class="atuali_filhos">
+							<h4>Dores ao levantar peso no trabalho</h4>
+							<h5>16 abr. 2026</h5>
+							<label>-  Intensidade 6/10; "Começa a doer um pouco despois de eu levantar, mas para de doer em pouco tempo."</label>
+						</div>
+
 						<div class="atuali_filhos">
 							<h4>Dores ao levantar peso no trabalho</h4>
 							<h5>16 abr. 2026</h5>
