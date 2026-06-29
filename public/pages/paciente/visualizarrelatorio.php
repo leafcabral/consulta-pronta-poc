@@ -78,8 +78,8 @@
 
 		<section id="dashboard_content_visu">
 			<article class="bloco" id="re_dores">
-				<h3>Relatório</h3>
-				<h2>Dores</h2>
+				<h2>Relatório</h2>
+				<h3>Dores</h3>
 				<div>
 					<label>ID: 123456789/1242</label>
 					<div>
