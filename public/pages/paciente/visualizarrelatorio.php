@@ -14,6 +14,18 @@ verify_user_logged_in();
 	<link rel="stylesheet" href="/styles/style.css">
 	<link rel="stylesheet" href="paciente.css">
 </head>
+<style>
+	section#dashboard_content_visu {
+		display: grid;
+		grid-template-areas: 
+			"relatorio1 visu"
+			"relatorio1 visu";
+		gap: 1em;
+		height: min(500px, 60vh);
+		grid-template-columns: 1fr 1fr;
+	}
+	
+</style>
 <body>
 	<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/aside.php" ?>
 
