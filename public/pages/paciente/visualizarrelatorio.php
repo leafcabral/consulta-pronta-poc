@@ -46,6 +46,8 @@
 						<label>Horário: 14:00</label>
 					</div>
 				</div>
+			</article>
+
 			<article class="bloco" id="lorem ipsum">
 				<h3>Relatório</h3>
 				<h2>Lorem Ipsum</h2>
