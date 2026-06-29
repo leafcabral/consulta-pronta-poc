@@ -6,13 +6,13 @@ $form_enviado = ($_SERVER["REQUEST_METHOD"] == "POST");
 
 if ($form_enviado) {
 	$id_usuario = $_SESSION["id_usuario"];
-	$data_hora = date("Y-m-d H:i");
 	$titulo = get_post("titulo");
 	$periodo_inicio = get_post("data_inicio");
 	$periodo_fim = get_post("data_fim");
+	$extra = get_post("dados");
 
-	add_new_report($id_usuario, $data_hora, $titulo, $periodo_inicio, $periodo_fim, "");
-
+	add_new_report($id_usuario, date("Y-m-d"), $titulo, $periodo_inicio, $periodo_fim, $extra);
+	
 	header("Location: index.php");
 	exit();
 }
@@ -57,9 +57,13 @@ if ($form_enviado) {
 			display: flex;
 			flex-direction: column;
 			gap: 6px;
-			width: 300px;
+			width: 320px;
 			padding: 0;
 			border: none;
+
+			input {
+				width: stretch;
+			}
 		}
 
 		input, select, textarea, button {
@@ -148,7 +152,7 @@ if ($form_enviado) {
 			<article class="dark">
 				<form method="post">
 					<fieldset>
-						<label for="descricao">Titulo do relatório</label>
+						<label for="titulo">Titulo do relatório</label>
 						<input type="text" name="titulo" id="titulo" placeholder="Insira um titulo descritivo" required>
 					</fieldset>
 				
@@ -164,6 +168,11 @@ if ($form_enviado) {
 								<input type="date" name="data_fim" id="data_fim" value="<?= date('Y-m-d') ?>" required>
 							</div>
 						</div>
+					</fieldset>
+
+					<fieldset>
+						<label for="dados">Observações</label>
+						<input type="text" name="dados" id="dados" placeholder="Insira informações extras">
 					</fieldset>
 			
 					<div>

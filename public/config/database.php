@@ -131,14 +131,18 @@
         }
     }
 
-    function add_new_report($pacient_id, $gen_date, $title, $period_start, $period_end, $analytical_data) {
-        $connection = connect_to_database();
+	function add_new_report($pacient_id, $gen_date, $title, $period_start, $period_end, $analytical_data) {
+		$connection = connect_to_database();
 
-        $sql_command = "INSERT INTO relatorio VALUES
-        ($pacient_id, '$gen_date', '$title', '$period_start', '$period_end', '$analytical_data')";
+		$sql_command = "
+			INSERT INTO relatorio (id_paciente, data_geracao, titulo, periodo_inicio, perido_fim, dados_analiticos)
+			VALUES ($pacient_id, '$gen_date', '$title', '$period_start', '$period_end', '$analytical_data')
+		";
+		$result = mysqli_query($connection, $sql_command);
+		echo mysqli_error($connection);
 
-        return mysqli_query($connection, $sql_command);
-    }
+		return $result;
+	}
 
     function delete_table_row($table, $row_name, $value) {
         $connection = connect_to_database();
