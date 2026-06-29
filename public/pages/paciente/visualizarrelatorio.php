@@ -67,6 +67,9 @@
 		border: 1px solid var(--color-background);
 		text-align: center;
 	}
+	h3 {
+		margin-bottom: 10px;
+	}
 </style>
 <body>
 	<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/aside.php" ?>
