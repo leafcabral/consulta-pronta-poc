@@ -83,12 +83,16 @@
 			display: grid;
 			grid-template-columns: 1fr 1fr 1fr;
 		}
-		.info{
+		.info {
 			background-color: var(--color-surface);
 			color: var(--color-background);
 			border-radius: 10px;
 			padding: 5px;
     		margin: 10px;
+		}
+		.titulo {
+			display: flex;
+			justify-content: space-between;
 		}
 	 </style>
 </head>
@@ -123,7 +127,7 @@
 			</section>
 			
 			<section id="dados_saude">
-				<div>
+				<div class="titulo">
 					<h3>Dados de saúde:</h3>
 					<button onclick="abrir_edicao('Editar Dados de Saúde', 'dados_saude')">Editar</button>
 				</div>
@@ -179,7 +183,7 @@
 						</form>
 					</article>
 				</dialog>
-				<div>
+				<div class="titulo">
 					<h3>Dados de contato:</h3>
 					<button onclick="abrir_edicao('Editar Dados de Contato', 'dados_contato')">Editar</button>
 					<button onclick="abrir_adicionar('Editar Dados de Contato', 'dados_contato')">Adicionar</button>
