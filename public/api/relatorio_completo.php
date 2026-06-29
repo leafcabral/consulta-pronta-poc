@@ -16,21 +16,6 @@ $inicio = new DateTime($periodo_inicio);
 $fim = new DateTime($perido_fim);
 $duracao = $inicio->diff($fim)->days + 1;
 
-function data_para_string_legal($data) {
-	$meses = [
-		1 => 'janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho',
-		'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'
-	];
-	$timestamp = strtotime($data);
-
-	$dia = date('d', $timestamp);
-	$mes_numero = (int) date('m', $timestamp);
-	$ano = date('Y', $timestamp);
-	
-	return "{$dia} de {$meses[$mes_numero]} de {$ano}";
-}
-
-
 ?>
 
 <h2 class="titulo-relatorio"><?= $titulo ?></h2>

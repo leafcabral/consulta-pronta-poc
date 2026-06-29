@@ -41,6 +41,6 @@
 
 	<div id="aside_bottom">
 		<a href="/pages/paciente/perfil.php">Perfil</a>
-		<a href="/pages/sair.php">Sair</a>
+		<a href="/sair.php">Sair</a>
 	</div>
 </aside>
