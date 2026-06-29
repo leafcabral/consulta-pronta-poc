@@ -36,10 +36,10 @@ verify_user_logged_in();
 
 		<section id="dashboard_content_visu">
 			<article class="dark" id="relatorio1">
-				<h3>relatorio: Dores</h3>
-				<h2>ID: 123456789/1242</h2>
-				<h2>Data: 01/04/2026</h2>
-				<h2>Horário: 14:00</h2>
+				<h1>relatorio: Dores</h1>
+				<h3>ID: 123456789/1242</h3>
+				<h3>Data: 01/04/2026</h3>
+				<h3>Horário: 14:00</h3>
 			</article>
 			<article class="dark" id="relatorio2">
 				<h3>relatorio</h3>
