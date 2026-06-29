@@ -42,6 +42,9 @@
 		display: grid;
 		grid-template-columns: 1fr;
 	}
+	.atuali_filhos{
+		border: 1px solid var(--color-background);
+	}
 </style>
 <body>
 	<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/aside.php" ?>
@@ -70,19 +73,19 @@
 				<div>
 					<h3>CronoLogia do Sintoma</h3>
 					<div id="atualizações">
-						<div>
+						<div class="atuali_filhos">
 							<h4>Dores ao levantar peso no trabalho</h4>
 							<h5>16 abr. 2026</h5>
 							<label>-  Intensidade 6/10; "Começa a doer um pouco despois de eu levantar, mas para de doer em pouco tempo."</label>
 						</div>
 
-						<div>s
+						<div class="atuali_filhos">
 							<h4>Dores ao levantar peso no trabalho</h4>
 							<h5>16 abr. 2026</h5>
 							<label>-  Intensidade 6/10; "Começa a doer um pouco despois de eu levantar, mas para de doer em pouco tempo."</label>
 						</div>
 
-						<div>
+						<div class="atuali_filhos">
 							<h4>Dores ao levantar peso no trabalho</h4>
 							<h5>16 abr. 2026</h5>
 							<label>-  Intensidade 6/10; "Começa a doer um pouco despois de eu levantar, mas para de doer em pouco tempo."</label>
