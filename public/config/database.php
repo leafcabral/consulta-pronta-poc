@@ -95,14 +95,14 @@
     function add_new_prescription($pacient_id, $profissional_id, $medicines, $use_orietations, $emission_date, $date) {
         $connection = connect_to_database();
 
-        $sql_command = "INSERT INTO prescricao VALUES
-        ($pacient_id, $profissional_id, '$medicines', '$use_orietations', '$emission_date', '$date')";
+        $sql_command = "
+			INSERT INTO prescricao (id_paciente, id_profissional, medicamento, frequencia, duracao, data_emissao, orientacoes_uso)
+			VALUES ($pacient_id, $profissional_id, '$medicines', '$use_orietations', '$emission_date', '$date')
+		";
 
-        if (mysqli_query($connection, $sql_command)) {
-            // handle succesful query
-        } else {
-            // handle failed query
-        }
+		$result = mysqli_query($connection, $sql_command);
+
+		return $result;
     }
 
     function add_new_authorization($pacient_id, $profissional_id, $concession_date, $revocation_date, $status) {
@@ -139,7 +139,6 @@
 			VALUES ($pacient_id, '$gen_date', '$title', '$period_start', '$period_end', '$analytical_data')
 		";
 		$result = mysqli_query($connection, $sql_command);
-		echo mysqli_error($connection);
 
 		return $result;
 	}

@@ -56,10 +56,32 @@ INSERT INTO autorizacao (id_paciente, id_profissional, data_concessao, data_revo
 (2, 4, '2026-06-21', NULL, 'ativa'),
 (3, 4, '2025-06-01', '2026-01-01', 'revogada');
 
-INSERT INTO prescricao (id_paciente, id_profissional, medicamentos, orientacoes_uso, data_emissao, dados) VALUES 
-(1, 4, 'Antitérmico 500mg', 'Tomar se febre acima de 37.8°C', '2026-06-20', 'Histórico: Paciente relatou início de febre na noite anterior.'),
-(2, 4, 'Inalador de resgate', 'Usar 2 jatos em caso de crise', '2026-06-21', 'Histórico: Uso contínuo associado ao tempo seco.'),
-(3, 4, 'Anti-inflamatório 100mg', 'Tomar por 5 dias após as refeições', '2025-06-02', 'Histórico: Tratamento pós-esforço repetitivo.');
+INSERT INTO prescricao (id_paciente, id_profissional, medicamento, frequencia, duracao, data_emissao, orientacoes_uso) VALUES 
+(
+	1, 4, 'Antitérmico 500mg', 
+	'De 6 em 6 horas', 'Se houver febre',  '2026-06-20', 
+	'Tomar apenas se a febre estiver acima de 37.8°C.'
+),
+(
+	1, 4, 'Amoxicilina 500mg', 
+	'De 8 em 8 horas', 'Por 7 dias', '2026-06-22', 
+	'Tomar mesmo que os sintomas sumirem. Antibiótico para tratar a infecção da garganta.'
+),
+(
+	2, 4, 'Inalador de resgate (Aerolin)', 
+	'Em caso de crise', 'Uso contínuo', '2026-06-21', 
+	'Usar 2 jatos se houver falta de ar ou chieira. Associado ao tempo seco.'
+),
+(
+	3, 4, 'Anti-inflamatório 100mg', 
+	'De 12 em 12 horas', 'Por 5 dias', '2025-06-02', 
+	'Tomar sempre após as refeições. Tratamento para dor pós-esforço repetitivo.'
+),
+(
+	3, 4, 'Complexo B (Suplemento)', 
+	'1 vez ao dia', 'Por 30 dias', '2025-06-05', 
+	'Tomar pela manhã junto com o café. Auxilia na regeneração e dores musculares da perna.'
+);
 
 INSERT INTO exame (id_paciente, id_profissional, titulo, tipo, descricao_resultado, data_resultado) VALUES 
 (1, 4, 'PCR Quantitativo', 'Sangue', 'Elevado, indicando processo inflamatório', '2026-06-22'),
