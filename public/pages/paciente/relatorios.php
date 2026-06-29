@@ -13,7 +13,7 @@ if ($form_enviado) {
 
 	add_new_report($id_usuario, date("Y-m-d"), $titulo, $periodo_inicio, $periodo_fim, $extra);
 	
-	header("Location: index.php");
+	header("Location: " . $_SERVER['PHP_SELF']);
 	exit();
 }
 
