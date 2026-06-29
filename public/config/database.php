@@ -69,14 +69,12 @@
     function add_new_symptom($pacient_id, $description, $intensity, $date_begin, $local, $status) {
         $connection = connect_to_database();
 
-        $sql_command = "INSERT INTO sintoma VALUES
-        ($pacient_id, '$description', $intensity, '$date_begin', '$local', '$status')";
+        $sql_command = "
+			INSERT INTO sintoma (id_paciente, descricao, intensidade, data_inicio, local, status)
+			VALUES ($pacient_id, '$description', $intensity, '$date_begin', '$local', '$status')";
+		$result = mysqli_query($connection, $sql_command);
 
-        if (mysqli_query($connection, $sql_command)) {
-            // handle succesful query
-        } else {
-            // handle failed query
-        }
+		return $result;
     }
 
     function add_new_exam($pacient_id, $profissional_id, $title, $type, $result_description, $result_date) {

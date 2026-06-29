@@ -11,7 +11,7 @@ if ($form_enviado) {
 	$data_hora = get_post("data") . " "  . get_post("hora");
 	$local = get_post("local");
 
-	add_new_symptom($id_usuario, $descricao, $intensidade, $data_hora, $local, "presente");
+	add_new_symptom($id_usuario, $descricao, $intensidade, $data_hora, $local, "ativo");
 
 	header("Location: index.php");
 	exit();
