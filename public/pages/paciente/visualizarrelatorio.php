@@ -31,6 +31,20 @@ verify_user_logged_in();
 					<?= get_patient_data_html($_SESSION["id_usuario"], "prescricao", "Não há prescrições") ?>
 				</div>
 			</article>
+			<article class="dark" id="relatorio2">
+				<h3>relatorio</h3>
+
+				<div class="lista">
+					<?= get_patient_data_html($_SESSION["id_usuario"], "prescricao", "Não há prescrições") ?>
+				</div>
+			</article>
+			<article class="dark" id="visu">
+				<h3>relatorio</h3>
+
+				<div class="lista">
+					<?= get_patient_data_html($_SESSION["id_usuario"], "prescricao", "Não há prescrições") ?>
+				</div>
+			</article>
 		</section>
 	</main>
 </body>
