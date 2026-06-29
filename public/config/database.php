@@ -183,6 +183,14 @@
 		return mysqli_fetch_assoc($result);
 	}
 
+	function update_user_email($id, $email) {
+		$connection = connect_to_database();
+		$safe_email = mysqli_real_escape_string($connection, $email);
+		$sql_command = "UPDATE usuario SET email = '$safe_email' WHERE id_usuario = $id";
+
+		return mysqli_query($connection, $sql_command);
+	}
+
 	// DEPRECATED (maybe)
     function check_if_user_exists($user_type, $email, $cpf) {
         $connection = connect_to_database();

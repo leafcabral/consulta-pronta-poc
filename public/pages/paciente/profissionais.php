@@ -23,6 +23,10 @@ verify_user_logged_in();
 			flex-direction: column;
 			gap: 10px;
 		}
+
+		.hidden {
+			display: none;
+		}
 	</style>
 </head>
 <body>
@@ -34,13 +38,39 @@ verify_user_logged_in();
 			<h2>Edite as permissões dos seus profissionais</h2>
 		</header>
 
-		<input type="search" id="busca" placeholder="Busce por profissionais">
+		<input type="search" id="busca" placeholder="Busque por profissionais">
 
 		<br><br>
+
+		<p id="nenhum-resultado" class="mensagem hidden">Nenhum profissional encontrado.</p>
 
 		<section id="lista">
 			<?= get_patient_professionals_html($_SESSION["id_usuario"]) ?>
 		</section>
 	</main>
+
+	<script>
+		const busca = document.getElementById("busca");
+		const lista = document.getElementById("lista");
+		const nenhumResultado = document.getElementById("nenhum-resultado");
+
+		function filtrarProfissionais() {
+			const termo = (busca?.value || "").trim().toLowerCase();
+			const cards = Array.from(lista?.querySelectorAll("article") || []);
+			let visiveis = 0;
+
+			cards.forEach((card) => {
+				const textoBusca = (card.dataset.search || "").toLowerCase();
+				const deveMostrar = textoBusca.includes(termo);
+				card.classList.toggle("hidden", !deveMostrar);
+				if (deveMostrar) visiveis++;
+			});
+
+			nenhumResultado.classList.toggle("hidden", visiveis !== 0);
+		}
+
+		busca?.addEventListener("input", filtrarProfissionais);
+		filtrarProfissionais();
+	</script>
 </body>
 </html>
