@@ -21,7 +21,7 @@
 		height: min(150px, 60vh);
 	}
 	.bloco {
-		gap: 25px;
+		gap: 10px;
 		padding: 18px;
 		border-radius: 18px;
 		background-color: var(--color-surface);
@@ -87,7 +87,6 @@
 						<label>Horário: 14:00</label>
 					</div>
 				</div>
-				<button id="abrir">visualizar</button>
 			</article>
 
 			<article class="bloco" id="lorem" style="height: 450px">
