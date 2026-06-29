@@ -94,10 +94,11 @@ CREATE TABLE prescricao (
 	id_prescricao INTEGER AUTO_INCREMENT PRIMARY KEY,
 	id_paciente INTEGER,
 	id_profissional INTEGER,
-	medicamentos TEXT,
-	orientacoes_uso VARCHAR(150),
+	medicamento TEXT,
+	frequencia VARCHAR(25),
+	duracao VARCHAR(25),
 	data_emissao DATE,
-	dados TEXT,
+	orientacoes_uso VARCHAR(150),
 
 	CONSTRAINT FK_PRESCRICAO_id_profissional
 		FOREIGN KEY (id_profissional)
@@ -135,7 +136,8 @@ CREATE TABLE relatorio (
 	id_paciente INTEGER,
 	data_geracao DATE,
 	titulo VARCHAR(100),
-	periodo_analisado VARCHAR(30),
+	periodo_inicio DATE,
+	perido_fim DATE,
 	dados_analiticos VARCHAR(200),
 
 	CONSTRAINT FK_RELATORIO_id_paciente

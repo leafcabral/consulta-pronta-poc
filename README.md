@@ -11,3 +11,22 @@ Esse repostitório apresenta uma implementação web reduzida do projeto Consult
 
 > [!NOTE]  
 > AS tecnologias utlizadas nessa implementação irão ser consideravelmente diferentes da implementação final
+
+
+## Instalação
+1. Instale o [USBWebserver](https://www.usbwebserver.net/webserver/) 8.6+.
+2. Extrai ou clone o repositório dentro da pasta `root` do USBWebserver.
+### Configurações necessárias
+3. Execute o `usbwebserver.exe`.
+4. Após selecionar a linguagem, vá em *Settings* e substitua o valor de *Root dir* para
+```
+{path}/root/consulta-pronta-poc/public
+```
+5. Salve, volte para a aba principal e selecione `PHPMyAdmin`.
+6. Faça o login na página que foi aberta (usuário e senha padrão: *root* e *usbw*, respectivamente).
+7. Selecione `SQL` no menu de navegação superior.
+8. Execute os arquivos [generator.sql](db/generator.sql) e [populate.sql](db/generator.sql).
+
+## Usando a plataforma
+1. Execute o `usbwebserver.exe`.
+2. Selecione `Localhost`.
