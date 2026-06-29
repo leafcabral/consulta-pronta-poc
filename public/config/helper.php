@@ -24,6 +24,23 @@ function verify_user_logged_in() {
 	}
 }
 
+function is_profissional() {
+	return isset($_SESSION["tipo_usuario"]) && $_SESSION["tipo_usuario"] === "profissional";
+}
+
+function is_paciente() {
+	return isset($_SESSION["tipo_usuario"]) && $_SESSION["tipo_usuario"] === "paciente";
+}
+
+function verify_professional_logged_in() {
+	verify_user_logged_in();
+	if (!is_profissional()) {
+		$redirect = isset($_SESSION["tipo_usuario"]) ? "/pages/" . $_SESSION["tipo_usuario"] : "/pages/auth";
+		header("Location: $redirect");
+		exit;
+	}
+}
+
 function data_para_string_legal($data) {
 	$meses = [
 		1 => 'janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho',

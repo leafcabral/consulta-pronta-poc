@@ -106,6 +106,10 @@ if ($form_enviado) {
 			overflow-y: auto;
 		}
 
+		.hidden {
+			display: none;
+		}
+
 		#relatorio {
 			display: flex;
 			justify-content: center;
@@ -143,9 +147,11 @@ if ($form_enviado) {
 		</header>
 
 		<section id="header">
-			<input type="text" id="inputrelatorios" placeholder="Buscar relatorios">
+			<input type="text" id="inputrelatorios" placeholder="Buscar relatórios">
 			<button onclick="mostrarOverlay()"><b>Gerar novo relatório</b></button>
 		</section>
+
+		<p id="nenhum-resultado" class="mensagem hidden">Nenhum relatório encontrado.</p>
 
 		<br>
 
@@ -241,7 +247,24 @@ if ($form_enviado) {
 					carregarRelatorio(relatorio.dataset.id)
 				})
 			});
-		})
-	</script>
-</body>
-</html>
+
+				const busca = document.getElementById("inputrelatorios");
+				const nenhumResultado = document.getElementById("nenhum-resultado");
+
+				function filtrarRelatorios() {
+					const termo = (busca?.value || "").trim().toLowerCase();
+					const cards = Array.from(document.querySelectorAll("#lista > article"));
+					let visiveis = 0;
+
+					cards.forEach((card) => {
+						const textoBusca = (card.dataset.search || "").toLowerCase();
+						const deveMostrar = textoBusca.includes(termo);
+						card.classList.toggle("hidden", !deveMostrar);
+						if (deveMostrar) visiveis++;
+					});
+
+					nenhumResultado.classList.toggle("hidden", visiveis !== 0);
+				}
+
+				busca?.addEventListener("input", filtrarRelatorios);
+				filtrarRelatorios();
