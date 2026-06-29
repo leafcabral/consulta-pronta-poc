@@ -68,18 +68,6 @@
 		text-align: center;
 	}
 </style>
-<script>
-	const blocoRelatorio = document.getElementById("abrir");
-	const blocoLista = document.getElementById("re_dores");
-
-	blocoLista.addEventListener("click", () => {
-		if (blocoRelatorio.style.display === "none") {
-			blocoRelatorio.style.display = "flex";
-		} else {
-			blocoRelatorio.style.display = "none";
-		}
-	});
-</script>
 <body>
 	<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/aside.php" ?>
 
@@ -165,4 +153,18 @@
 		</section>
 	</main>
 </body>
+
+<script>
+	const blocoRelatorio = document.getElementById("lorem");
+	const blocoLista = document.getElementById("re_dores");
+
+	blocoLista.addEventListener("click", () => {
+		if (blocoRelatorio.style.display === "none") {
+			blocoRelatorio.style.display = "flex";
+		} else {
+			blocoRelatorio.style.display = "none";
+		}
+	});
+</script>
+
 </html>
