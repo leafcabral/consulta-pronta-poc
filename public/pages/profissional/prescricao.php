@@ -94,7 +94,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/config/global.php";
         }
 
         .select {
-            background-color: F4EFE6;
+            background-color: #F4EFE6;
         }
 
 	</style>

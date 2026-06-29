@@ -16,10 +16,27 @@ section#dashboard_content {
 	
 }
 
+@media (max-width: 1000px) {
+	section#dashboard_content_rela {
+		display: flex;
+		flex-direction: column;
+	}
+	
+}
+
+@media (max-width: 1000px) {
+	section#dashboard_content_visu {
+		display: flex;
+		flex-direction: column;
+	}
+	
+}
+
 article {
 	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
+    flex-direction: column;
+    background-color: #F4EFE6;
+    color: #231C44;
 }
 
 article#prescricoes {
