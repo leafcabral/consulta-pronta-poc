@@ -70,6 +70,10 @@
 	.h3{
 		margin-bottom: 0px;
 	}
+	.containerhead {
+		display: grid;
+		gap: 20px;
+	}
 </style>
 <body>
 	<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/aside.php" ?>
@@ -78,6 +82,14 @@
 		<header>
 			<h1>Relatórios</h1>
 		</header>
+
+		<div class="containerhead">
+			<div class="pesquisa">
+				<span>⌕</span>
+				<input type="text" id="inputrelatorios" placeholder="Buscar relatorios">
+				<a href="/pages/paciente/relatorio.php">⊕ Gerar Relatório</a>
+			</div>
+		</div>
 
 		<section id="dashboard_content_visu">
 			<article class="bloco" id="re_dores">
