@@ -74,6 +74,22 @@
 		display: grid;
 		gap: 20px;
 	}
+	.pesquisa{
+		display: flex;
+		align-items: center;
+		background-color: #F4EFE6;
+		width: 600px;
+		margin: 60px auto 20px;
+		border-radius: 5px;
+		padding: 5px 10px;
+		color: #2B254D;
+	}
+	#inputrelatorios{
+		border: none;
+		background-color: transparent;
+		width: 100%;
+		outline: none;
+	}
 </style>
 <body>
 	<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/aside.php" ?>
