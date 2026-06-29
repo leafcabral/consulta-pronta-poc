@@ -135,7 +135,8 @@ CREATE TABLE relatorio (
 	id_paciente INTEGER,
 	data_geracao DATE,
 	titulo VARCHAR(100),
-	periodo_analisado VARCHAR(30),
+	periodo_inicio DATE,
+	perido_fim DATE,
 	dados_analiticos VARCHAR(200),
 
 	CONSTRAINT FK_RELATORIO_id_paciente

@@ -39,8 +39,17 @@ INSERT INTO profissional (id_profissional, crm, especialidades) VALUES
 
 INSERT INTO sintoma (id_paciente, descricao, intensidade, data_inicio, local, status) VALUES 
 (1, 'Febre alta e calafrios', 8, '2026-06-20 14:00:00', 'Corpo todo', 'ativo'),
+(1, 'Dor de cabeça forte que não passa', 7, '2026-06-21 08:00:00', 'Cabeça', 'ativo'),
+(1, 'Corpo mole e muito cansaço', 6, '2026-06-21 10:00:00', 'Corpo todo', 'ativo'),
+(1, 'Muita dor na garganta ao engolir', 8, '2026-06-22 07:00:00', 'Garganta', 'ativo'),
+
 (2, 'Falta de ar leve', 5, '2026-06-21 09:30:00', 'Peito', 'ativo'),
-(3, 'Dor lombar crônica', 4, '2025-06-01 10:00:00', 'Costas', 'inativo');
+(2, 'Chieira no peito e tosse seca', 6, '2026-06-21 22:00:00', 'Peito', 'ativo'),
+(2, 'Nariz escorrendo e espirros', 4, '2026-06-22 06:00:00', 'Nariz', 'ativo'),
+
+(3, 'Dor lombar crônica', 4, '2025-06-01 10:00:00', 'Costas', 'inativo'),
+(3, 'Pontada na batata da perna esquerda', 5, '2025-06-03 14:00:00', 'Perna', 'inativo'),
+(3, 'Dificuldade para levantar da cama de manhã', 6, '2025-06-05 06:30:00', 'Coluna', 'inativo');
 
 INSERT INTO autorizacao (id_paciente, id_profissional, data_concessao, data_revogacao, status) VALUES 
 (1, 4, '2026-06-20', NULL, 'ativa'),
@@ -57,10 +66,31 @@ INSERT INTO exame (id_paciente, id_profissional, titulo, tipo, descricao_resulta
 (2, 4, 'Espirometria', 'Respiratório', 'Capacidade pulmonar dentro do esperado para asmáticos', '2026-06-23'),
 (3, 4, 'Radiografia de Coluna', 'Imagem', 'Leve desgaste na região lombar L4-L5', '2025-06-05');
 
-INSERT INTO relatorio (id_paciente, data_geracao, titulo, periodo_analisado, dados_analiticos) VALUES 
-(1, '2026-06-24', 'Evolução Quadro Infeccioso', 'Junho 2026', 'Paciente respondeu bem ao tratamento inicial.'),
-(2, '2026-06-24', 'Acompanhamento de Asma', 'Junho 2026', 'Crises controladas com uso correto da medicação.'),
-(3, '2025-06-30', 'Histórico de Dor Crônica', 'Junho 2025', 'Paciente reportou melhora, caso encerrado neste período.');
+INSERT INTO relatorio (id_paciente, data_geracao, titulo, periodo_inicio, perido_fim, dados_analiticos) VALUES 
+(
+	1, '2026-06-20', 
+	'Febre ruim do nada',
+	'2026-06-20', '2026-06-20', 
+	'Comecei a queimar de febre e ter calafrios logo depois do almoço.'
+),
+(
+	1, '2026-06-24', 
+	'Gripe que pegou pesado',
+	'2026-06-21', '2026-06-24', 
+	NULL
+),
+(
+	2, '2026-06-24', 
+	'Crise de asma atacada',
+	'2026-06-21', '2026-06-24', 
+	NULL
+),
+(
+	3, '2025-06-30', 
+	'Coluna travada e perna doendo',
+	'2025-06-01', '2025-06-30', 
+	'Senti as costas travadas o mês inteiro e começou a puxar uma dor chata na perna.'
+);
 
 INSERT INTO anotacao_clinica (id_profissional, id_relatorio, data_hora, texto_evolucao, hipotese_diagnostica) VALUES 
 (4, 1, '2026-06-24 10:00:00', 'Febre cessou nas últimas 24 horas.', 'Infecção Viral a Esclarecer'),

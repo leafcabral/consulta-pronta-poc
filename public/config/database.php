@@ -131,17 +131,13 @@
         }
     }
 
-    function add_new_report($pacient_id, $gen_date, $title, $period_analyzed, $analytical_data) {
+    function add_new_report($pacient_id, $gen_date, $title, $period_start, $period_end, $analytical_data) {
         $connection = connect_to_database();
 
         $sql_command = "INSERT INTO relatorio VALUES
-        ($pacient_id, '$gen_date', '$title', '$period_analyzed', '$analytical_data')";
+        ($pacient_id, '$gen_date', '$title', '$period_start', '$period_end', '$analytical_data')";
 
-        if (mysqli_query($connection, $sql_command)) {
-            // handle succesful query
-        } else {
-            // handle failed query
-        }
+        return mysqli_query($connection, $sql_command);
     }
 
     function delete_table_row($table, $row_name, $value) {

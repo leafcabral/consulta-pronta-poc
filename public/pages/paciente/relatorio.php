@@ -8,9 +8,10 @@ if ($form_enviado) {
 	$id_usuario = $_SESSION["id_usuario"];
 	$data_hora = date("Y-m-d H:i");
 	$titulo = get_post("titulo");
-	$periodo = get_post("data_inicio") . "," . get_post("data_fim");
+	$periodo_inicio = get_post("data_inicio");
+	$periodo_fim = get_post("data_fim");
 
-	add_new_report($id_usuario, $data_hora, $titulo, $periodo, "");
+	add_new_report($id_usuario, $data_hora, $titulo, $periodo_inicio, $periodo_fim, "");
 
 	header("Location: index.php");
 	exit();
