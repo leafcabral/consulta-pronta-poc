@@ -80,8 +80,8 @@
 			padding: 5px 10px;
 		}
 		.containermid {
-			grid-template-columns: 1fr 1fr 1fr;
 			display: grid:
+			grid-template-columns: 1fr 1fr 1fr;
 		}
 	 </style>
 </head>
