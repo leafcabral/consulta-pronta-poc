@@ -70,8 +70,23 @@
 				<div>
 					<h3>CronoLogia do Sintoma</h3>
 					<div id="atualizações">
-						<label>Data: 01/04/2026</label>
-						<label>Horário: 14:00</label>
+						<div>
+							<h4>Dores ao levantar peso no trabalho</h4>
+							<h5>16 abr. 2026</h5>
+							<label>-  Intensidade 6/10; "Começa a doer um pouco despois de eu levantar, mas para de doer em pouco tempo."</label>
+						</div>
+
+						<div>s
+							<h4>Dores ao levantar peso no trabalho</h4>
+							<h5>16 abr. 2026</h5>
+							<label>-  Intensidade 6/10; "Começa a doer um pouco despois de eu levantar, mas para de doer em pouco tempo."</label>
+						</div>
+
+						<div>
+							<h4>Dores ao levantar peso no trabalho</h4>
+							<h5>16 abr. 2026</h5>
+							<label>-  Intensidade 6/10; "Começa a doer um pouco despois de eu levantar, mas para de doer em pouco tempo."</label>
+						</div>
 					</div>
 				</div>	
 			</article>
