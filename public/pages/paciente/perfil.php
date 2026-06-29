@@ -6,6 +6,9 @@
 	$user_info = get_user_by_id($_SESSION["id_usuario"]);
 	$patient_info = get_patient($_SESSION["id_usuario"]);
 	$contacts = get_user_contacts($_SESSION["id_usuario"]);
+	$mensagem_perfil = $_SESSION["mensagem_perfil"] ?? "";
+	unset($_SESSION["mensagem_perfil"]);
+	$pending_email_change = $_SESSION["pending_email_change"] ?? null;
 	unset(
 		$user_info["id_usuario"],
 		$user_info["senha_hash"],
@@ -80,7 +83,14 @@
 
 		<section id="dados_pessoais">
 			<h3>Dados pessoais:</h3>
-			<!-- <button onclick="abrir_edicao('Editar Dados Pessoais', 'dados_pessoais')">Editar</button> -->
+			<button onclick="abrir_alterar_email()">Alterar e-mail</button>
+			<?php if (!empty($mensagem_perfil)) { echo "<p class=\"mensagem\">$mensagem_perfil</p>"; } ?>
+			<?php if (!empty($pending_email_change)) { ?>
+				<form action="atualizar_perfil.php" method="post">
+					<input type="hidden" name="operacao" value="confirmar_alteracao_email">
+					<button type="submit">Confirmar alteração de e-mail</button>
+				</form>
+			<?php } ?>
 
 			<?php 
 				render_profile_field("CPF", "cpf", $user_info["cpf"]);
@@ -161,11 +171,31 @@
 				</form>
 			</article>
 		</dialog>
+
+		<dialog id="alterar_email_dados">
+			<article class="dark">
+				<h3>Alterar e-mail</h3>
+				<form action="atualizar_perfil.php" method="post">
+					<input type="hidden" name="operacao" value="solicitar_alteracao_email">
+					<fieldset>
+						<label for="novo_email">Novo e-mail</label>
+						<input type="email" id="novo_email" name="novo_email" required>
+
+						<label for="confirmar_email">Confirmar e-mail</label>
+						<input type="email" id="confirmar_email" name="confirmar_email" required>
+					</fieldset>
+					<br>
+					<button type="submit">Solicitar alteração</button>
+					<button type="button" onclick="fechar_overlay('email')">Fechar</button>
+				</form>
+			</article>
+		</dialog>
 	</main>
 
 	<script>
 		const overlayEditar = document.getElementById('editar_dados')
 		const overlayAdicionar = document.getElementById('adicionar_dados')
+		const overlayEmail = document.getElementById('alterar_email_dados')
 
 		function abrir_edicao(titulo, secaoID) {
 			const formSection = overlayEditar.querySelector("input#secao")
@@ -204,6 +234,10 @@
 
 			overlayAdicionar.showModal();
 		}
+
+		function abrir_alterar_email() {
+			overlayEmail.showModal();
+		}
 		
 		function fechar_overlay(operacao) {
 			switch (operacao) {
@@ -212,6 +246,9 @@
 					break
 				case "adicionar":
 					overlayAdicionar.close();
+					break
+				case "email":
+					overlayEmail.close();
 					break
 			}
 		}

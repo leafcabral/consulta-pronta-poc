@@ -75,7 +75,7 @@
 	}
 </style>
 
-<article class="light">
+<article class="light" data-search="<?= htmlspecialchars(strtolower($nome . ' ' . $especialidades . ' ' . $crm)) ?>">
 	<header>
 		<h3><?= $nome ?></h3>
 		<p id="status-<?= $id_profissional ?>" class="<?= $status ?>"><?=  ucfirst($status) ?></p>
