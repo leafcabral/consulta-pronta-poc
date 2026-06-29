@@ -1,12 +1,30 @@
 <?php
 require_once $_SERVER["DOCUMENT_ROOT"] . "/config/global.php";
 verify_user_logged_in();
-if (empty($_GET["id"])) { http_response_code(400); }
+if (empty($_GET["id"])) { http_response_code(400); exit; }
 
-$relatorio = get_report($_GET["id"]);
+$id_relatorio = intval($_GET["id"]);
+$relatorio = get_report($id_relatorio);
+if (empty($relatorio)) {
+	http_response_code(404);
+	exit;
+}
+
+if (is_paciente()) {
+	if ($relatorio["id_paciente"] != $_SESSION["id_usuario"]) {
+		http_response_code(403);
+		exit;
+	}
+} elseif (is_profissional()) {
+	if (!professional_can_view_report($_SESSION["id_usuario"], $id_relatorio)) {
+		http_response_code(403);
+		exit;
+	}
+}
+
 extract($relatorio);
 $anotacoes = get_report_notes($id_relatorio);
-$sintomas = get_symptoms_by_period($id_paciente, $periodo_inicio, $perido_fim);;
+$sintomas = get_symptoms_by_period($id_paciente, $periodo_inicio, $perido_fim);
 
 if (!empty($dados_analiticos)) {
 	$dados_analiticos = nl2br(htmlspecialchars($dados_analiticos));

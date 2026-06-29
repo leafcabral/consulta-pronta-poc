@@ -374,6 +374,54 @@
 		return $html;
 	}
 
+	function get_professional_patients_reports($id_profissional) {
+		$connection = connect_to_database();
+
+		$sql_command = "
+			SELECT relatorio.*, usuario.nome AS paciente_nome
+			FROM relatorio
+			INNER JOIN paciente ON paciente.id_paciente = relatorio.id_paciente
+			INNER JOIN autorizacao ON autorizacao.id_paciente = paciente.id_paciente
+			INNER JOIN usuario ON paciente.id_paciente = usuario.id_usuario
+			WHERE autorizacao.id_profissional = $id_profissional
+			AND autorizacao.status = 'ativa'
+		";
+		$result = mysqli_query($connection, $sql_command);
+
+		return ($result) ? mysqli_fetch_all($result, MYSQLI_ASSOC) : [];
+	}
+
+	function get_professional_reports_html($id_profissional) {
+		$data = get_professional_patients_reports($id_profissional);
+
+		if (empty($data)) {
+			return "<p class=\"mensagem\">Você não possui nenhum relatório de pacientes</p>";
+		}
+
+		$html = "";
+		foreach ($data as $item) {
+			$html .= get_rendered_template(ROOT."/includes/relatorio_card.php", $item);
+		}
+
+		return $html;
+	}
+
+	function professional_can_view_report($id_profissional, $id_report) {
+		$connection = connect_to_database();
+
+		$sql_command = "
+			SELECT 1
+			FROM relatorio
+			INNER JOIN autorizacao ON relatorio.id_paciente = autorizacao.id_paciente
+			WHERE relatorio.id_relatorio = $id_report
+			AND autorizacao.id_profissional = $id_profissional
+			AND autorizacao.status = 'ativa'
+		";
+		$result = mysqli_query($connection, $sql_command);
+
+		return ($result && mysqli_num_rows($result) > 0);
+	}
+
 	function get_report($id_report) {
 		$connection = connect_to_database();
 

@@ -45,7 +45,7 @@
 	}
 </style>
 
-<article class="light" data-id="<?= $id_relatorio ?>">
+<article class="light" data-id="<?= $id_relatorio ?>" data-search="<?= htmlspecialchars(strtolower($titulo . ' ' . $periodo_inicio . ' ' . $perido_fim . ' ' . (isset($paciente_nome) ? $paciente_nome : ''))) ?>">
 	<header class="<?= ($dados_analiticos != null) ? "anotado" : "" ?>">
 		<h3><?= htmlspecialchars($titulo) ?></h3>
 	</header>
@@ -53,6 +53,9 @@
 	<hr>
 
 	<div class="content">
+		<?php if (!empty($paciente_nome) && isset($_SESSION["tipo_usuario"]) && $_SESSION["tipo_usuario"] === "profissional"): ?>
+			<p><strong>Paciente:</strong> <?= htmlspecialchars($paciente_nome) ?></p>
+		<?php endif; ?>
 		<p><strong>Início dos sintomas:</strong> <?= date('d/m/Y', strtotime($periodo_inicio)) ?></p>
 		<p><strong>Fim dos sintomas:</strong> <?= date('d/m/Y', strtotime($perido_fim)) ?></p>
 	</div>

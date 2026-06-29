@@ -34,6 +34,7 @@
 	<div id="aside_up">
 		<a href="/pages/profissional">Página Inicial</a>
 		<a href="/pages/profissional/exame.php">Exames</a>
+		<a href="/pages/profissional/relatorios.php">Relatórios</a>
 		<a href="/pages/profissional/prescricao.php">Farmácia</a>
 	</div>
 
