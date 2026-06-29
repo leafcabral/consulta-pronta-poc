@@ -74,12 +74,14 @@
 		.perfil{
 			display: flex;
 			align-items: center;
-			background-color: #F4EFE6;
-			width: 600px;
-			margin: 10px auto 20px;
-			border-radius: 5px;
+			justify-content: center;
+			width: 400px;
+			margin: 50px auto 10px;
 			padding: 5px 10px;
-			color: #2B254D;
+		}
+		.containermid {
+			grid-template-columns: 1fr 1fr 1fr;
+			display: grid:
 		}
 	 </style>
 </head>
@@ -98,50 +100,51 @@
 		</div>
 
 
-					
-		<section id="dados_pessoais">
-			<h3>Dados pessoais:</h3>
-			<!-- <button onclick="abrir_edicao('Editar Dados Pessoais', 'dados_pessoais')">Editar</button> -->
+		<div class="containermid">
+			<section id="dados_pessoais">
+				<h3>Dados pessoais:</h3>
+				<!-- <button onclick="abrir_edicao('Editar Dados Pessoais', 'dados_pessoais')">Editar</button> -->
 
-			<?php 
-				render_profile_field("CPF", "cpf", $user_info["cpf"]);
-				render_profile_field("Email", "email", $user_info["email"]);
-				render_profile_field("Data de nascimento", "data_nascimento", $patient_info["data_nascimento"]);
-				render_profile_field("Conta criada em", "data_cadastro", $user_info["data_cadastro"]);
-			?>
-		</section>
-		
-		<br>
-		
-		<section id="dados_saude">
-			<h3>Dados de saúde:</h3>
-			<button onclick="abrir_edicao('Editar Dados de Saúde', 'dados_saude')">Editar</button>
+				<?php 
+					render_profile_field("CPF", "cpf", $user_info["cpf"]);
+					render_profile_field("Email", "email", $user_info["email"]);
+					render_profile_field("Data de nascimento", "data_nascimento", $patient_info["data_nascimento"]);
+					render_profile_field("Conta criada em", "data_cadastro", $user_info["data_cadastro"]);
+				?>
+			</section>
 			
-			<?php 
-				render_profile_field("Altura (cm)", "altura", $patient_info["altura"]);
-				render_profile_field("Peso (kg)", "peso", $patient_info["peso"]);
-				render_profile_field("Tipo sanguíneo", "tipo_sanguineo", $patient_info["tipo_sanguineo"]);
-				render_profile_field("Alergias", "alergias", $patient_info["alergias"]);
-				render_profile_field("Doenças", "doencas", $patient_info["doencas"]);
-				render_profile_field("Histórico Familiar", "historico_familiar", $patient_info["historico_familiar"]);
-			?>
-		</section>
-		
-		<br>
-		
-		<section id="dados_contato">
-			<h3>Dados de contato:</h3>
-			<button onclick="abrir_edicao('Editar Dados de Contato', 'dados_contato')">Editar</button>
-			<button onclick="abrir_adicionar('Editar Dados de Contato', 'dados_contato')">Adicionar</button>
+			<br>
 			
-			<?php
-				foreach ($contacts as $contact) {
-					$tipo = $contact["tipo"];
-					$valor = $contact["valor"];
-					render_profile_field($contact["tipo"], strtolower($contact["tipo"]), $contact["valor"]);
-				}
-			?>
-		</section>
+			<section id="dados_saude">
+				<h3>Dados de saúde:</h3>
+				<button onclick="abrir_edicao('Editar Dados de Saúde', 'dados_saude')">Editar</button>
+				
+				<?php 
+					render_profile_field("Altura (cm)", "altura", $patient_info["altura"]);
+					render_profile_field("Peso (kg)", "peso", $patient_info["peso"]);
+					render_profile_field("Tipo sanguíneo", "tipo_sanguineo", $patient_info["tipo_sanguineo"]);
+					render_profile_field("Alergias", "alergias", $patient_info["alergias"]);
+					render_profile_field("Doenças", "doencas", $patient_info["doencas"]);
+					render_profile_field("Histórico Familiar", "historico_familiar", $patient_info["historico_familiar"]);
+				?>
+			</section>
+			
+			<br>
+			
+			<section id="dados_contato">
+				<h3>Dados de contato:</h3>
+				<button onclick="abrir_edicao('Editar Dados de Contato', 'dados_contato')">Editar</button>
+				<button onclick="abrir_adicionar('Editar Dados de Contato', 'dados_contato')">Adicionar</button>
+				
+				<?php
+					foreach ($contacts as $contact) {
+						$tipo = $contact["tipo"];
+						$valor = $contact["valor"];
+						render_profile_field($contact["tipo"], strtolower($contact["tipo"]), $contact["valor"]);
+					}
+				?>
+			</section>
+		</div>
 
 		<dialog id="editar_dados">
 			<article class="dark">
