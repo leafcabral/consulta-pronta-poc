@@ -91,6 +91,7 @@
 			padding: 5px;
     		margin: 5px 10px 5px 0px;
 		}
+
 		.titulo {
 			display: flex;
 			align-items: center;
@@ -219,13 +220,13 @@
 						</form>
 					</article>
 				</dialog>
-				<div class="titulo" onclick="toggleSecao('contato')>
-					<h3>Dados de contato:</h3>
-					<section>
-						<button onclick="abrir_edicao('Editar Dados de Contato', 'dados_contato')">Editar</button>
-						<button onclick="abrir_adicionar('Editar Dados de Contato', 'dados_contato')">Adicionar</button>
-					</section>
-				</div>
+					<div class="titulo" onclick="toggleSecao('contato')>
+						<h3>Dados de contato:</h3>
+						<section>
+							<button onclick="abrir_edicao('Editar Dados de Contato', 'dados_contato')">Editar</button>
+							<button onclick="abrir_adicionar('Editar Dados de Contato', 'dados_contato')">Adicionar</button>
+						</section>
+					</div>
 				
 				<div class="info" id="contato">
 					<?php
