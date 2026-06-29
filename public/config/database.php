@@ -286,4 +286,55 @@
 		
 		return true;
 	}
+
+	function get_patient_professionals($id_paciente) {
+		$connection = connect_to_database();
+
+		$sql_command = "
+			SELECT
+				usuario.nome,
+				profissional.id_profissional,
+				profissional.crm,
+				profissional.especialidades,
+				autorizacao.data_concessao,
+				autorizacao.data_revogacao,
+				autorizacao.status
+			FROM paciente
+			INNER JOIN autorizacao ON paciente.id_paciente = autorizacao.id_paciente
+			INNER JOIN profissional ON autorizacao.id_profissional = profissional.id_profissional
+			INNER JOIN usuario ON profissional.id_profissional = usuario.id_usuario
+			WHERE paciente.id_paciente = $id_paciente
+		";
+		$result = mysqli_query($connection, $sql_command);
+
+		return ($result) ? mysqli_fetch_all($result, MYSQLI_ASSOC) : [];
+	}
+
+	function get_patient_professionals_html($id_paciente) {
+		$data = get_patient_professionals($id_paciente);
+		if (empty($data)) {
+			return "<p class=\"mensagem\">Você não possui nenhum profissional</p>";
+		}
+
+		$html = "";
+		foreach ($data as $item) {
+			$html .= get_rendered_template(ROOT."/includes/profissional.php", $item);
+		}
+
+		return $html;
+	}
+
+	function update_authorization_status($id_paciente, $id_profissional, $status) {
+		$connection = connect_to_database();
+
+		$data_revogacao = $status == "ativa" ? "null" : "CURRENT_DATE";
+		$sql_command = "
+			UPDATE autorizacao
+			SET status = '$status', data_revogacao = $data_revogacao
+			WHERE id_paciente = $id_paciente AND id_profissional = $id_profissional
+		";
+		$result = mysqli_query($connection, $sql_command);
+
+		return $result;
+	}
 ?>
