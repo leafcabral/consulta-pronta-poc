@@ -24,35 +24,11 @@ verify_user_logged_in();
 		</header>
 
 		<section id="dashboard_content_visu">
-			<article class="dark" id="prescricoes">
-				<h3>Prescrições</h3>
+			<article class="dark" id="relatorio1">
+				<h3>relatorio</h3>
 
 				<div class="lista">
 					<?= get_patient_data_html($_SESSION["id_usuario"], "prescricao", "Não há prescrições") ?>
-				</div>
-			</article>
-
-			<article class="dark" id="consultas">
-				<h3>Consultas próximas</h3>
-
-				<div class="lista">
-					<?= get_patient_data_html($_SESSION["id_usuario"], "consulta", "Não há consultas marcadas") ?>
-				</div>
-			</article>
-
-			<article class="dark" id="exames">
-				<h3>Exames</h3>
-
-				<div class="lista">
-					<?= get_patient_data_html($_SESSION["id_usuario"], "exame", "Não há exames") ?>
-				</div>
-			</article>
-
-			<article class="dark" id="sintomas">
-				<h3>Sintomas recentes</h3>
-
-				<div class="lista">
-					<?= get_patient_data_html($_SESSION["id_usuario"], "sintoma", "Não há sintomas registrados") ?>
 				</div>
 			</article>
 		</section>

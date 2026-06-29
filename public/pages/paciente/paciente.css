@@ -15,7 +15,7 @@ section#dashboard_content_visu {
 		"consultas exames sintomas";
 	gap: 1em;
 	height: min(500px, 60vh);
-	grid-template-columns: 1fr;
+	grid-template-columns: 1fr 1fr;
 }
 
 @media (max-width: 1000px) {
