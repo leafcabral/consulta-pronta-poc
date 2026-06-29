@@ -88,12 +88,13 @@
 			color: var(--color-background);
 			border-radius: 10px;
 			padding: 5px;
-    		margin: 5px 5px;
+    		margin: 5px 10px 5px 0px;
 		}
 		.titulo {
 			display: flex;
 			justify-content: space-between;
 			color: var(--color-surface);
+			margin: 0px 10px 0px 0px;
 		}
 		button{
 			background-color: transparent;
