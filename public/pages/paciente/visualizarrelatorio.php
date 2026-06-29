@@ -26,11 +26,6 @@ verify_user_logged_in();
 		
 	}
 
-	section#notas{
-		display: grid;
-		flex-direction: column;
-	}
-
 	.relatorios {
 		display: flex;
 		flex-direction: column;
@@ -67,9 +62,6 @@ verify_user_logged_in();
 				<h3>periodo: 10 de abril a 16 de abriel</h3>
 				<h3>duração: 8 dias</h3>
 				<h2>Cronologia dos Sintomas</h2>
-				<section id="notas">
-
-				</section>
 			</article>
 		</section>
 	</main>
