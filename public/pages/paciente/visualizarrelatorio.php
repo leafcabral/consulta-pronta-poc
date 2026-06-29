@@ -36,6 +36,7 @@
 	#lorem{
 		overflow: auto;
   		min-height: 400px; 
+		scrollbar-width: none;
 	}
 	#lorem::-webkit-scrollbar {
 		display: none;
