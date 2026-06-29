@@ -93,10 +93,34 @@
 		}
 		.titulo {
 			display: flex;
-			justify-content: space-between;
+			align-items: center;
+			gap: 10px;
 			color: var(--color-surface);
 			margin: 0px 10px 0px 0px;
+			cursor: pointer;
 		}
+
+
+		.seta {
+			font-size: 18px;
+			transition: transform 0.3s;
+		}
+
+
+		.seta.aberta {
+			transform: rotate(90deg);
+		}
+
+
+		.conteudo {
+			display: none;
+		}
+
+
+		.conteudo.ativo {
+			display: block;
+		}
+
 		button{
 			background-color: transparent;
 			color: var(--color-surface);
@@ -120,12 +144,11 @@
 			</div>
 		</div>
 
-
 		<div class="containermid">
 			<section id="dados_pessoais">
 				<h3>Dados pessoais:</h3>
 				<!-- <button onclick="abrir_edicao('Editar Dados Pessoais', 'dados_pessoais')">Editar</button> -->
-				<div class="info">
+				<div class="info" id="pessoais">
 					<?php 
 						render_profile_field("CPF", "cpf", $user_info["cpf"]);
 						render_profile_field("Email", "email", $user_info["email"]);
@@ -135,14 +158,15 @@
 				</div>
 				
 			</section>
-			
+
 			<section id="dados_saude">
-				<div class="titulo">
+				<div class="titulo" onclick="toggleSecao('saude')">
+					<span class="seta">▶</span>
 					<h3>Dados de saúde:</h3>
 					<button onclick="abrir_edicao('Editar Dados de Saúde', 'dados_saude')">Editar</button>
 				</div>
 				
-				<div class="info">
+				<div class="info" id="saude">
 					<?php 
 						render_profile_field("Altura (cm)", "altura", $patient_info["altura"]);
 						render_profile_field("Peso (kg)", "peso", $patient_info["peso"]);
@@ -158,8 +182,8 @@
 			<section id="dados_contato">
 				<dialog id="editar_dados">
 					<article class="dark">
+						<span class="seta">▶</span>
 						<h3>Editar dados: </h3>
-						
 						<form action="atualizar_perfil.php" method="post">
 							<input id="secao" type="hidden" name="secao" value="">
 							<input id="operacao" type="hidden" name="operacao" value="editar">
@@ -174,6 +198,8 @@
 
 				<dialog id="adicionar_dados">
 					<article class="dark">
+
+						<span class="seta">▶</span>
 						<h3>Adicionar dados: </h3>
 						
 						<form action="atualizar_perfil.php" method="post">
@@ -193,7 +219,7 @@
 						</form>
 					</article>
 				</dialog>
-				<div class="titulo">
+				<div class="titulo" onclick="toggleSecao('contato')>
 					<h3>Dados de contato:</h3>
 					<section>
 						<button onclick="abrir_edicao('Editar Dados de Contato', 'dados_contato')">Editar</button>
@@ -201,7 +227,7 @@
 					</section>
 				</div>
 				
-				<div class="info">
+				<div class="info" id="contato">
 					<?php
 						foreach ($contacts as $contact) {
 							$tipo = $contact["tipo"];
@@ -265,6 +291,20 @@
 					overlayAdicionar.close();
 					break
 			}
+		}
+
+		function toggleSecao(id){
+
+			const conteudo = document.getElementById(id)
+
+			const titulo = conteudo.previousElementSibling
+
+			const seta = titulo.querySelector(".seta")
+
+
+			conteudo.classList.toggle("ativo")
+
+			seta.classList.toggle("aberta")
 		}
 	</script>
 </body>
