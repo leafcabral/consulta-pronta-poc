@@ -69,7 +69,7 @@
 	}
 </style>
 <script>
-	const blocoRelatorio = document.getElementById("lorem");
+	const blocoRelatorio = document.getElementById("abrir");
 	const blocoLista = document.getElementById("re_dores");
 
 	blocoLista.addEventListener("click", () => {
@@ -99,6 +99,7 @@
 						<label>Horário: 14:00</label>
 					</div>
 				</div>
+				<button id="abrir">visualizar</button>
 			</article>
 
 			<article class="bloco" id="lorem" style="height: 450px">
