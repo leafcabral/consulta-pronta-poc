@@ -164,7 +164,10 @@
 				<div class="titulo" onclick="toggleSecao('saude')">
 					<span class="seta">▶</span>
 					<h3>Dados de saúde:</h3>
-					<button onclick="abrir_edicao('Editar Dados de Saúde', 'dados_saude')">Editar</button>
+					<section>
+						<button onclick="abrir_edicao('Editar Dados de Saúde', 'dados_saude')">Editar</button>
+					</section>
+					
 				</div>
 				
 				<div class="info conteudo" id="saude">
