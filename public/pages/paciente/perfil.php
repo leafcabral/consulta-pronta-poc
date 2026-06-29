@@ -93,10 +93,18 @@
 		}
 		.titulo {
 			display: flex;
+			align-items: center;
 			gap: 10px;
 			color: var(--color-surface);
 			margin: 0px 10px 0px 0px;
 			cursor: pointer;
+		}
+
+
+		.titulo section {
+			margin-left: auto;
+			display: flex;
+			gap: 10px;
 		}
 		.seta {
 			font-size: 18px;
@@ -212,24 +220,17 @@
 						</form>
 					</article>
 				</dialog>
-					<div class="titulo" onclick="toggleSecao('contato')">
-
+				<div class="titulo" onclick="toggleSecao('contato')">
 					<span class="seta">▶</span>
-
 					<h3>Dados de contato:</h3>
-
 					<section>
-
 						<button onclick="event.stopPropagation(); abrir_edicao('Editar Dados de Contato', 'dados_contato')">
 							Editar
 						</button>
-
 						<button onclick="event.stopPropagation(); abrir_adicionar('Adicionar Dados de Contato', 'dados_contato')">
 							Adicionar
 						</button>
-
 					</section>
-
 				</div>
 				
 				<div class="info" id="contato">
