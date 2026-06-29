@@ -79,7 +79,7 @@
 		align-items: center;
 		background-color: #F4EFE6;
 		width: 600px;
-		margin: 60px auto 20px;
+		margin: 10px auto 20px;
 		border-radius: 5px;
 		padding: 5px 10px;
 		color: #2B254D;
@@ -92,7 +92,7 @@
 	}
 	.gerar{
 		display: inline-block;
-		width: 100px;
+		width: 200px;
 		border: 1px solid var(--color-background);
 		border-radius: 10px;
 		color: var(--color-background);
