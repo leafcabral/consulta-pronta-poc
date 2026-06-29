@@ -83,6 +83,11 @@
 			display: grid;
 			grid-template-columns: 1fr 1fr 1fr;
 		}
+		.info{
+			background-color: var(--color-surface);
+			color: var(--color-background);
+			border-radius: 15px;
+		}
 	 </style>
 </head>
 <body>
@@ -104,13 +109,15 @@
 			<section id="dados_pessoais">
 				<h3>Dados pessoais:</h3>
 				<!-- <button onclick="abrir_edicao('Editar Dados Pessoais', 'dados_pessoais')">Editar</button> -->
-
-				<?php 
-					render_profile_field("CPF", "cpf", $user_info["cpf"]);
-					render_profile_field("Email", "email", $user_info["email"]);
-					render_profile_field("Data de nascimento", "data_nascimento", $patient_info["data_nascimento"]);
-					render_profile_field("Conta criada em", "data_cadastro", $user_info["data_cadastro"]);
-				?>
+				<div class="info">
+					<?php 
+						render_profile_field("CPF", "cpf", $user_info["cpf"]);
+						render_profile_field("Email", "email", $user_info["email"]);
+						render_profile_field("Data de nascimento", "data_nascimento", $patient_info["data_nascimento"]);
+						render_profile_field("Conta criada em", "data_cadastro", $user_info["data_cadastro"]);
+					?>
+				</div>
+				
 			</section>
 			
 			<section id="dados_saude">
@@ -159,7 +166,7 @@
 								<label for="input_valor">Qual é a forma  de contato?</label>
 								<input type="text" id="input_valor" name="valor" value="">
 							</fieldset>
-							
+
 							<button type="submit">Adicionar</button>
 							<button type="button" onclick="fechar_overlay('adicionar')">Fechar</button>
 						</form>
