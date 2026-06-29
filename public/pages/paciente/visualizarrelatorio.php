@@ -68,7 +68,7 @@
 		text-align: center;
 	}
 	h3 {
-		margin-bottom: 10px;
+		margin-bottom: 0px;
 	}
 </style>
 <body>
