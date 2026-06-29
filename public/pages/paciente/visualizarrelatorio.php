@@ -21,6 +21,7 @@
 	height: min(150px, 60vh);
 	}
 	.bloco {
+		gap: 10px;
 		padding: 18px;
 		border-radius: 18px;
 		background-color: var(--color-surface);
@@ -87,8 +88,10 @@
 			</article>
 
 			<article class="bloco" id="lorem" style="height: 450px">
-				<h1>Dores Constantes nas Costas</h1>
-				<h2>Cláudio Silva</h2>
+				<div>
+					<h1>Dores Constantes nas Costas</h1>
+					<h2>Cláudio Silva</h2>
+				</div>
 
 				<div>
 					<h3>CronoLogia do Sintoma</h3>
@@ -142,6 +145,7 @@
 
 					</div>
 				</div>
+
 			</article>
 		</section>
 	</main>
