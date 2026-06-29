@@ -21,8 +21,15 @@ verify_user_logged_in();
 			"relatorio1 visu"        
 			"relatorio1 visu";
 		gap: 1em;
-		height: min(300px, 60vh);
+		height: min(250px, 60vh);
 		grid-template-columns: 10fr 15fr;
+		
+	}
+	.relatorios {
+		display: flex;
+		flex-direction: column;
+		background-color: #F4EFE6;
+		color: #231C44;
 	}
 	
 </style>
@@ -35,7 +42,7 @@ verify_user_logged_in();
 		</header>
 
 		<section id="dashboard_content_visu">
-			<article class="dark" id="relatorio1">
+			<article class="relatorios" id="relatorio1">
 				<h1>relatorio: Dores</h1>
 				<h3>ID: 123456789/1242</h3>
 				<h3>Data: 01/04/2026</h3>
