@@ -67,6 +67,20 @@
 			display: grid;
 			grid-template-columns: 1fr 1fr;
 		}
+		.containerhead {
+			display: grid;
+			gap: 20px;
+		}
+		.perfil{
+			display: flex;
+			align-items: center;
+			background-color: #F4EFE6;
+			width: 600px;
+			margin: 10px auto 20px;
+			border-radius: 5px;
+			padding: 5px 10px;
+			color: #2B254D;
+		}
 	 </style>
 </head>
 <body>
@@ -74,10 +88,17 @@
 
 	<main>
 		<header>
-			<h1><?= $user_info["nome"] ?></h1>
-			<h2>Seu perfil</h2>
+			<h1>Meu Perfil</h1>
 		</header>
 
+		<div class="containerhead">
+			<div class="pesquisa">
+				<h1><?= $user_info["nome"] ?></h1>
+			</div>
+		</div>
+
+
+					
 		<section id="dados_pessoais">
 			<h3>Dados pessoais:</h3>
 			<!-- <button onclick="abrir_edicao('Editar Dados Pessoais', 'dados_pessoais')">Editar</button> -->
