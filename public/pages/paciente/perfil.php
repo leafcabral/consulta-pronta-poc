@@ -86,7 +86,9 @@
 		.info{
 			background-color: var(--color-surface);
 			color: var(--color-background);
-			border-radius: 15px;
+			border-radius: 10px;
+			padding: 5px;
+    		margin: 10px;
 		}
 	 </style>
 </head>
@@ -121,8 +123,10 @@
 			</section>
 			
 			<section id="dados_saude">
-				<h3>Dados de saúde:</h3>
-				<button onclick="abrir_edicao('Editar Dados de Saúde', 'dados_saude')">Editar</button>
+				<div>
+					<h3>Dados de saúde:</h3>
+					<button onclick="abrir_edicao('Editar Dados de Saúde', 'dados_saude')">Editar</button>
+				</div>
 				
 				<div class="info">
 					<?php 
@@ -175,17 +179,22 @@
 						</form>
 					</article>
 				</dialog>
-				<h3>Dados de contato:</h3>
-				<button onclick="abrir_edicao('Editar Dados de Contato', 'dados_contato')">Editar</button>
-				<button onclick="abrir_adicionar('Editar Dados de Contato', 'dados_contato')">Adicionar</button>
+				<div>
+					<h3>Dados de contato:</h3>
+					<button onclick="abrir_edicao('Editar Dados de Contato', 'dados_contato')">Editar</button>
+					<button onclick="abrir_adicionar('Editar Dados de Contato', 'dados_contato')">Adicionar</button>
+				</div>
 				
-				<?php
-					foreach ($contacts as $contact) {
-						$tipo = $contact["tipo"];
-						$valor = $contact["valor"];
-						render_profile_field($contact["tipo"], strtolower($contact["tipo"]), $contact["valor"]);
-					}
-				?>
+				<div class="info">
+					<?php
+						foreach ($contacts as $contact) {
+							$tipo = $contact["tipo"];
+							$valor = $contact["valor"];
+							render_profile_field($contact["tipo"], strtolower($contact["tipo"]), $contact["valor"]);
+						}
+					?>
+				</div>
+				
 			</section>
 		</div>
 
