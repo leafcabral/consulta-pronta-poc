@@ -7,6 +7,15 @@ section#dashboard_content {
 	height: min(500px, 60vh);
 	grid-template-columns: repeat(3, 1fr);
 }
+section#dashboard_content_visu {
+	display: grid;
+	grid-template-areas: 
+		"remedios exames sintomas"
+		"consultas exames sintomas";
+	gap: 1em;
+	height: min(500px, 60vh);
+	grid-template-columns: 1fr;
+}
 
 @media (max-width: 1000px) {
 	section#dashboard_content {
