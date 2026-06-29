@@ -17,7 +17,6 @@ verify_user_logged_in();
 <style>
 	section#dashboard_content_rela {
 		display: grid;
-		flex-direction: column;
     	grid-template-areas:         
 			"relatorio1 visu"        
 			"relatorio1 visu";
@@ -26,7 +25,6 @@ verify_user_logged_in();
 		grid-template-columns: 10fr 15fr;
 		
 	}
-
 	.relatorios {
 		display: flex;
 		flex-direction: column;
@@ -58,11 +56,10 @@ verify_user_logged_in();
 				</div>
 			</article>
 			<article class="relatorios" id="visu">
-				<h1>Dor nas costas constantes</h1>
+				<h2>Dor nas costas constantes</h2>
 				<h5>RELATORIO ID51966</h5>
 				<h3>periodo: 10 de abril a 16 de abriel</h3>
-				<h3>duração: 8 dias</h3>
-				<h2>Cronologia dos Sintomas</h2>
+				<h3></h3>
 			</article>
 		</section>
 	</main>
