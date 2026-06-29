@@ -108,6 +108,7 @@
 			margin-left: auto;
 			display: flex;
 			gap: 10px;
+			align-items: center;
 		}
 		.seta {
 			font-size: 18px;
@@ -154,9 +155,15 @@
 		<br>
 		
 		<section id="dados_saude">
-			<h3>Dados de saúde:</h3>
-			<button onclick="abrir_edicao('Editar Dados de Saúde', 'dados_saude')">Editar</button>
-			
+			<div class="titulo">
+				<h3>Dados de saúde:</h3>
+
+				<section>
+					<button onclick="abrir_edicao('Editar Dados de Saúde', 'dados_saude')">
+						Editar
+					</button>
+				</section>
+			</div>
 			<?php 
 				render_profile_field("Altura (cm)", "altura", $patient_info["altura"]);
 				render_profile_field("Peso (kg)", "peso", $patient_info["peso"]);
@@ -170,10 +177,23 @@
 		<br>
 		
 		<section id="dados_contato">
-			<h3>Dados de contato:</h3>
-			<button onclick="abrir_edicao('Editar Dados de Contato', 'dados_contato')">Editar</button>
-			<button onclick="abrir_adicionar('Editar Dados de Contato', 'dados_contato')">Adicionar</button>
-			
+			<div class="titulo">
+
+				<h3>Dados de contato:</h3>
+
+				<section>
+
+					<button onclick="abrir_edicao('Editar Dados de Contato', 'dados_contato')">
+						Editar
+					</button>
+
+					<button onclick="abrir_adicionar('Adicionar Dados de Contato', 'dados_contato')">
+						Adicionar
+					</button>
+
+				</section>
+
+			</div>
 			<?php
 				foreach ($contacts as $contact) {
 					$tipo = $contact["tipo"];
