@@ -155,8 +155,11 @@
 
 			<section id="dados_saude">
 				<div class="titulo" onclick="toggleSecao('saude')">
-					<span class="seta">▶</span>
-					<h3>Dados de saúde:</h3>
+					<div>
+						<span class="seta">▶</span>
+						<h3>Dados de saúde:</h3>
+					</div>
+					
 					<button onclick="abrir_edicao('Editar Dados de Saúde', 'dados_saude')">Editar</button>
 				</div>
 				
@@ -176,8 +179,10 @@
 			<section id="dados_contato">
 				<dialog id="editar_dados">
 					<article class="dark">
-						<span class="seta">▶</span>
-						<h3>Editar dados: </h3>
+						<div>
+							<span class="seta">▶</span>
+							<h3>Editar dados: </h3>
+						</div>
 						<form action="atualizar_perfil.php" method="post">
 							<input id="secao" type="hidden" name="secao" value="">
 							<input id="operacao" type="hidden" name="operacao" value="editar">
@@ -192,9 +197,10 @@
 
 				<dialog id="adicionar_dados">
 					<article class="dark">
-
-						<span class="seta">▶</span>
-						<h3>Adicionar dados: </h3>
+						<div>
+							<span class="seta">▶</span>
+							<h3>Adicionar dados: </h3>
+						</div>
 						
 						<form action="atualizar_perfil.php" method="post">
 							<input id="secao" type="hidden" name="secao" value="">
