@@ -26,8 +26,9 @@ section#dashboard_content {
 
 article {
 	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
+    flex-direction: column;
+    background-color: #F4EFE6;
+    color: #231C44;
 }
 
 article#prescricoes {
