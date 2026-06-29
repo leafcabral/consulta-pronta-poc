@@ -16,9 +16,15 @@
 	grid-template-areas:
 		"re_dores dores"
 		"lorem ipsum dores";
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: 10fr 15fr;
 	gap: 1em;
 	height: min(500px, 60vh);
+	}
+	.bloco {
+		padding: 18px;
+		border-radius: 18px;
+		background-color: #F4EFE6;
+		color: transparent;
 	}
 </style>
 <body>
@@ -26,8 +32,7 @@
 
 	<main>
 		<header>
-			<h1>Dashboard</h1>
-			<h2>Seja bem vindo, <?= get_user_by_id($_SESSION["id_usuario"])["nome"] ?></h2>
+			<h1>Relatórios</h1>
 		</header>
 
 		<section id="dashboard_content_visu">
@@ -35,24 +40,26 @@
 				<h3>Relatório</h3>
 				<h2>Dores</h2>
 				<div class="lista">
-					<?= get_patient_data_html($_SESSION["id_usuario"], "triagem", "Não há triagens") ?>
-				</div>
-			</article>
+					
 
-			<article class="dark" id="lorem ipsum">
+			<article class="bloco" id="lorem ipsum">
 				<h3>Relatório</h3>
 				<h2>Lorem Ipsum</h2>
-				<div class="lista">
-					<?= get_patient_data_html($_SESSION["id_usuario"], "relatorios", "Não há relatórios") ?>
+				<div>
+					<label>ID: 123456789/1242</label>
+					<div>
+					<label>Data: 01/04/2026</label>
+					<label>Horário: 14:00</label>
+					</div>
 				</div>
+					
 			</article>
 
 			<article class="dark" id="dores">
 				<h1>Dores</h1>
 
-				<div class="lista">
-					<?= get_patient_data_html($_SESSION["id_usuario"], "pacientes", "Não há pacientes passados") ?>
-				</div>
+				<div>
+					
 			</article>
 		</section>
 	</main>
