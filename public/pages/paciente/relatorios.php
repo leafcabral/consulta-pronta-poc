@@ -247,24 +247,27 @@ if ($form_enviado) {
 					carregarRelatorio(relatorio.dataset.id)
 				})
 			});
+		})
 
-				const busca = document.getElementById("inputrelatorios");
-				const nenhumResultado = document.getElementById("nenhum-resultado");
+		const busca = document.getElementById("inputrelatorios");
+		const nenhumResultado = document.getElementById("nenhum-resultado");
 
-				function filtrarRelatorios() {
-					const termo = (busca?.value || "").trim().toLowerCase();
-					const cards = Array.from(document.querySelectorAll("#lista > article"));
-					let visiveis = 0;
+		function filtrarRelatorios() {
+			const termo = (busca?.value || "").trim().toLowerCase();
+			const cards = Array.from(document.querySelectorAll("#lista > article"));
+			let visiveis = 0;
 
-					cards.forEach((card) => {
-						const textoBusca = (card.dataset.search || "").toLowerCase();
-						const deveMostrar = textoBusca.includes(termo);
-						card.classList.toggle("hidden", !deveMostrar);
-						if (deveMostrar) visiveis++;
-					});
+			cards.forEach((card) => {
+				const textoBusca = (card.dataset.search || "").toLowerCase();
+				const deveMostrar = textoBusca.includes(termo);
+				card.classList.toggle("hidden", !deveMostrar);
+				if (deveMostrar) visiveis++;
+			});
 
-					nenhumResultado.classList.toggle("hidden", visiveis !== 0);
-				}
+			nenhumResultado.classList.toggle("hidden", visiveis !== 0);
+		}
 
-				busca?.addEventListener("input", filtrarRelatorios);
-				filtrarRelatorios();
+		busca?.addEventListener("input", filtrarRelatorios);
+		filtrarRelatorios();
+	</script>
+</body>
