@@ -35,6 +35,17 @@ if ($form_enviado) {
 			padding-bottom: 0;
 		}
 
+		dialog {
+			background-color: transparent;
+			border: 0;
+			align-self: center;
+			justify-self: center;
+			
+			&::backdrop {
+				background: rgba(0, 0, 0, 0.2);
+			}
+		}
+
 		form {
 			display: flex;
 			flex-direction: column;
@@ -52,8 +63,8 @@ if ($form_enviado) {
 		}
 
 		input, select, textarea, button {
-			flex-grow: 1;
-			padding: 0.5em;
+			padding: 0.5em 1em;
+			width: fit-content;
 		}
 
 		.input_wrapper {
@@ -63,7 +74,6 @@ if ($form_enviado) {
 		}
 		
 		button {
-			width: 128px;
 			background-color: var(--color-accent);
 			color: var(--color-text-dark);
 			border-radius: 6px;
@@ -82,6 +92,14 @@ if ($form_enviado) {
 			overflow-y: auto;
 			padding-bottom: 1em;
 		}
+
+		section#header {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			gap: 16px;
+    		align-self: center;
+		}
 	</style>
 </head>
 <body>
@@ -89,33 +107,45 @@ if ($form_enviado) {
 
 	<main>
 		<header>
-			<h1>Relatório</h1>
-			<h2>Gera um relatório dos seus sintomas</h2>
+			<h1>Seus Relatório</h1>
+			<h2>Visualize e gere novos</h2>
 		</header>
 
-		<dialog>
-			<form method="post">
-				<fieldset>
-					<label for="descricao">Titulo do relatório</label>
-					<input type="text" name="titulo" id="titulo" placeholder="Insira um titulo descritivo" required>
-				</fieldset>
+		<section id="header">
+			<input type="text" id="inputrelatorios" placeholder="Buscar relatorios">
+			<button onclick="mostrarOverlay()"><b>Gerar novo relatório</b></button>
+		</section>
+
+		<br>
+
+		<dialog id="gerar_relatorio">
+			<article class="dark">
+				<form method="post">
+					<fieldset>
+						<label for="descricao">Titulo do relatório</label>
+						<input type="text" name="titulo" id="titulo" placeholder="Insira um titulo descritivo" required>
+					</fieldset>
+				
+					<fieldset>
+						<p>Período</p>
+						<div class="input_wrapper">
+							<div>
+								<label for="data_inicio">Data de inicio</label>
+								<input type="date" name="data_inicio" id="data_inicio" required>
+							</div>
+							<div>
+								<label for="data_fim">Data de fim</label>
+								<input type="date" name="data_fim" id="data_fim" value="<?= date('Y-m-d') ?>" required>
+							</div>
+						</div>
+					</fieldset>
 			
-				<fieldset>
-					<p>Período</p>
-					<div class="input_wrapper">
-						<div>
-							<label for="data_inicio">Data de inicio</label>
-							<input type="date" name="data_inicio" id="data_inicio" required>
-						</div>
-						<div>
-							<label for="data_fim">Data de fim</label>
-							<input type="date" name="data_fim" id="data_fim" value="<?= date('Y-m-d') ?>" required>
-						</div>
+					<div>
+						<button type="submit">Gerar</button>
+						<button type="button" onclick="fecharOverlay()">Fechar</button>
 					</div>
-				</fieldset>
-			
-				<button>Gerar</button>
-			</form>
+				</form>
+			</article>
 		</dialog>
 
 		<section id="lista">
@@ -124,6 +154,15 @@ if ($form_enviado) {
 	</main>
 
 	<script>
+		const laylay = document.getElementById("gerar_relatorio")
+
+		function mostrarOverlay() {
+			laylay.showModal()
+		}
+		function fecharOverlay() {
+			laylay.close()
+		}
+
 		function atualizarIntensidadeAtual(event) {
 			const amostradinho = document.getElementById("intensidade_atual")
 			amostradinho.innerText = event.currentTarget.value
