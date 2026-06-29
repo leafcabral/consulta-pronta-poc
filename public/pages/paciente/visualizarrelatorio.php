@@ -30,13 +30,15 @@
 		overflow: auto;
   		max-height: 150px; 
 	}
-	#dores{
-		overflow: auto;
-  		max-height: 150px; 
+	#re_dores::-webkit-scrollbar{
+		display: none;
 	}
 	#lorem{
 		overflow: auto;
   		min-height: 400px; 
+	}
+	#lorem::-webkit-scrollbar {
+		display: none;
 	}
 	#atualizações{
 		display: grid;
