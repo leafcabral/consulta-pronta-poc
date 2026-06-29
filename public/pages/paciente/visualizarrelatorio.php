@@ -67,7 +67,7 @@
 		border: 1px solid var(--color-background);
 		text-align: center;
 	}
-	h3 {
+	h2 {
 		margin-bottom: 0px;
 	}
 </style>
