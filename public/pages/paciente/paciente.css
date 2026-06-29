@@ -17,6 +17,14 @@ section#dashboard_content {
 }
 
 @media (max-width: 1000px) {
+	section#dashboard_content_rela {
+		display: flex;
+		flex-direction: column;
+	}
+	
+}
+
+@media (max-width: 1000px) {
 	section#dashboard_content_visu {
 		display: flex;
 		flex-direction: column;

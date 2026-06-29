@@ -15,7 +15,7 @@ verify_user_logged_in();
 	<link rel="stylesheet" href="paciente.css">
 </head>
 <style>
-	section#dashboard_content_visu {
+	section#dashboard_content_rela {
 		display: grid;
     	grid-template-areas:         
 			"relatorio1 visu"        
@@ -25,6 +25,12 @@ verify_user_logged_in();
 		grid-template-columns: 10fr 15fr;
 		
 	}
+
+	section#notas{
+		display: grid;
+		flex-direction: column;
+	}
+
 	.relatorios {
 		display: flex;
 		flex-direction: column;
@@ -55,12 +61,15 @@ verify_user_logged_in();
 					<?= get_patient_data_html($_SESSION["id_usuario"], "prescricao", "Não há prescrições") ?>
 				</div>
 			</article>
-			<article class="dark" id="visu">
-				<h3>relatorio</h3>
+			<article class="relatorios" id="visu">
+				<h1>Dor nas costas constantes</h1>
+				<h5>RELATORIO ID51966</h5>
+				<h3>periodo: 10 de abril a 16 de abriel</h3>
+				<h3>duração: 8 dias</h3>
+				<h2>Cronologia dos Sintomas</h2>
+				<section id="notas">
 
-				<div class="lista">
-					<?= get_patient_data_html($_SESSION["id_usuario"], "prescricao", "Não há prescrições") ?>
-				</div>
+				</section>
 			</article>
 		</section>
 	</main>
