@@ -241,10 +241,24 @@
 		return ($result) ? mysqli_fetch_all($result, MYSQLI_ASSOC) : [];
 	}
 
-	function get_patient_data_html($id, $table, $null_message = "Vazio") {
+	function get_patient_data_html($id, $table, $null_message = "Vazio", $is_consulta_filtered = false) {
 		$data = get_patient_data($id, $table);
+		$is_data_empty = empty($data);
 
-		if (empty($data)) {
+		if ($table == "consulta" && !$is_data_empty && $is_consulta_filtered) {
+			$temp = $data;
+
+			for ($i = 0; $i < count($data); $i += 1) {
+				if ($data[$i]["status"] != "agendada") {
+					array_splice($temp, $i, 1);
+				}
+			}
+
+			$data = $temp;
+			$is_data_empty = empty($data);
+		}
+
+		if ($is_data_empty) {
 			return "<p class=\"mensagem\">$null_message</p>";
 		}
 
@@ -258,7 +272,6 @@
 				: $result;
 		}
 
-		// var_dump($data);
 		return $html;
 	}
 

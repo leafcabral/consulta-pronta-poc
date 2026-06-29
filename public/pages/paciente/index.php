@@ -36,7 +36,7 @@ verify_user_logged_in();
 				<h3>Consultas próximas</h3>
 
 				<div class="lista">
-					<?= get_patient_data_html($_SESSION["id_usuario"], "consulta", "Não há consultas marcadas") ?>
+					<?= get_patient_data_html($_SESSION["id_usuario"], "consulta", "Não há consultas marcadas", true) ?>
 				</div>
 			</article>
 
