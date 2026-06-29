@@ -90,6 +90,15 @@
 		width: 100%;
 		outline: none;
 	}
+	.gerar{
+		display: inline-block;
+		width: 100px;
+		border: 1px solid var(--color-background);
+		border-radius: 10px;
+		color: var(--color-background);
+		text-decoration: none;
+		padding: 8px;
+	}
 </style>
 <body>
 	<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/aside.php" ?>
