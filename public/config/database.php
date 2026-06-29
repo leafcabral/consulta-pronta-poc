@@ -95,14 +95,14 @@
     function add_new_prescription($pacient_id, $profissional_id, $medicines, $use_orietations, $emission_date, $date) {
         $connection = connect_to_database();
 
-        $sql_command = "INSERT INTO prescricao VALUES
-        ($pacient_id, $profissional_id, '$medicines', '$use_orietations', '$emission_date', '$date')";
+        $sql_command = "
+			INSERT INTO prescricao (id_paciente, id_profissional, medicamento, frequencia, duracao, data_emissao, orientacoes_uso)
+			VALUES ($pacient_id, $profissional_id, '$medicines', '$use_orietations', '$emission_date', '$date')
+		";
 
-        if (mysqli_query($connection, $sql_command)) {
-            // handle succesful query
-        } else {
-            // handle failed query
-        }
+		$result = mysqli_query($connection, $sql_command);
+
+		return $result;
     }
 
     function add_new_authorization($pacient_id, $profissional_id, $concession_date, $revocation_date, $status) {
@@ -131,18 +131,17 @@
         }
     }
 
-    function add_new_report($pacient_id, $gen_date, $title, $period_analyzed, $analytical_data) {
-        $connection = connect_to_database();
+	function add_new_report($pacient_id, $gen_date, $title, $period_start, $period_end, $analytical_data) {
+		$connection = connect_to_database();
 
-        $sql_command = "INSERT INTO relatorio VALUES
-        ($pacient_id, '$gen_date', '$title', '$period_analyzed', '$analytical_data')";
+		$sql_command = "
+			INSERT INTO relatorio (id_paciente, data_geracao, titulo, periodo_inicio, perido_fim, dados_analiticos)
+			VALUES ($pacient_id, '$gen_date', '$title', '$period_start', '$period_end', '$analytical_data')
+		";
+		$result = mysqli_query($connection, $sql_command);
 
-        if (mysqli_query($connection, $sql_command)) {
-            // handle succesful query
-        } else {
-            // handle failed query
-        }
-    }
+		return $result;
+	}
 
     function delete_table_row($table, $row_name, $value) {
         $connection = connect_to_database();
@@ -181,6 +180,14 @@
 		$result = mysqli_query($connection, $sql_command);
 
 		return mysqli_fetch_assoc($result);
+	}
+
+	function update_user_email($id, $email) {
+		$connection = connect_to_database();
+		$safe_email = mysqli_real_escape_string($connection, $email);
+		$sql_command = "UPDATE usuario SET email = '$safe_email' WHERE id_usuario = $id";
+
+		return mysqli_query($connection, $sql_command);
 	}
 
 	// DEPRECATED (maybe)
@@ -234,10 +241,24 @@
 		return ($result) ? mysqli_fetch_all($result, MYSQLI_ASSOC) : [];
 	}
 
-	function get_patient_data_html($id, $table, $null_message = "Vazio") {
+	function get_patient_data_html($id, $table, $null_message = "Vazio", $is_consulta_filtered = false) {
 		$data = get_patient_data($id, $table);
+		$is_data_empty = empty($data);
 
-		if (empty($data)) {
+		if ($table == "consulta" && !$is_data_empty && $is_consulta_filtered) {
+			$temp = $data;
+
+			for ($i = 0; $i < count($data); $i += 1) {
+				if ($data[$i]["status"] != "agendada") {
+					array_splice($temp, $i, 1);
+				}
+			}
+
+			$data = $temp;
+			$is_data_empty = empty($data);
+		}
+
+		if ($is_data_empty) {
 			return "<p class=\"mensagem\">$null_message</p>";
 		}
 
@@ -251,7 +272,6 @@
 				: $result;
 		}
 
-		// var_dump($data);
 		return $html;
 	}
 
@@ -336,5 +356,124 @@
 		$result = mysqli_query($connection, $sql_command);
 
 		return $result;
+	}
+
+	function get_patient_reports($id_paciente) {
+		$connection = connect_to_database();
+
+		$sql_command = "
+			SELECT relatorio.*
+			FROM paciente
+			INNER JOIN relatorio ON paciente.id_paciente = relatorio.id_paciente
+			WHERE paciente.id_paciente = $id_paciente
+		";
+		$result = mysqli_query($connection, $sql_command);
+
+		return ($result) ? mysqli_fetch_all($result, MYSQLI_ASSOC) : [];
+	}
+
+	function get_patient_reports_html($id_paciente) {
+		$data = get_patient_reports($id_paciente);
+
+		if (empty($data)) {
+			return "<p class=\"mensagem\">Você não possui nenhum relatório</p>";
+		}
+
+		$html = "";
+		foreach ($data as $item) {
+			$html .= get_rendered_template(ROOT."/includes/relatorio_card.php", $item);
+		}
+
+		return $html;
+	}
+
+	function get_professional_patients_reports($id_profissional) {
+		$connection = connect_to_database();
+
+		$sql_command = "
+			SELECT relatorio.*, usuario.nome AS paciente_nome
+			FROM relatorio
+			INNER JOIN paciente ON paciente.id_paciente = relatorio.id_paciente
+			INNER JOIN autorizacao ON autorizacao.id_paciente = paciente.id_paciente
+			INNER JOIN usuario ON paciente.id_paciente = usuario.id_usuario
+			WHERE autorizacao.id_profissional = $id_profissional
+			AND autorizacao.status = 'ativa'
+		";
+		$result = mysqli_query($connection, $sql_command);
+
+		return ($result) ? mysqli_fetch_all($result, MYSQLI_ASSOC) : [];
+	}
+
+	function get_professional_reports_html($id_profissional) {
+		$data = get_professional_patients_reports($id_profissional);
+
+		if (empty($data)) {
+			return "<p class=\"mensagem\">Você não possui nenhum relatório de pacientes</p>";
+		}
+
+		$html = "";
+		foreach ($data as $item) {
+			$html .= get_rendered_template(ROOT."/includes/relatorio_card.php", $item);
+		}
+
+		return $html;
+	}
+
+	function professional_can_view_report($id_profissional, $id_report) {
+		$connection = connect_to_database();
+
+		$sql_command = "
+			SELECT 1
+			FROM relatorio
+			INNER JOIN autorizacao ON relatorio.id_paciente = autorizacao.id_paciente
+			WHERE relatorio.id_relatorio = $id_report
+			AND autorizacao.id_profissional = $id_profissional
+			AND autorizacao.status = 'ativa'
+		";
+		$result = mysqli_query($connection, $sql_command);
+
+		return ($result && mysqli_num_rows($result) > 0);
+	}
+
+	function get_report($id_report) {
+		$connection = connect_to_database();
+
+		$sql_command = "
+			SELECT *
+			FROM relatorio
+			WHERE id_relatorio = $id_report
+		";
+		$result = mysqli_query($connection, $sql_command);
+
+		return ($result) ? mysqli_fetch_array($result, MYSQLI_ASSOC) : [];
+	}
+
+	function get_report_notes($id_report) {
+		$connection = connect_to_database();
+
+		$sql_command = "
+			SELECT anotacao_clinica.*
+			FROM relatorio
+			INNER JOIN anotacao_clinica ON anotacao_clinica.id_relatorio = relatorio.id_relatorio
+			WHERE relatorio.id_relatorio = $id_report
+		";
+		$result = mysqli_query($connection, $sql_command);
+
+		return ($result) ? mysqli_fetch_all($result, MYSQLI_ASSOC) : [];
+	}
+	
+	function get_symptoms_by_period($id_paciente, $data_inicio, $data_fim) {
+		$connection = connect_to_database();
+
+		$sql_command = "
+			SELECT * FROM sintoma 
+			WHERE
+				id_paciente = $id_paciente 
+				AND data_inicio BETWEEN '$data_inicio 00:00:00' AND '$data_fim 23:59:59'
+			ORDER BY data_inicio DESC
+		";
+		$result = mysqli_query($connection, $sql_command);
+
+		return ($result) ? mysqli_fetch_all($result, MYSQLI_ASSOC) : [];
 	}
 ?>
