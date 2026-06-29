@@ -82,6 +82,16 @@ if ($form_enviado) {
 				filter: brightness(0.8);
 			}
 		}
+		
+		section#content {
+			display: flex;
+			flex-direction: row;
+			gap: 20px;
+			width: stretch;
+			height: stretch;
+			align-self: center;
+    		min-height: 0;
+		}
 
 		#lista {
 			display: flex;
@@ -90,7 +100,23 @@ if ($form_enviado) {
 			width: 400px;
 			min-height: 0;
 			overflow-y: auto;
-			padding-bottom: 1em;
+		}
+
+		#relatorio {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-grow: 1;
+			border-radius: 6px;
+
+			& .mensagem {
+				width: fit-content;
+			}
+
+			& #relatorio-content {
+				width: 100%;
+				height: 100%;
+			}
 		}
 
 		section#header {
@@ -148,8 +174,14 @@ if ($form_enviado) {
 			</article>
 		</dialog>
 
-		<section id="lista">
-			<?= get_patient_reports_html($_SESSION["id_usuario"]) ?>
+		<section id="content">
+			<section id="lista">
+				<?= get_patient_reports_html($_SESSION["id_usuario"]) ?>
+			</section>
+			<section id="relatorio">
+				<p class="mensagem" id="relatorio-mensagem">Clique em algum relatório para visualiza-lo</p>
+				<div id="relatorio-content" hidden></div>
+			</section>
 		</section>
 	</main>
 
@@ -167,6 +199,39 @@ if ($form_enviado) {
 			const amostradinho = document.getElementById("intensidade_atual")
 			amostradinho.innerText = event.currentTarget.value
 		}
+
+		async function carregarRelatorio(id_relatorio) {
+			const relatorio = document.getElementById("relatorio-content")
+			const mensagem = document.getElementById("relatorio-mensagem")
+			mensagem.innerHTML = "Carregando relatório..."
+
+			try {
+				const resposta = await fetch(`/api/relatorio_completo.php?id=${id_relatorio}`)
+				if (!resposta.ok) throw new Error("Erro na requisição")
+				
+				const htmlRelatorio = await resposta.text()
+				
+				relatorio.innerHTML = htmlRelatorio
+				mensagem.hidden = true
+				relatorio.hidden = false
+			} catch (erro) {
+				relatorio
+				mensagem.innerText = "Erro ao carregar os detalhes do relatório. Tente novamente."
+				mensagem.hidden = false
+				relatorio.hidden = true
+
+				console.error(erro)
+			}
+		}
+
+		document.addEventListener("DOMContentLoaded", () => {
+			const relatorios = document.querySelectorAll("#lista > article")
+			relatorios.forEach(relatorio => {
+				relatorio.addEventListener("click", () => {
+					carregarRelatorio(relatorio.dataset.id)
+				})
+			});
+		})
 	</script>
 </body>
 </html>

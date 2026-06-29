@@ -14,6 +14,7 @@
 			padding: 1em;
 			border-radius: 6px;
 			filter: drop-shadow(2px 4px 6px black);
+			cursor: pointer;
 		}
 
 		header {
@@ -44,7 +45,7 @@
 	}
 </style>
 
-<article class="light">
+<article class="light" data-id="<?= $id_relatorio ?>">
 	<header class="<?= ($dados_analiticos != null) ? "anotado" : "" ?>">
 		<h3><?= htmlspecialchars($titulo) ?></h3>
 	</header>

@@ -363,4 +363,31 @@
 
 		return $html;
 	}
+
+	function get_report($id_report) {
+		$connection = connect_to_database();
+
+		$sql_command = "
+			SELECT *
+			FROM relatorio
+			WHERE id_relatorio = $id_report
+		";
+		$result = mysqli_query($connection, $sql_command);
+
+		return ($result) ? mysqli_fetch_array($result, MYSQLI_ASSOC) : [];
+	}
+
+	function get_report_notes($id_report) {
+		$connection = connect_to_database();
+
+		$sql_command = "
+			SELECT anotacao_clinica.*
+			FROM relatorio
+			INNER JOIN anotacao_clinica ON anotacao_clinica.id_relatorio = relatorio.id_relatorio
+			WHERE relatorio.id_relatorio = $id_report
+		";
+		$result = mysqli_query($connection, $sql_command);
+
+		return ($result) ? mysqli_fetch_all($result, MYSQLI_ASSOC) : [];
+	}
 ?>
