@@ -12,16 +12,12 @@
 </head>
 <style>
 	section#dashboard_content_visu {
-	display: grid;
-	grid-template-areas:
-		"re_dores lorem"
-		"lorem";
-	grid-template-columns: 10fr 15fr;
-	gap: 1em;
-	height: min(150px, 60vh);
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 1em;
 	}
 	.bloco {
-		gap: 10px;
+		gap: 25px;
 		padding: 18px;
 		border-radius: 18px;
 		background-color: var(--color-surface);
@@ -31,13 +27,15 @@
 		overflow: auto;
   		max-height: 150px; 
 		scrollbar-width: none;
+		cursor: pointer;
 	}
 	#re_dores::-webkit-scrollbar{
 		display: none;
 	}
 	#lorem{
+		display: none;
 		overflow: auto;
-  		min-height: 400px; 
+		min-height: 400px; 
 		scrollbar-width: none;
 	}
 	#lorem::-webkit-scrollbar {
@@ -66,6 +64,18 @@
 		text-align: center;
 	}
 </style>
+<script>
+	const blocoRelatorio = document.getElementById("lorem");
+	const blocoLista = document.getElementById("re_dores");
+
+	blocoLista.addEventListener("click", () => {
+		if (blocoRelatorio.style.display === "none") {
+			blocoRelatorio.style.display = "flex";
+		} else {
+			blocoRelatorio.style.display = "none";
+		}
+	});
+</script>
 <body>
 	<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/aside.php" ?>
 
