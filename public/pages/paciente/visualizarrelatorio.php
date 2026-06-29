@@ -112,7 +112,7 @@
 			<div class="pesquisa">
 				<span>⌕</span>
 				<input type="text" id="inputrelatorios" placeholder="Buscar relatorios">
-				<a href="/pages/paciente/relatorio.php">⊕ Gerar Relatório</a>
+				<a href="/pages/paciente/relatorio.php" class="gerar">⊕ Gerar Relatório</a>
 			</div>
 		</div>
 
