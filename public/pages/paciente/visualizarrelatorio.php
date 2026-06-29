@@ -29,6 +29,7 @@
 	#re_dores {
 		overflow: auto;
   		max-height: 150px; 
+		scrollbar-width: none;
 	}
 	#re_dores::-webkit-scrollbar{
 		display: none;
@@ -51,6 +52,16 @@
 		border: 1px solid var(--color-background);
 		border-radius: 10px;
 		padding: 10px
+	}
+	table {
+			width: fit-content;
+			overflow: hidden;
+			background-color: transparent;
+		}
+	th, td {
+		padding: 10px 40px;
+		border: 1px solid var(--color-background);
+		text-align: center;
 	}
 </style>
 <body>
@@ -77,6 +88,7 @@
 			<article class="bloco" id="lorem" style="height: 450px">
 				<h1>Dores Constantes nas Costas</h1>
 				<h2>Cláudio Silva</h2>
+
 				<div>
 					<h3>CronoLogia do Sintoma</h3>
 					<div id="atualizações">
@@ -105,6 +117,30 @@
 						</div>
 					</div>
 				</div>	
+
+				<div>
+					<h3>CronoLogia do Sintoma</h3>
+					<div>
+						<table>
+							<tr>
+								<th>Sintoma</th>
+								<th>Duraçao</th>
+								<th>Ocorrência</th>
+							</tr>
+							<td>
+								<th>Dor nas costas</th>
+								<th>20 Dias</th>
+								<th>9 Ocorrências</th>
+							</td>
+							<td>
+								<th>Estomâgo Ardendo</th>
+								<th>4 Dias</th>
+								<th>3 Ocorrências</th>
+							</td>
+						</table>
+
+					</div>
+				</div>
 			</article>
 		</section>
 	</main>
