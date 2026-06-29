@@ -91,37 +91,27 @@
 			padding: 5px;
     		margin: 5px 10px 5px 0px;
 		}
-
 		.titulo {
 			display: flex;
-			align-items: center;
+			justify-content: space-between;
 			gap: 10px;
 			color: var(--color-surface);
 			margin: 0px 10px 0px 0px;
 			cursor: pointer;
 		}
-
-
 		.seta {
 			font-size: 18px;
 			transition: transform 0.3s;
 		}
-
-
 		.seta.aberta {
 			transform: rotate(90deg);
 		}
-
-
 		.conteudo {
 			display: none;
 		}
-
-
 		.conteudo.ativo {
 			display: block;
 		}
-
 		button{
 			background-color: transparent;
 			color: var(--color-surface);
@@ -147,7 +137,7 @@
 
 		<div class="containermid">
 			<section id="dados_pessoais">
-				<<div class="titulo" onclick="toggleSecao('pessoais')">
+				<div class="titulo" onclick="toggleSecao('pessoais')">
 					<span class="seta">▶</span>
 					<h3>Dados pessoais:</h3>
 				</div>
@@ -167,7 +157,6 @@
 				<div class="titulo" onclick="toggleSecao('saude')">
 					<span class="seta">▶</span>
 					<h3>Dados de saúde:</h3>
-
 					<button onclick="abrir_edicao('Editar Dados de Saúde', 'dados_saude')">Editar</button>
 				</div>
 				
