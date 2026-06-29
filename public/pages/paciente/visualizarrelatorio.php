@@ -67,7 +67,7 @@
 		border: 1px solid var(--color-background);
 		text-align: center;
 	}
-	h2 {
+	.h3{
 		margin-bottom: 0px;
 	}
 </style>
@@ -82,7 +82,7 @@
 		<section id="dashboard_content_visu">
 			<article class="bloco" id="re_dores">
 				<h2>Relatório</h2>
-				<h3>Dores</h3>
+				<h3 class="h3">Dores</h3>
 				<div>
 					<label>ID: 123456789/1242</label>
 					<div>
