@@ -128,9 +128,7 @@
 					render_profile_field("Histórico Familiar", "historico_familiar", $patient_info["historico_familiar"]);
 				?>
 			</section>
-			
-			<br>
-			
+		
 			<section id="dados_contato">
 				<dialog id="editar_dados">
 					<article class="dark">
