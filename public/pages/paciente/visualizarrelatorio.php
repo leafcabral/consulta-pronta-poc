@@ -15,7 +15,7 @@
 	display: grid;
 	grid-template-areas:
 		"re_dores lorem"
-		"dores lorem";
+		"lorem";
 	grid-template-columns: 10fr 15fr;
 	gap: 1em;
 	height: min(150px, 60vh);
@@ -27,6 +27,10 @@
 		color: var(--color-background);
 	}
 	#re_dores {
+		overflow: auto;
+  		max-height: 150px; 
+	}
+	#dores{
 		overflow: auto;
   		max-height: 150px; 
 	}
@@ -62,10 +66,6 @@
 						<label>Horário: 14:00</label>
 					</div>
 				</div>	
-			</article>
-
-			<article class="bloco" id="dores">
-				<h1>Dores</h1>
 			</article>
 		</section>
 	</main>
