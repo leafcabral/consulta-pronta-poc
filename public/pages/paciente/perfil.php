@@ -13,10 +13,6 @@
 		$patient_info["id_paciente"]
 	);
 
-	// $mensagem_perfil = $_SESSION["mensagem_perfil"];
-	// unset($_SESSION["mensagem_perfil"]);
-	// $pending_email_change = $_SESSION["pending_email_change"];
-
 	// (\d{3}) -> 3 digitos
 	// (\d{2}) -> 2 digitos
 	$cpf_pattern = "/(\d{3})(\d{3})(\d{3})(\d{2})/";
@@ -109,7 +105,6 @@
 			margin-left: auto;
 			display: flex;
 			gap: 10px;
-			align-items: center;
 		}
 		.seta {
 			font-size: 18px;
@@ -141,114 +136,122 @@
 			<h1>Meu Perfil</h1>
 		</header>
 
-		<section id="dados_pessoais">
-			<h3>Dados pessoais:</h3>
-			<!-- <button onclick="abrir_edicao('Editar Dados Pessoais', 'dados_pessoais')">Editar</button> -->
-
-			<?php 
-				render_profile_field("CPF", "cpf", $user_info["cpf"]);
-				render_profile_field("Email", "email", $user_info["email"]);
-				render_profile_field("Data de nascimento", "data_nascimento", $patient_info["data_nascimento"]);
-				render_profile_field("Conta criada em", "data_cadastro", $user_info["data_cadastro"]);
-			?>
-		</section>
-		
-		<br>
-		
-		<section id="dados_saude">
-			<div class="titulo">
-				<h3>Dados de saúde:</h3>
-
-				<section>
-					<button onclick="abrir_edicao('Editar Dados de Saúde', 'dados_saude')">
-						Editar
-					</button>
-				</section>
+		<div class="containerhead">
+			<div class="perfil">
+				<h1><?= $user_info["nome"] ?></h1>
 			</div>
-			<?php 
-				render_profile_field("Altura (cm)", "altura", $patient_info["altura"]);
-				render_profile_field("Peso (kg)", "peso", $patient_info["peso"]);
-				render_profile_field("Tipo sanguíneo", "tipo_sanguineo", $patient_info["tipo_sanguineo"]);
-				render_profile_field("Alergias", "alergias", $patient_info["alergias"]);
-				render_profile_field("Doenças", "doencas", $patient_info["doencas"]);
-				render_profile_field("Histórico Familiar", "historico_familiar", $patient_info["historico_familiar"]);
-			?>
-		</section>
-		
-		<br>
-		
-		<section id="dados_contato">
-			<div class="titulo">
+		</div>
 
-				<h3>Dados de contato:</h3>
-
-				<section>
-
-					<button onclick="abrir_edicao('Editar Dados de Contato', 'dados_contato')">
-						Editar
-					</button>
-
-					<button onclick="abrir_adicionar('Adicionar Dados de Contato', 'dados_contato')">
-						Adicionar
-					</button>
-
-				</section>
-
-			</div>
-			<?php
-				foreach ($contacts as $contact) {
-					$tipo = $contact["tipo"];
-					$valor = $contact["valor"];
-					render_profile_field($contact["tipo"], strtolower($contact["tipo"]), $contact["valor"]);
-				}
-			?>
-		</section>
-
-		<dialog id="editar_dados">
-			<article class="dark">
-				<h3>Editar dados: </h3>
+		<div class="containermid">
+			<section id="dados_pessoais">
+				<div class="titulo" onclick="toggleSecao('pessoais')">
+					<span class="seta">▶</span>
+					<h3>Dados pessoais:</h3>
+				</div>
+				<!-- <button onclick="abrir_edicao('Editar Dados Pessoais', 'dados_pessoais')">Editar</button> -->
+				<div class="info conteudo" id="pessoais">
+					<?php 
+						render_profile_field("CPF", "cpf", $user_info["cpf"]);
+						render_profile_field("Email", "email", $user_info["email"]);
+						render_profile_field("Data de nascimento", "data_nascimento", $patient_info["data_nascimento"]);
+						render_profile_field("Conta criada em", "data_cadastro", $user_info["data_cadastro"]);
+					?>
+				</div>
 				
-				<form action="atualizar_perfil.php" method="post">
-					<input id="secao" type="hidden" name="secao" value="">
-					<input id="operacao" type="hidden" name="operacao" value="editar">
+			</section>
+
+			<section id="dados_saude">
+				<div class="titulo" onclick="toggleSecao('saude')">
+					<span class="seta">▶</span>
+					<h3>Dados de saúde:</h3>
+					<section>
+						<button onclick="abrir_edicao('Editar Dados de Saúde', 'dados_saude')">Editar</button>
+					</section>
 					
-					<fieldset></fieldset>
+				</div>
 				
-					<br>
-					<button type="submit">Salvar</button>
-					<button type="button" onclick="fechar_overlay('editar')">Fechar</button>
-				</form>
-			</article>
-		</dialog>
-
-		<dialog id="adicionar_dados">
-			<article class="dark">
-				<h3>Adicionar dados: </h3>
+				<div class="info conteudo" id="saude">
+					<?php 
+						render_profile_field("Altura (cm)", "altura", $patient_info["altura"]);
+						render_profile_field("Peso (kg)", "peso", $patient_info["peso"]);
+						render_profile_field("Tipo sanguíneo", "tipo_sanguineo", $patient_info["tipo_sanguineo"]);
+						render_profile_field("Alergias", "alergias", $patient_info["alergias"]);
+						render_profile_field("Doenças", "doencas", $patient_info["doencas"]);
+						render_profile_field("Histórico Familiar", "historico_familiar", $patient_info["historico_familiar"]);
+					?>
+				</div>
 				
-				<form action="atualizar_perfil.php" method="post">
-					<input id="secao" type="hidden" name="secao" value="">
-					<input id="operacao" type="hidden" name="operacao" value="adicionar">
+			</section>
+		
+			<section id="dados_contato">
+				<dialog id="editar_dados">
+					<article class="dark">
+						<span class="seta">▶</span>
+						<h3>Editar dados: </h3>
+						<form action="atualizar_perfil.php" method="post">
+							<input id="secao" type="hidden" name="secao" value="">
+							<input id="operacao" type="hidden" name="operacao" value="editar">
+							
+							<fieldset></fieldset>
 					
-					<fieldset>
-						<label for="input_nome">Qual o nome da forma de contato?</label>
-						<input type="text" id="input_nome" name="tipo" value="">
+							<button type="submit">Salvar</button>
+							<button type="button" onclick="fechar_overlay('editar')">Fechar</button>
+						</form>
+					</article>
+				</dialog>
 
-						<label for="input_valor">Qual é a forma  de contato?</label>
-						<input type="text" id="input_valor" name="valor" value="">
-					</fieldset>
+				<dialog id="adicionar_dados">
+					<article class="dark">
+
+						<span class="seta">▶</span>
+						<h3>Adicionar dados: </h3>
+						
+						<form action="atualizar_perfil.php" method="post">
+							<input id="secao" type="hidden" name="secao" value="">
+							<input id="operacao" type="hidden" name="operacao" value="adicionar">
+							
+							<fieldset>
+								<label for="input_nome">Qual o nome da forma de contato?</label>
+								<input type="text" id="input_nome" name="tipo" value="">
+
+								<label for="input_valor">Qual é a forma  de contato?</label>
+								<input type="text" id="input_valor" name="valor" value="">
+							</fieldset>
+
+							<button type="submit">Adicionar</button>
+							<button type="button" onclick="fechar_overlay('adicionar')">Fechar</button>
+						</form>
+					</article>
+				</dialog>
+				<div class="titulo" onclick="toggleSecao('contato')">
+					<span class="seta">▶</span>
+					<h3>Dados de contato:</h3>
+					<section>
+						<button onclick="event.stopPropagation(); abrir_edicao('Editar Dados de Contato', 'dados_contato')">
+							Editar
+						</button>
+						<button onclick="event.stopPropagation(); abrir_adicionar('Adicionar Dados de Contato', 'dados_contato')">
+							Adicionar
+						</button>
+					</section>
+				</div>
 				
-					<br>
-					<button type="submit">Adicionar</button>
-					<button type="button" onclick="fechar_overlay('adicionar')">Fechar</button>
-				</form>
-			</article>
-		</dialog>
-	</main>
+				<div class="info" id="contato">
+					<?php
+						foreach ($contacts as $contact) {
+							$tipo = $contact["tipo"];
+							$valor = $contact["valor"];
+							render_profile_field($contact["tipo"], strtolower($contact["tipo"]), $contact["valor"]);
+						}
+					?>
+				</div>
+				
+			</section>
+		</div>
 
 	<script>
 		const overlayEditar = document.getElementById('editar_dados')
 		const overlayAdicionar = document.getElementById('adicionar_dados')
-		const overlayEmail = document.getElementById('alterar_email_dados')
 
 		function abrir_edicao(titulo, secaoID) {
 			const formSection = overlayEditar.querySelector("input#secao")
@@ -287,10 +290,6 @@
 
 			overlayAdicionar.showModal();
 		}
-
-		function abrir_alterar_email() {
-			overlayEmail.showModal();
-		}
 		
 		function fechar_overlay(operacao) {
 			switch (operacao) {
@@ -299,9 +298,6 @@
 					break
 				case "adicionar":
 					overlayAdicionar.close();
-					break
-				case "email":
-					overlayEmail.close();
 					break
 			}
 		}
