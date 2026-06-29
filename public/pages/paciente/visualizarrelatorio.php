@@ -35,7 +35,7 @@ verify_user_logged_in();
 		</header>
 
 		<section id="dashboard_content_visu">
-			<article class="dark" id="relatorio1">
+			<article id="relatorio1">
 				<h1>relatorio: Dores</h1>
 				<h3>ID: 123456789/1242</h3>
 				<h3>Data: 01/04/2026</h3>
