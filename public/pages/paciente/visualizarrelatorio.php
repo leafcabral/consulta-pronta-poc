@@ -17,6 +17,7 @@ verify_user_logged_in();
 <style>
 	section#dashboard_content_rela {
 		display: grid;
+		flex-direction: column;
     	grid-template-areas:         
 			"relatorio1 visu"        
 			"relatorio1 visu";
