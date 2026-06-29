@@ -36,20 +36,24 @@
 		</header>
 
 		<section id="dashboard_content_visu">
-			<article class="dark" id="re_dores">
+			<article class="bloco" id="re_dores">
 				<h3>Relatório</h3>
 				<h2>Dores</h2>
-				<div class="lista">
-					
-
+				<div>
+					<label>ID: 123456789/1242</label>
+					<div>
+						<label>Data: 01/04/2026</label>
+						<label>Horário: 14:00</label>
+					</div>
+				</div>
 			<article class="bloco" id="lorem ipsum">
 				<h3>Relatório</h3>
 				<h2>Lorem Ipsum</h2>
 				<div>
 					<label>ID: 123456789/1242</label>
 					<div>
-					<label>Data: 01/04/2026</label>
-					<label>Horário: 14:00</label>
+						<label>Data: 01/04/2026</label>
+						<label>Horário: 14:00</label>
 					</div>
 				</div>
 					
