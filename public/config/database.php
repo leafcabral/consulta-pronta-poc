@@ -338,7 +338,6 @@
 		return $result;
 	}
 
-
 	function get_patient_reports($id_paciente) {
 		$connection = connect_to_database();
 
@@ -389,6 +388,21 @@
 			FROM relatorio
 			INNER JOIN anotacao_clinica ON anotacao_clinica.id_relatorio = relatorio.id_relatorio
 			WHERE relatorio.id_relatorio = $id_report
+		";
+		$result = mysqli_query($connection, $sql_command);
+
+		return ($result) ? mysqli_fetch_all($result, MYSQLI_ASSOC) : [];
+	}
+	
+	function get_symptoms_by_period($id_paciente, $data_inicio, $data_fim) {
+		$connection = connect_to_database();
+
+		$sql_command = "
+			SELECT * FROM sintoma 
+			WHERE
+				id_paciente = $id_paciente 
+				AND data_inicio BETWEEN '$data_inicio 00:00:00' AND '$data_fim 23:59:59'
+			ORDER BY data_inicio DESC
 		";
 		$result = mysqli_query($connection, $sql_command);
 

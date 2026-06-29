@@ -112,6 +112,7 @@ if ($form_enviado) {
 			align-items: center;
 			flex-grow: 1;
 			border-radius: 6px;
+			overflow-y: auto;
 
 			& .mensagem {
 				width: fit-content;
