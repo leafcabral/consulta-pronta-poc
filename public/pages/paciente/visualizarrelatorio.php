@@ -18,13 +18,13 @@
 		"lorem ipsum dores";
 	grid-template-columns: 10fr 15fr;
 	gap: 1em;
-	height: min(500px, 60vh);
+	height: min(150px, 60vh);
 	}
 	.bloco {
 		padding: 18px;
 		border-radius: 18px;
-		background-color: #F4EFE6;
-		color: transparent;
+		background-color: var(--color-surface);
+		color: var(--color-background);
 	}
 </style>
 <body>
@@ -48,7 +48,7 @@
 				</div>
 			</article>
 
-			<article class="bloco" id="lorem ipsum">
+			<article class="bloco" id="lorem ipsum" style="height: 300px">
 				<h3>Relatório</h3>
 				<h2>Lorem Ipsum</h2>
 				<div>
@@ -60,7 +60,7 @@
 				</div>	
 			</article>
 
-			<article class="dark" id="dores">
+			<article class="bloco" id="dores">
 				<h1>Dores</h1>
 			</article>
 		</section>
