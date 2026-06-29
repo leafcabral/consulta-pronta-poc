@@ -57,15 +57,11 @@
 						<label>Data: 01/04/2026</label>
 						<label>Horário: 14:00</label>
 					</div>
-				</div>
-					
+				</div>	
 			</article>
 
 			<article class="dark" id="dores">
 				<h1>Dores</h1>
-
-				<div>
-					
 			</article>
 		</section>
 	</main>
