@@ -34,7 +34,6 @@
 	<div id="aside_up">
 		<a href="/pages/paciente">Página Inicial</a>
 		<a href="/pages/paciente/sintoma.php">Registrar Sintoma</a>
-		<a href="/pages/paciente/relatorio.php">Gerar Relatório</a>
 		<a href="/pages/paciente/visualizarrelatorio.php">Relatórios</a>
 		<a href="/pages/paciente/profissionais.php">Seus Profissionais</a>
 	</div>
