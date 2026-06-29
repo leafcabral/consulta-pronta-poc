@@ -124,14 +124,17 @@
 				<h3>Dados de saúde:</h3>
 				<button onclick="abrir_edicao('Editar Dados de Saúde', 'dados_saude')">Editar</button>
 				
-				<?php 
-					render_profile_field("Altura (cm)", "altura", $patient_info["altura"]);
-					render_profile_field("Peso (kg)", "peso", $patient_info["peso"]);
-					render_profile_field("Tipo sanguíneo", "tipo_sanguineo", $patient_info["tipo_sanguineo"]);
-					render_profile_field("Alergias", "alergias", $patient_info["alergias"]);
-					render_profile_field("Doenças", "doencas", $patient_info["doencas"]);
-					render_profile_field("Histórico Familiar", "historico_familiar", $patient_info["historico_familiar"]);
-				?>
+				<div class="info">
+					<?php 
+						render_profile_field("Altura (cm)", "altura", $patient_info["altura"]);
+						render_profile_field("Peso (kg)", "peso", $patient_info["peso"]);
+						render_profile_field("Tipo sanguíneo", "tipo_sanguineo", $patient_info["tipo_sanguineo"]);
+						render_profile_field("Alergias", "alergias", $patient_info["alergias"]);
+						render_profile_field("Doenças", "doencas", $patient_info["doencas"]);
+						render_profile_field("Histórico Familiar", "historico_familiar", $patient_info["historico_familiar"]);
+					?>
+				</div>
+				
 			</section>
 		
 			<section id="dados_contato">
