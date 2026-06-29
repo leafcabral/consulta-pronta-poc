@@ -93,7 +93,6 @@
 		}
 		.titulo {
 			display: flex;
-			justify-content: space-between;
 			gap: 10px;
 			color: var(--color-surface);
 			margin: 0px 10px 0px 0px;
@@ -155,7 +154,8 @@
 
 			<section id="dados_saude">
 				<div class="titulo" onclick="toggleSecao('saude')">
-					<span class="seta">▶ <h3>Dados de saúde:</h3></span>
+					<span class="seta">▶</span>
+					<h3>Dados de saúde:</h3>
 					<button onclick="abrir_edicao('Editar Dados de Saúde', 'dados_saude')">Editar</button>
 				</div>
 				
