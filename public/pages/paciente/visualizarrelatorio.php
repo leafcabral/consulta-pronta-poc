@@ -14,8 +14,8 @@
 	section#dashboard_content_visu {
 	display: grid;
 	grid-template-areas:
-		"re_dores dores"
-		"lorem ipsum dores";
+		"re_dores lorem"
+		"dores lorem";
 	grid-template-columns: 10fr 15fr;
 	gap: 1em;
 	height: min(150px, 60vh);
@@ -25,6 +25,10 @@
 		border-radius: 18px;
 		background-color: var(--color-surface);
 		color: var(--color-background);
+	}
+	#re_dores {
+		overflow: auto;
+  		max-height: 150px; 
 	}
 </style>
 <body>
@@ -48,7 +52,7 @@
 				</div>
 			</article>
 
-			<article class="bloco" id="lorem ipsum" style="height: 300px">
+			<article class="bloco" id="lorem" style="height: 300px">
 				<h3>Relatório</h3>
 				<h2>Lorem Ipsum</h2>
 				<div>
