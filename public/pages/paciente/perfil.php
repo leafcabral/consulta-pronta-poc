@@ -132,6 +132,45 @@
 			<br>
 			
 			<section id="dados_contato">
+				<dialog id="editar_dados">
+					<article class="dark">
+						<h3>Editar dados: </h3>
+						
+						<form action="atualizar_perfil.php" method="post">
+							<input id="secao" type="hidden" name="secao" value="">
+							<input id="operacao" type="hidden" name="operacao" value="editar">
+							
+							<fieldset></fieldset>
+						
+							<br>
+							<button type="submit">Salvar</button>
+							<button type="button" onclick="fechar_overlay('editar')">Fechar</button>
+						</form>
+					</article>
+				</dialog>
+
+				<dialog id="adicionar_dados">
+					<article class="dark">
+						<h3>Adicionar dados: </h3>
+						
+						<form action="atualizar_perfil.php" method="post">
+							<input id="secao" type="hidden" name="secao" value="">
+							<input id="operacao" type="hidden" name="operacao" value="adicionar">
+							
+							<fieldset>
+								<label for="input_nome">Qual o nome da forma de contato?</label>
+								<input type="text" id="input_nome" name="tipo" value="">
+
+								<label for="input_valor">Qual é a forma  de contato?</label>
+								<input type="text" id="input_valor" name="valor" value="">
+							</fieldset>
+						
+							<br>
+							<button type="submit">Adicionar</button>
+							<button type="button" onclick="fechar_overlay('adicionar')">Fechar</button>
+						</form>
+					</article>
+				</dialog>
 				<h3>Dados de contato:</h3>
 				<button onclick="abrir_edicao('Editar Dados de Contato', 'dados_contato')">Editar</button>
 				<button onclick="abrir_adicionar('Editar Dados de Contato', 'dados_contato')">Adicionar</button>
@@ -145,47 +184,6 @@
 				?>
 			</section>
 		</div>
-
-		<dialog id="editar_dados">
-			<article class="dark">
-				<h3>Editar dados: </h3>
-				
-				<form action="atualizar_perfil.php" method="post">
-					<input id="secao" type="hidden" name="secao" value="">
-					<input id="operacao" type="hidden" name="operacao" value="editar">
-					
-					<fieldset></fieldset>
-				
-					<br>
-					<button type="submit">Salvar</button>
-					<button type="button" onclick="fechar_overlay('editar')">Fechar</button>
-				</form>
-			</article>
-		</dialog>
-
-		<dialog id="adicionar_dados">
-			<article class="dark">
-				<h3>Adicionar dados: </h3>
-				
-				<form action="atualizar_perfil.php" method="post">
-					<input id="secao" type="hidden" name="secao" value="">
-					<input id="operacao" type="hidden" name="operacao" value="adicionar">
-					
-					<fieldset>
-						<label for="input_nome">Qual o nome da forma de contato?</label>
-						<input type="text" id="input_nome" name="tipo" value="">
-
-						<label for="input_valor">Qual é a forma  de contato?</label>
-						<input type="text" id="input_valor" name="valor" value="">
-					</fieldset>
-				
-					<br>
-					<button type="submit">Adicionar</button>
-					<button type="button" onclick="fechar_overlay('adicionar')">Fechar</button>
-				</form>
-			</article>
-		</dialog>
-	</main>
 
 	<script>
 		const overlayEditar = document.getElementById('editar_dados')
