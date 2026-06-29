@@ -14,8 +14,8 @@
 	section#dashboard_content_visu {
 	display: grid;
 	grid-template-areas:
-		"prescricoes sintomas"
-		"consultas sintomas";
+		"re_dores dores"
+		"lorem ipsum dores";
 	grid-template-columns: 1fr 1fr;
 	gap: 1em;
 	height: min(500px, 60vh);
@@ -31,7 +31,7 @@
 		</header>
 
 		<section id="dashboard_content_visu">
-			<article class="dark" id="prescricoes">
+			<article class="dark" id="re_dores">
 				<h3>Relatório</h3>
 				<h2>Dores</h2>
 				<div class="lista">
@@ -39,7 +39,7 @@
 				</div>
 			</article>
 
-			<article class="dark" id="consultas">
+			<article class="dark" id="lorem ipsum">
 				<h3>Relatório</h3>
 				<h2>Lorem Ipsum</h2>
 				<div class="lista">
@@ -47,7 +47,7 @@
 				</div>
 			</article>
 
-			<article class="dark" id="sintomas">
+			<article class="dark" id="dores">
 				<h1>Dores</h1>
 
 				<div class="lista">
