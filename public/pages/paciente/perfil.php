@@ -92,7 +92,7 @@
 		</header>
 
 		<div class="containerhead">
-			<div class="pesquisa">
+			<div class="perfil">
 				<h1><?= $user_info["nome"] ?></h1>
 			</div>
 		</div>
