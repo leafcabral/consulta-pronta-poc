@@ -185,8 +185,10 @@
 				</dialog>
 				<div class="titulo">
 					<h3>Dados de contato:</h3>
-					<button onclick="abrir_edicao('Editar Dados de Contato', 'dados_contato')">Editar</button>
-					<button onclick="abrir_adicionar('Editar Dados de Contato', 'dados_contato')">Adicionar</button>
+					<section>
+						<button onclick="abrir_edicao('Editar Dados de Contato', 'dados_contato')">Editar</button>
+						<button onclick="abrir_adicionar('Editar Dados de Contato', 'dados_contato')">Adicionar</button>
+					</section>
 				</div>
 				
 				<div class="info">
