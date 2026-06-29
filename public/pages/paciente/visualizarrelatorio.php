@@ -1,8 +1,4 @@
-<?php
-require_once $_SERVER['DOCUMENT_ROOT'] . "/config/global.php";
-verify_user_logged_in();
-
-?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/config/global.php" ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,51 +11,48 @@ verify_user_logged_in();
 	<link rel="stylesheet" href="paciente.css">
 </head>
 <style>
-	section#dashboard_content_rela {
-		display: grid;
-    	grid-template-areas:         
-			"relatorio1 visu"        
-			"relatorio1 visu";
-		gap: 1em;
-		height: min(250px, 60vh);
-		grid-template-columns: 10fr 15fr;
-		
+	section#dashboard_content_visu {
+	display: grid;
+	grid-template-areas:
+		"prescricoes sintomas"
+		"consultas sintomas";
+	grid-template-columns: 1fr 1fr;
+	gap: 1em;
+	height: min(500px, 60vh);
 	}
-	.relatorios {
-		display: flex;
-		flex-direction: column;
-		background-color: #F4EFE6;
-		color: #231C44;
-	}
-	
 </style>
 <body>
 	<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/aside.php" ?>
 
 	<main>
 		<header>
-			<h1>Meus Relatórios</h1>
+			<h1>Dashboard</h1>
+			<h2>Seja bem vindo, <?= get_user_by_id($_SESSION["id_usuario"])["nome"] ?></h2>
 		</header>
 
 		<section id="dashboard_content_visu">
-			<article class="relatorios" id="relatorio1">
-				<h1>relatorio: Dores</h1>
-				<h3>ID: 123456789/1242</h3>
-				<h3>Data: 01/04/2026</h3>
-				<h3>Horário: 14:00</h3>
-			</article>
-			<article class="dark" id="relatorio2">
-				<h3>relatorio</h3>
-
+			<article class="dark" id="prescricoes">
+				<h3>Relatório</h3>
+				<h2>Dores</h2>
 				<div class="lista">
-					<?= get_patient_data_html($_SESSION["id_usuario"], "prescricao", "Não há prescrições") ?>
+					<?= get_patient_data_html($_SESSION["id_usuario"], "triagem", "Não há triagens") ?>
 				</div>
 			</article>
-			<article class="relatorios" id="visu">
-				<h2>Dor nas costas constantes</h2>
-				<h5>RELATORIO ID51966</h5>
-				<h3>periodo: 10 de abril a 16 de abriel</h3>
-				<h3></h3>
+
+			<article class="dark" id="consultas">
+				<h3>Relatório</h3>
+				<h2>Lorem Ipsum</h2>
+				<div class="lista">
+					<?= get_patient_data_html($_SESSION["id_usuario"], "relatorios", "Não há relatórios") ?>
+				</div>
+			</article>
+
+			<article class="dark" id="sintomas">
+				<h1>Dores</h1>
+
+				<div class="lista">
+					<?= get_patient_data_html($_SESSION["id_usuario"], "pacientes", "Não há pacientes passados") ?>
+				</div>
 			</article>
 		</section>
 	</main>
