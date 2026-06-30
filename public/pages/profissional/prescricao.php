@@ -1,6 +1,20 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . "/config/global.php";
 
+$form_enviado = ($_SERVER["REQUEST_METHOD"] == "POST");
+
+if ($form_enviado) {
+	$id_usuario = $_SESSION["id_usuario"];
+	$titulo = get_post("titulo");
+	$periodo_inicio = get_post("data_inicio");
+	$periodo_fim = get_post("data_fim");
+	$extra = get_post("dados");
+
+	add_new_report($id_usuario, date("Y-m-d"), $titulo, $periodo_inicio, $periodo_fim, $extra);
+	
+	header("Location: " . $_SERVER['PHP_SELF']);
+	exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -113,8 +127,14 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/config/global.php";
 
 				<select name="paciente" id="paciente" required>
 					<option value="" disabled selected hidden>Selecione o Paciente</option>
-					<option value="cláudio silva">Cláudio Silva</option>
-					<option value="the robert">The Robert</option>
+
+					<?php
+					$data = get_professional_patients($_SESSION["id_usuario"]);
+					
+					foreach ($data as $paciente) {
+						echo "<option value=\"{$paciente["id_paciente"]}\">{$paciente["nome"]}</option>";
+					}
+					?>
 				</select>
 			</fieldset>
 			
@@ -151,9 +171,5 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/config/global.php";
 		</form>
 
 	</main>
-
-	<script>
-		
-	</script>
 </body>
 </html>

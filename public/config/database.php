@@ -483,4 +483,19 @@
 
 		return ($result) ? mysqli_fetch_all($result, MYSQLI_ASSOC) : [];
 	}
+
+	function get_professional_patients($id_profissional) {
+		$connection = connect_to_database();
+
+		$sql_command = "
+			SELECT usuario.nome, paciente.*
+			FROM paciente
+			INNER JOIN autorizacao ON autorizacao.id_paciente = paciente.id_paciente
+			INNER JOIN usuario ON usuario.id_usuario = paciente.id_paciente
+			WHERE autorizacao.id_profissional = $id_profissional
+		";
+		$result = mysqli_query($connection, $sql_command);
+
+		return ($result) ? mysqli_fetch_all($result, MYSQLI_ASSOC) : [];
+	}
 ?>
