@@ -24,7 +24,7 @@
 				<h3>Triagem</h3>
 
 				<div class="lista">
-					<?= get_patient_data_html($_SESSION["id_usuario"], "triagem", "Não há triagens") ?>
+					<?= get_professional_data_html($_SESSION["id_usuario"], "triagem", "Não há triagens") ?>
 				</div>
 			</article>
 
@@ -32,15 +32,15 @@
 				<h3>Relatórios</h3>
 
 				<div class="lista">
-					<?= get_patient_data_html($_SESSION["id_usuario"], "relatorios", "Não há relatórios") ?>
+					<?= get_professional_data_html($_SESSION["id_usuario"], "autorizacao", "Não há relatórios", true) ?>
 				</div>
 			</article>
 
 			<article class="dark" id="sintomas">
-				<h3>Pacientes Passados</h3>
+				<h3>Consultas próximas</h3>
 
 				<div class="lista">
-					<?= get_patient_data_html($_SESSION["id_usuario"], "pacientes", "Não há pacientes passados") ?>
+					<?= get_professional_data_html($_SESSION["id_usuario"], "consulta", "Não há consultas marcadas", true) ?>
 				</div>
 			</article>
 		</section>

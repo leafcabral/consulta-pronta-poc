@@ -257,9 +257,10 @@
 
 			for ($i = 0; $i < count($data); $i += 1) {
 				if ($data[$i]["status"] != "agendada") {
-					array_splice($temp, $i, 1);
+					unset($temp[$i]);
 				}
 			}
+			$temp = array($temp);
 
 			$data = $temp;
 			$is_data_empty = empty($data);
@@ -273,6 +274,70 @@
 		foreach ($data as $item) {
 			$base_url = $_SERVER["DOCUMENT_ROOT"] . "/includes";
 			$result = get_rendered_template($base_url . "/{$table}.php", $item);
+
+			$html .= (empty($result)) 
+				? "<article class=\"light\">". implode(", ", $item) ."</article>"
+				: $result;
+		}
+
+		return $html;
+	}
+
+	function get_professional_data($id, $table) {
+		$connection = connect_to_database();
+
+		$sql_command = "
+			SELECT {$table}.*
+			FROM profissional
+			INNER JOIN $table ON profissional.id_profissional = {$table}.id_profissional
+			WHERE profissional.id_profissional = $id
+		";
+		$result = mysqli_query($connection, $sql_command);
+
+		return ($result) ? mysqli_fetch_all($result, MYSQLI_ASSOC) : [];
+	}
+
+	function get_professional_data_html($id, $table, $null_message = "Vazio", $is_filtered = false, $arquivo = "") {
+		$data = get_professional_data($id, $table);
+		$is_data_empty = empty($data);
+
+		if ($table == "consulta" && !$is_data_empty && $is_filtered) {
+			$temp = $data;
+
+			for ($i = 0; $i < count($data); $i += 1) {
+				if ($data[$i]["status"] != "agendada") {
+					unset($temp[$i]);
+				}
+			}
+			$temp = array($temp);
+
+			$data = $temp;
+			$is_data_empty = empty($data);
+		}
+
+		if ($table == "autorizacao" && !$is_data_empty && $is_filtered) {
+			$temp = $data;
+
+			for ($i = 0; $i < count($data); $i += 1) {
+				if ($data[$i]["status"] != "ativa") {
+					unset($temp[$i]);
+				}
+			}
+			$temp = array($temp);
+
+			$data = $temp;
+			$is_data_empty = empty($data);
+		}
+
+		if ($is_data_empty) {
+			return "<p class=\"mensagem\">$null_message</p>";
+		}
+
+		if (empty($arquivo)) { $arquivo = $table; }
+		$html = "";
+		foreach ($data as $item) {
+			$base_url = $_SERVER["DOCUMENT_ROOT"] . "/includes";
+			$result = get_rendered_template($base_url . "/{$arquivo}.php", $item);
 
 			$html .= (empty($result)) 
 				? "<article class=\"light\">". implode(", ", $item) ."</article>"

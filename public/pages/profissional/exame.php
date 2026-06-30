@@ -1,6 +1,22 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . "/config/global.php";
+verify_user_logged_in();
 
+$form_enviado = ($_SERVER["REQUEST_METHOD"] == "POST");
+
+if ($form_enviado) {
+	$id_usuario = $_SESSION["id_usuario"];
+	$id_paciente = 
+	$titulo = get_post("titulo");
+	$periodo_inicio = get_post("data_inicio");
+	$periodo_fim = get_post("data_fim");
+	$extra = get_post("dados");
+
+	add_new_exam($id_usuario, date("Y-m-d"), $titulo, $periodo_inicio, $periodo_fim, $extra);
+	
+	header("Location: " . $_SERVER['PHP_SELF']);
+	exit();
+}
 ?>
 
 <!DOCTYPE html>
