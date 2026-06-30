@@ -382,10 +382,6 @@
 	function get_patient_reports_html($id_paciente) {
 		$data = get_patient_reports($id_paciente);
 
-		if (empty($data)) {
-			return "<p class=\"mensagem\">Você não possui nenhum relatório</p>";
-		}
-
 		$html = "";
 		foreach ($data as $item) {
 			$html .= get_rendered_template(ROOT."/includes/relatorio_card.php", $item);
@@ -413,10 +409,6 @@
 
 	function get_professional_reports_html($id_profissional) {
 		$data = get_professional_patients_reports($id_profissional);
-
-		if (empty($data)) {
-			return "<p class=\"mensagem\">Você não possui nenhum relatório de pacientes</p>";
-		}
 
 		$html = "";
 		foreach ($data as $item) {

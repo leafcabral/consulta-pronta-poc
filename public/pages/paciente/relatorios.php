@@ -17,6 +17,8 @@ if ($form_enviado) {
 	exit();
 }
 
+$relatorios = get_patient_reports_html($_SESSION["id_usuario"]);
+
 ?>
 
 <!DOCTYPE html>
@@ -28,113 +30,8 @@ if ($form_enviado) {
 	<title>Seus relatórios - ConsultaPronta</title>
 	<link rel="stylesheet" href="/styles/style.css">
 	<link rel="stylesheet" href="paciente.css">
+	<link rel="stylesheet" href="/styles/reports.css">
 	<style>
-		body main {
-			display: flex;
-			flex-direction: column;
-			padding-bottom: 0;
-		}
-
-		dialog {
-			background-color: transparent;
-			border: 0;
-			align-self: center;
-			justify-self: center;
-			
-			&::backdrop {
-				background: rgba(0, 0, 0, 0.2);
-			}
-		}
-
-		form {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			gap: 28px;
-			width: fit-content;
-		}
-		fieldset {
-			display: flex;
-			flex-direction: column;
-			gap: 6px;
-			width: 320px;
-			padding: 0;
-			border: none;
-
-			input {
-				width: stretch;
-			}
-		}
-
-		input, select, textarea, button {
-			padding: 0.5em 1em;
-			width: fit-content;
-		}
-
-		.input_wrapper {
-			display: flex;
-			align-items: center;
-			gap: 16px
-		}
-		
-		button {
-			background-color: var(--color-accent);
-			color: var(--color-text-dark);
-			border-radius: 6px;
-			
-			&:hover {
-				filter: brightness(0.8);
-			}
-		}
-		
-		section#content {
-			display: flex;
-			flex-direction: row;
-			gap: 20px;
-			width: stretch;
-			height: stretch;
-			align-self: center;
-    		min-height: 0;
-		}
-
-		#lista {
-			display: flex;
-			flex-direction: column;
-			gap: 10px;
-			width: 400px;
-			min-height: 0;
-			overflow-y: auto;
-		}
-
-		.hidden {
-			display: none;
-		}
-
-		#relatorio {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			flex-grow: 1;
-			border-radius: 6px;
-			overflow-y: auto;
-
-			& .mensagem {
-				width: fit-content;
-			}
-
-			& #relatorio-content {
-				width: 100%;
-				height: 100%;
-			}
-		}
-
-		section#header {
-			display: flex;
-			flex-direction: row;
-			align-items: center;
-			gap: 16px;
-    		align-self: center;
-		}
 	</style>
 </head>
 <body>
@@ -150,8 +47,6 @@ if ($form_enviado) {
 			<input type="text" id="inputrelatorios" placeholder="Buscar relatórios">
 			<button onclick="mostrarOverlay()"><b>Gerar novo relatório</b></button>
 		</section>
-
-		<p id="nenhum-resultado" class="mensagem hidden">Nenhum relatório encontrado.</p>
 
 		<br>
 
@@ -191,13 +86,17 @@ if ($form_enviado) {
 		</dialog>
 
 		<section id="content">
-			<section id="lista">
-				<?= get_patient_reports_html($_SESSION["id_usuario"]) ?>
-			</section>
-			<section id="relatorio">
-				<p class="mensagem" id="relatorio-mensagem">Clique em algum relatório para visualiza-lo</p>
-				<div id="relatorio-content" hidden></div>
-			</section>
+			<?php if (!empty($relatorios)): ?>
+				<section id="lista">
+					<?= get_patient_reports_html($_SESSION["id_usuario"]) ?>
+				</section>
+				<section id="relatorio">
+					<p class="mensagem" id="relatorio-mensagem">Clique em algum relatório para visualiza-lo</p>
+					<div id="relatorio-content" hidden></div>
+				</section>
+			<?php else: ?>
+				<p class="mensagem">Nenhum relatório encontrado</p>
+			<?php endif; ?>
 		</section>
 	</main>
 

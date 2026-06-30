@@ -1,6 +1,8 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . "/config/global.php";
 verify_professional_logged_in();
+
+$relatorios = get_professional_reports_html($_SESSION["id_usuario"]);
 ?>
 
 <!DOCTYPE html>
@@ -12,45 +14,7 @@ verify_professional_logged_in();
     <title>Relatórios de Pacientes - ConsultaPronta</title>
     <link rel="stylesheet" href="/styles/style.css">
     <link rel="stylesheet" href="profissional.css">
-    <style>
-        #busca {
-            width: 280px;
-            padding: 10px;
-            border-radius: 6px;
-        }
-
-        #content {
-            display: flex;
-            flex-direction: row;
-            gap: 20px;
-            width: stretch;
-            min-height: 0;
-            align-self: center;
-        }
-
-        #lista {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            width: 420px;
-            overflow-y: auto;
-            min-height: 0;
-        }
-
-        #relatorio {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-grow: 1;
-            border-radius: 6px;
-            overflow-y: auto;
-            min-height: 0;
-        }
-
-        .hidden {
-            display: none;
-        }
-    </style>
+	<link rel="stylesheet" href="/styles/reports.css">
 </head>
 <body>
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/asideProfissional.php" ?>
@@ -65,16 +29,20 @@ verify_professional_logged_in();
             <input type="search" id="busca" placeholder="Buscar relatórios por paciente ou título">
         </section>
 
-        <p id="nenhum-resultado" class="mensagem hidden">Nenhum relatório encontrado.</p>
+		<br>
 
         <section id="content">
-            <section id="lista">
-                <?= get_professional_reports_html($_SESSION["id_usuario"]) ?>
-            </section>
-            <section id="relatorio">
-                <p class="mensagem" id="relatorio-mensagem">Clique em um relatório para visualizá-lo</p>
-                <div id="relatorio-content" hidden></div>
-            </section>
+			<?php if (!empty($relatorios)): ?>
+				<section id="lista">
+					<?= get_professional_reports_html($_SESSION["id_usuario"]) ?>
+				</section>
+				<section id="relatorio">
+					<p class="mensagem" id="relatorio-mensagem">Clique em um relatório para visualizá-lo</p>
+					<div id="relatorio-content" hidden></div>
+				</section>
+			<?php else: ?>
+				<p class="mensagem">Nenhum relatório encontrado</p>
+			<?php endif; ?>
         </section>
     </main>
 
