@@ -4,7 +4,7 @@ verify_user_logged_in();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$id_usuario = $_SESSION["id_usuario"];
-	$secao = $_POST["secao"] ?? "";
+	$secao = isset($_POST["secao"]) ? $_POST["secao"] : "";
 	$operacao = $_POST["operacao"];
 	unset($_POST["secao"]);
 	unset($_POST["operacao"]);
@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			}
 			break;
 		case "confirmar_alteracao_email":
-			$novo_email = $_SESSION["pending_email_change"] ?? null;
+			$novo_email = isset($_SESSION["pending_email_change"]) ? $_SESSION["pending_email_change"] : null;
 			if (!empty($novo_email)) {
 				if (update_user_email($id_usuario, $novo_email)) {
 					unset($_SESSION["pending_email_change"]);
@@ -51,5 +51,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	}
 }
 
-header("Location: perfil.php");
+header("Location: ../pages/" . $_SESSION["tipo_usuario"] . "/perfil.php");
 exit();

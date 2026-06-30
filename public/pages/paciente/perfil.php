@@ -188,7 +188,7 @@
 					<article class="dark">
 						<span class="seta">▶</span>
 						<h3>Editar dados: </h3>
-						<form action="atualizar_perfil.php" method="post">
+						<form action="../../api/atualizar_perfil.php" method="post">
 							<input id="secao" type="hidden" name="secao" value="">
 							<input id="operacao" type="hidden" name="operacao" value="editar">
 							
@@ -206,7 +206,7 @@
 						<span class="seta">▶</span>
 						<h3>Adicionar dados: </h3>
 						
-						<form action="atualizar_perfil.php" method="post">
+						<form action="../../api/atualizar_perfil.php" method="post">
 							<input id="secao" type="hidden" name="secao" value="">
 							<input id="operacao" type="hidden" name="operacao" value="adicionar">
 							
