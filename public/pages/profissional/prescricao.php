@@ -36,7 +36,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/config/global.php";
 			width: 450px;
 			border: none;
             background-color: transparent;
-			padding-left: 20px
+			padding-left: 20px;
 			padding-right: 20px;
 		}
 
