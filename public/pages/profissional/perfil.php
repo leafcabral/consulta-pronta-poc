@@ -4,13 +4,13 @@
 	verify_user_logged_in();
 
 	$user_info = get_user_by_id($_SESSION["id_usuario"]);
-	$patient_info = get_patient($_SESSION["id_usuario"]);
+	$professional_info = get_professional($_SESSION["id_usuario"]);
 	$contacts = get_user_contacts($_SESSION["id_usuario"]);
 	unset(
 		$user_info["id_usuario"],
 		$user_info["senha_hash"],
 		$user_info["tipo_usuario"],
-		$patient_info["id_paciente"]
+		$professional_info["id_profissional"]
 	);
 
 	// (\d{3}) -> 3 digitos
@@ -22,9 +22,7 @@
 
 	$data_hora = new DateTime($user_info["data_cadastro"]);
 	$user_info["data_cadastro"] = $data_hora->format("d/m/Y");
-	$data_hora = new DateTime($patient_info["data_nascimento"]);
-	$patient_info["data_nascimento"] = $data_hora->format("d/m/Y");
-	
+
 	function render_profile_field($label, $key, $value) {
 		$html_label = htmlspecialchars($label);
 		$html_key = htmlspecialchars($key);
@@ -148,36 +146,27 @@
 					<span class="seta">▶</span>
 					<h3>Dados pessoais:</h3>
 				</div>
-				<!-- <button onclick="abrir_edicao('Editar Dados Pessoais', 'dados_pessoais')">Editar</button> -->
 				<div class="info conteudo" id="pessoais">
 					<?php 
 						render_profile_field("CPF", "cpf", $user_info["cpf"]);
 						render_profile_field("Email", "email", $user_info["email"]);
-						render_profile_field("Data de nascimento", "data_nascimento", $patient_info["data_nascimento"]);
 						render_profile_field("Conta criada em", "data_cadastro", $user_info["data_cadastro"]);
 					?>
 				</div>
 				
 			</section>
 
-			<section id="dados_saude">
-				<div class="titulo" onclick="toggleSecao('saude')">
+			<section id="dados_profissionais">
+				<div class="titulo" onclick="toggleSecao('profissionais')">
 					<span class="seta">▶</span>
-					<h3>Dados de saúde:</h3>
-					<section>
-						<button onclick="abrir_edicao('Editar Dados de Saúde', 'dados_saude')">Editar</button>
-					</section>
+					<h3>Dados profissionais:</h3>
 					
 				</div>
 				
-				<div class="info conteudo" id="saude">
+				<div class="info conteudo" id="profissionais">
 					<?php 
-						render_profile_field("Altura (cm)", "altura", $patient_info["altura"]);
-						render_profile_field("Peso (kg)", "peso", $patient_info["peso"]);
-						render_profile_field("Tipo sanguíneo", "tipo_sanguineo", $patient_info["tipo_sanguineo"]);
-						render_profile_field("Alergias", "alergias", $patient_info["alergias"]);
-						render_profile_field("Doenças", "doencas", $patient_info["doencas"]);
-						render_profile_field("Histórico Familiar", "historico_familiar", $patient_info["historico_familiar"]);
+						render_profile_field("CRM", "crm", $professional_info["crm"]);
+						render_profile_field("Especialidades", "especialidades", $professional_info["especialidades"]);
 					?>
 				</div>
 				
@@ -223,6 +212,7 @@
 						</form>
 					</article>
 				</dialog>
+	
 				<div class="titulo" onclick="toggleSecao('contato')">
 					<span class="seta">▶</span>
 					<h3>Dados de contato:</h3>
@@ -303,13 +293,9 @@
 		}
 
 		function toggleSecao(id){
-
 			const conteudo = document.getElementById(id)
-
 			const titulo = conteudo.previousElementSibling
-
 			const seta = titulo.querySelector(".seta")
-
 
 			conteudo.classList.toggle("ativo")
 

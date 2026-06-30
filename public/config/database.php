@@ -210,6 +210,15 @@
 
 		return mysqli_fetch_assoc($result);
 	}
+	
+	function get_professional($id) {
+		$connection = connect_to_database();
+
+		$sql_command = "SELECT * FROM profissional WHERE id_profissional = '$id'";
+		$result = mysqli_query($connection, $sql_command);
+
+		return mysqli_fetch_assoc($result);
+	}
 
 	function get_user_contacts($id) {
 		$connection = connect_to_database();
