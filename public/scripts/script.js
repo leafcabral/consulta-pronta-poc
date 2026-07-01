@@ -15,3 +15,38 @@ function format_cpf(value) {
 		.replace(/(\d{3})(\d)/, '$1-$2') // Adiciona traço após o nono dígito
 		.replace(/(-\d{2})\d+?$/, '$1'); // Impede entrada de mais de 11 dígitos
 }
+
+const ReportAPI = {
+	// Seria bom juntar em um só
+	urlGet: '/api/relatorio_completo.php',
+	url: '/api/relatorio.php',
+
+	async get(id) {
+		const args = `?id=${id}`
+		const response = await fetch(this.urlGet + args)
+
+		if (!response.ok) throw new Error("Erro ao buscar o relatório bruh")
+		return await response.text();
+	},
+
+	async create(id) {
+		throw new Error("Alguem poderia fazer isso aqui né @calielian")
+	},
+
+	async update(id) {
+		throw new Error("Alguem poderia fazer isso aqui né @vitor.felberh")
+	},
+
+	async delete(id) {
+		const response = await fetch(this.url, {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify(
+				{ action: "delete", id }
+			)
+		});
+
+		const result = await response.json();
+		console.log(result.message); 
+	}
+}

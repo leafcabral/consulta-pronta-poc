@@ -146,11 +146,7 @@
 
         $sql_command = "DELETE FROM $table WHERE $row_name = $value";
 
-        if (mysqli_query($connection, $sql_command)) {
-            // handle succesful query
-        } else {
-            // handle failed query
-        }
+        return mysqli_query($connection, $sql_command);
     }
 
 	function user_exists($column, $value) {

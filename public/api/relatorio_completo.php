@@ -36,6 +36,12 @@ $duracao = $inicio->diff($fim)->days + 1;
 
 ?>
 
+<?php if (is_paciente()): ?>
+	<div style="position:relative;">
+		<button type="button" style="position: absolute; top: 0; right: 0;" onclick="deletar_relatorio(<?= $id_relatorio ?>)">Deletar</button>
+	</div>
+<?php endif; ?>
+
 <h2 class="titulo-relatorio"><?= $titulo ?></h2>
 <p><i>Relatório ID-<?= $id_relatorio ?></i></p>
 <br>

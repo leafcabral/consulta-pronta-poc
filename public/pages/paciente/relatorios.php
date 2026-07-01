@@ -100,6 +100,7 @@ $relatorios = get_patient_reports_html($_SESSION["id_usuario"]);
 		</section>
 	</main>
 
+	<script src="/scripts/script.js"></script>
 	<script>
 		const laylay = document.getElementById("gerar_relatorio")
 
@@ -121,10 +122,7 @@ $relatorios = get_patient_reports_html($_SESSION["id_usuario"]);
 			mensagem.innerHTML = "Carregando relatório..."
 
 			try {
-				const resposta = await fetch(`/api/relatorio_completo.php?id=${id_relatorio}`)
-				if (!resposta.ok) throw new Error("Erro na requisição")
-				
-				const htmlRelatorio = await resposta.text()
+				const htmlRelatorio = await ReportAPI.get(id_relatorio)
 				
 				relatorio.innerHTML = htmlRelatorio
 				mensagem.hidden = true
@@ -136,6 +134,19 @@ $relatorios = get_patient_reports_html($_SESSION["id_usuario"]);
 				relatorio.hidden = true
 
 				console.error(erro)
+			}
+		}
+		async function deletar_relatorio(id) {
+			if (!confirm("Tem certeza que deseja deletar este relatório?")) return;
+
+			try {
+				await ReportAPI.delete(id);
+				
+				alert("Relatório deletado com sucesso!");
+				location.reload();
+			} catch (erro) {
+				alert(erro.message);
+				console.error(erro);
 			}
 		}
 
