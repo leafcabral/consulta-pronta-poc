@@ -1,6 +1,12 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . "/config/global.php";
 verify_user_logged_in();
+
+$profissionais = get_patient_professionals_html($_SESSION["id_usuario"]);
+if (empty($profissionais)) {
+	$profissionais = "<p class='mensagem'>Nenhum profissional encontrado.</p>";
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -19,8 +25,8 @@ verify_user_logged_in();
 		}
 
 		#lista {
-			display: flex;
-			flex-direction: column;
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 			gap: 10px;
 		}
 
@@ -42,10 +48,8 @@ verify_user_logged_in();
 
 		<br><br>
 
-		<p id="nenhum-resultado" class="mensagem hidden">Nenhum profissional encontrado.</p>
-
 		<section id="lista">
-			<?= get_patient_professionals_html($_SESSION["id_usuario"]) ?>
+			<?= $profissionais ?>
 		</section>
 	</main>
 

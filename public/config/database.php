@@ -339,9 +339,6 @@
 
 	function get_patient_professionals_html($id_paciente) {
 		$data = get_patient_professionals($id_paciente);
-		if (empty($data)) {
-			return "<p class=\"mensagem\">Você não possui nenhum profissional</p>";
-		}
 
 		$html = "";
 		foreach ($data as $item) {
