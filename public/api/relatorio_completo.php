@@ -64,8 +64,8 @@ $duracao = $inicio->diff($fim)->days + 1;
 
 			echo "
 				<p><i>({$anotacao['data_hora']})</i> $nome</p>
-				<p>&nbsp;&nbsp;&nbsp;&nbsp;{$anotacao['texto_evolucao']}</p>
-				<p>&nbsp;&nbsp;&nbsp;&nbsp;Hipotese: {$anotacao['hipotese_diagnostica']}</p>
+				<p>&emsp;{$anotacao['texto_evolucao']}</p>
+				<p>&emsp;Hipotese: {$anotacao['hipotese_diagnostica']}</p>
 			";
 		}
 	?>
