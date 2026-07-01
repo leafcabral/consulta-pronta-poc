@@ -1,5 +1,7 @@
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/config/global.php"; ?>
 <link rel="stylesheet" href="/styles/defaults.css">
+<script src="/scripts/script.js"></script>
+
 <style>
 	@scope (aside) {
 		:scope {
@@ -56,7 +58,7 @@
 			<span class="material-symbols-rounded">account_circle</span>
 			Perfil
 		</a>
-		<a href="/sair.php" style="color: var(--color-error);">
+		<a onclick="logout()" style="color: var(--color-error); cursor: pointer;">
 			<span class="material-symbols-rounded">logout</span>
 			Sair
 		</a>

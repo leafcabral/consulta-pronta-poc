@@ -16,6 +16,12 @@ function format_cpf(value) {
 		.replace(/(-\d{2})\d+?$/, '$1'); // Impede entrada de mais de 11 dígitos
 }
 
+function logout() {
+	if (!confirm("Tem certeza que deseja sair da conta?")) return;
+
+	window.location.replace("/sair.php");
+}
+
 const ReportAPI = {
 	// Seria bom juntar em um só
 	urlGet: '/api/relatorio_completo.php',
