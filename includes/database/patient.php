@@ -46,7 +46,7 @@ function add_new_symptom($pacient_id, $description, $intensity, $date_begin, $lo
 		"intensidade" => $intensity,
 		"data_inicio" => $date_begin,
 		"local" => $local,
-		"statu" => $status
+		"status" => $status
 	]);
 }
 
