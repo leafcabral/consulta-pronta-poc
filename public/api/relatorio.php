@@ -1,5 +1,5 @@
 <?php
-require_once $_SERVER["DOCUMENT_ROOT"]."/config/global.php";
+require_once $_SERVER["DOCUMENT_ROOT"] . "/global.php";
 header('Content-Type: application/json');
 
 $putput = file_get_contents('php://input');

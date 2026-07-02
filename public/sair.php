@@ -1,6 +1,6 @@
 <?php
 
-require_once $_SERVER['DOCUMENT_ROOT'] . "/config/global.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/global.php";
 
 $_SESSION["logado"] = false;
 unset($_SESSION["id_usuario"]);

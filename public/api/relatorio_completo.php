@@ -1,5 +1,5 @@
 <?php
-require_once $_SERVER["DOCUMENT_ROOT"] . "/config/global.php";
+require_once $_SERVER["DOCUMENT_ROOT"] . "/global.php";
 verify_user_logged_in();
 if (empty($_GET["id"])) { http_response_code(400); exit; }
 
@@ -86,7 +86,7 @@ $duracao = $inicio->diff($fim)->days + 1;
 	<ul style="list-style: none; padding: 10px 0; display: flex; flex-direction: column; gap: 8px;">
 		<?php
 			foreach ($sintomas as $sintoma) {
-				echo get_rendered_template(ROOT."/includes/sintoma.php", $sintoma);
+				echo get_rendered_template(COMPONENTS . "sintoma.php", $sintoma);
 			}
 		?>
 	</ul>

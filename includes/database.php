@@ -1,4 +1,5 @@
 <?php
+	require_once __DIR__ . "/constants.php";
 
     function connect_to_database() {
         $server = "localhost";
@@ -267,8 +268,7 @@
 
 		$html = "";
 		foreach ($data as $item) {
-			$base_url = $_SERVER["DOCUMENT_ROOT"] . "/includes";
-			$result = get_rendered_template($base_url . "/{$table}.php", $item);
+			$result = get_rendered_template(COMPONENTS . "{$table}.php", $item);
 
 			$html .= (empty($result)) 
 				? "<article class=\"light\">". implode(", ", $item) ."</article>"
@@ -338,7 +338,7 @@
 
 		$html = "";
 		foreach ($data as $item) {
-			$html .= get_rendered_template(ROOT."/includes/profissional.php", $item);
+			$html .= get_rendered_template(COMPONENTS . "profissional.php", $item);
 		}
 
 		return $html;
@@ -377,7 +377,7 @@
 
 		$html = "";
 		foreach ($data as $item) {
-			$html .= get_rendered_template(ROOT."/includes/relatorio_card.php", $item);
+			$html .= get_rendered_template(COMPONENTS . "relatorio_card.php", $item);
 		}
 
 		return $html;
@@ -405,7 +405,7 @@
 
 		$html = "";
 		foreach ($data as $item) {
-			$html .= get_rendered_template(ROOT."/includes/relatorio_card.php", $item);
+			$html .= get_rendered_template(COMPONENTS . "relatorio_card.php", $item);
 		}
 
 		return $html;

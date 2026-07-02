@@ -1,5 +1,5 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . "/config/global.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/global.php";
 
 $erro = "";
 $form_enviado = ($_SERVER["REQUEST_METHOD"] == "POST");
@@ -29,12 +29,12 @@ if ($form_enviado) {
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="shortcut icon" href="/icons/icon.png" type="image/x-icon">
+	<link rel="shortcut icon" href="/assets/icons/icon.png" type="image/x-icon">
 	<title>ConsultaPronta</title>
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="auth.css">
 </head>
 <body>
-	<img src="/icons/logo.png" alt="logo consulta pronta" id="logo">
+	<img src="/assets/icons/logo.png" alt="logo consulta pronta" id="logo">
 
 	<?php
 		if (!empty($erro)) {
@@ -58,7 +58,7 @@ if ($form_enviado) {
 		<button type="submit">Entrar</button>
 	</form>
 
-	<script src="/scripts/script.js"></script>
+	<script src="/assets/scripts/script.js"></script>
 	<script>
 		document.form.addEventListener("submit", async (event) => {
 			event.preventDefault();

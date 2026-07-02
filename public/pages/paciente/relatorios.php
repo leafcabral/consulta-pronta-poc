@@ -1,5 +1,5 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . "/config/global.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/global.php";
 verify_user_logged_in();
 
 $form_enviado = ($_SERVER["REQUEST_METHOD"] == "POST");
@@ -26,16 +26,16 @@ $relatorios = get_patient_reports_html($_SESSION["id_usuario"]);
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="shortcut icon" href="/icons/icon.png" type="image/x-icon">
+	<link rel="shortcut icon" href="/assets/icons/icon.png" type="image/x-icon">
 	<title>Seus relatórios - ConsultaPronta</title>
-	<link rel="stylesheet" href="/styles/style.css">
+	<link rel="stylesheet" href="/assets/styles/style.css">
 	<link rel="stylesheet" href="paciente.css">
-	<link rel="stylesheet" href="/styles/reports.css">
+	<link rel="stylesheet" href="/assets/styles/reports.css">
 	<style>
 	</style>
 </head>
 <body>
-	<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/aside.php" ?>
+	<?php require_once COMPONENTS . "aside.php" ?>
 
 	<main>
 		<header>
@@ -100,7 +100,6 @@ $relatorios = get_patient_reports_html($_SESSION["id_usuario"]);
 		</section>
 	</main>
 
-	<script src="/scripts/script.js"></script>
 	<script>
 		const laylay = document.getElementById("gerar_relatorio")
 

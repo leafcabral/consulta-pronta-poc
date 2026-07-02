@@ -1,4 +1,4 @@
-<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/config/global.php"; ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/global.php"; ?>
 
 <style>
 	@scope (aside) {

@@ -1,5 +1,5 @@
 <?php
-	require_once $_SERVER['DOCUMENT_ROOT'] . "/config/global.php";
+	require_once $_SERVER['DOCUMENT_ROOT'] . "/global.php";
 
 	verify_user_logged_in();
 
@@ -42,9 +42,9 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="shortcut icon" href="/icons/icon.png" type="image/x-icon">
+	<link rel="shortcut icon" href="/assets/icons/icon.png" type="image/x-icon">
 	<title>Perfil - ConsultaPronta</title>
-	<link rel="stylesheet" href="/styles/style.css">
+	<link rel="stylesheet" href="/assets/styles/style.css">
 	<link rel="stylesheet" href="paciente.css">
 	<!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"> -->
 	 <style>
@@ -129,7 +129,7 @@
 	 </style>
 </head>
 <body>
-	<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/aside.php" ?>
+	<?php require_once COMPONENTS . "aside.php" ?>
 
 	<main>
 		<header>

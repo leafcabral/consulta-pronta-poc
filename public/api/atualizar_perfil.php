@@ -1,5 +1,5 @@
 <?php
-require_once $_SERVER["DOCUMENT_ROOT"] . "/config/global.php";
+require_once $_SERVER["DOCUMENT_ROOT"] . "/global.php";
 verify_user_logged_in();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

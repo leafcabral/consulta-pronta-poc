@@ -1,6 +1,6 @@
 <?php
 header("Content-Type: application/json");
-require_once $_SERVER["DOCUMENT_ROOT"] . "/config/global.php";
+require_once $_SERVER["DOCUMENT_ROOT"] . "/global.php";
 
 $sucesso = false;
 
