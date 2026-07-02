@@ -1,6 +1,5 @@
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/global.php"; ?>
 <link rel="stylesheet" href="/assets/styles/defaults.css">
-<script src="/assets/scripts/script.js"></script>
 
 <style>
 	@scope (aside) {

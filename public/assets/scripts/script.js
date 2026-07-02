@@ -64,3 +64,21 @@ const ReportAPI = {
 		return await response.text();
 	}
 }
+
+const SymptomAPI = {
+	url: "/api/sintoma.php",
+
+	async delete(id) {
+		const response = await fetch(this.url, {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify(
+				{ action: "delete", id }
+			)
+		});
+
+		const result = await response.json();
+		console.log(result.poopoo); 
+		console.log(result.message); 
+	}
+}

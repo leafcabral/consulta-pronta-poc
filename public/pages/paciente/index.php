@@ -57,5 +57,21 @@ verify_user_logged_in();
 			</article>
 		</section>
 	</main>
+
+	<script src="/assets/scripts/script.js"></script>
+	<script>
+		async function deletar_sintoma(id) {
+			if (!confirm("Tem certeza que deseja deletar este sintoma?")) return;
+
+			try {
+				await SymptomAPI.delete(id);
+				
+				location.reload();
+			} catch (erro) {
+				alert(erro.message);
+				console.error(erro);
+			}
+		}
+	</script>
 </body>
 </html>

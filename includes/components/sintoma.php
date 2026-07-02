@@ -1,4 +1,6 @@
 <?php
+	if (!isset($id_paciente)) { $id_paciente = "0"; }
+	if (!isset($id_sintoma)) { $id_sintoma = "0"; }
 	if (!isset($descricao)) { $descricao = "Dor"; }
 	if (!isset($intensidade)) { $intensidade = "6"; }
 	if (!isset($data_inicio)) { $data_inicio = "1967-09-04 06:07:09"; }
@@ -9,9 +11,10 @@
 ?>
 
 <article class="light">
-	<p>
+	<p style="display: flex; justify-content: space-between;">
 		<?= ($status == "ativo") ? "&#128994;" : "&#128309;"?>
 		<?= htmlspecialchars($descricao) ?>
+		<span class="material-symbols-rounded" onclick="deletar_sintoma(<?= $id_sintoma ?>)" style="cursor: pointer;">delete</span>
 	</p>
 	<hr>
 	<p>Intensidade: <?= $intensidade ?>/10</p>

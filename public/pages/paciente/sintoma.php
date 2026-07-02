@@ -121,6 +121,7 @@ if ($form_enviado) {
 		</form>
 	</main>
 
+	<script src="/assets/scripts/script.js"></script>
 	<script>
 		function atualizarIntensidadeAtual(event) {
 			const amostradinho = document.getElementById("intensidade_atual")

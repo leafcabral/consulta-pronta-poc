@@ -53,6 +53,8 @@ if (empty($profissionais)) {
 		</section>
 	</main>
 
+
+	<script src="/assets/scripts/script.js"></script>
 	<script>
 		const busca = document.getElementById("busca");
 		const lista = document.getElementById("lista");

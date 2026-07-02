@@ -100,6 +100,8 @@ $relatorios = get_patient_reports_html($_SESSION["id_usuario"]);
 		</section>
 	</main>
 
+
+	<script src="/assets/scripts/script.js"></script>
 	<script>
 		const laylay = document.getElementById("gerar_relatorio")
 

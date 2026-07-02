@@ -249,6 +249,8 @@
 			</section>
 		</div>
 
+
+	<script src="/assets/scripts/script.js"></script>
 	<script>
 		const overlayEditar = document.getElementById('editar_dados')
 		const overlayAdicionar = document.getElementById('adicionar_dados')
