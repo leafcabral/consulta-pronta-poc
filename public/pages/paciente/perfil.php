@@ -3,7 +3,7 @@
 
 	verify_user_logged_in();
 
-	$user_info = get_user_by_id($_SESSION["id_usuario"]);
+	$user_info = get_user($_SESSION["id_usuario"]);
 	$patient_info = get_patient($_SESSION["id_usuario"]);
 	$contacts = get_user_contacts($_SESSION["id_usuario"]);
 	unset(

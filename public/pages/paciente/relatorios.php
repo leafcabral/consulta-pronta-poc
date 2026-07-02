@@ -121,7 +121,7 @@ $relatorios = get_patient_reports_html($_SESSION["id_usuario"]);
 			mensagem.innerHTML = "Carregando relatório..."
 
 			try {
-				const htmlRelatorio = await ReportAPI.get(id_relatorio)
+				const htmlRelatorio = await ReportAPI.getDetails(id_relatorio)
 				
 				relatorio.innerHTML = htmlRelatorio
 				mensagem.hidden = true

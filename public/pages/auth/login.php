@@ -8,7 +8,7 @@ if ($form_enviado) {
 	$email = get_post("email");
 	$senha = get_post("senha_hash");
 
-	$usuario = get_user($email);
+	$usuario = get_user_by_email($email);
 	if (empty($usuario)) {
 		$erro = "Usuário não existe";
 	} elseif ($senha !== $usuario["senha_hash"]) {

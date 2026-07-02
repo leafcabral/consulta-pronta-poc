@@ -24,15 +24,15 @@ function logout() {
 
 const ReportAPI = {
 	// Seria bom juntar em um só
-	urlGet: '/api/relatorio_completo.php',
 	url: '/api/relatorio.php',
+	urlDetails: '/api/relatorio_completo.php',
 
 	async get(id) {
 		const args = `?id=${id}`
-		const response = await fetch(this.urlGet + args)
+		const response = await fetch(this.url + args)
 
 		if (!response.ok) throw new Error("Erro ao buscar o relatório bruh")
-		return await response.text();
+		return await response.json();
 	},
 
 	async create(id) {
@@ -54,5 +54,13 @@ const ReportAPI = {
 
 		const result = await response.json();
 		console.log(result.message); 
+	},
+
+	async getDetails(id) {
+		const args = `?id=${id}`
+		const response = await fetch(this.urlDetails + args)
+
+		if (!response.ok) throw new Error("Erro ao buscar o relatório bruh")
+		return await response.text();
 	}
 }

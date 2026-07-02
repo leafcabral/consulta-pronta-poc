@@ -66,7 +66,7 @@ $duracao = $inicio->diff($fim)->days + 1;
 <?php if (!empty($anotacoes)): ?>
 	<?php
 		foreach ($anotacoes as $anotacao) {
-			$nome = get_user_by_id($anotacao["id_profissional"])["nome"];
+			$nome = get_user($anotacao["id_profissional"])["nome"];
 
 			echo "
 				<p><i>({$anotacao['data_hora']})</i> $nome</p>

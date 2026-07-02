@@ -11,8 +11,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 	switch ($operacao) {
 		case "editar":
-			if ($secao == "dados_saude") { update_patient_data($id_usuario, $_POST); }
-			elseif ($secao == "dados_contato") { update_patient_contacts($id_usuario, $_POST); }
+			if ($secao == "dados_saude") { update_patient($id_usuario, $_POST); }
+			elseif ($secao == "dados_contato") { update_user_contacts($id_usuario, $_POST); }
 			break;
 		case "adicionar":
 			if ($secao == "dados_saude") {}
@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		case "solicitar_alteracao_email":
 			$novo_email = filter_input(INPUT_POST, "novo_email", FILTER_VALIDATE_EMAIL);
 			$confirmar_email = filter_input(INPUT_POST, "confirmar_email", FILTER_VALIDATE_EMAIL);
-			$usuario_atual = get_user_by_id($id_usuario);
+			$usuario_atual = get_user($id_usuario);
 
 			if ($novo_email && $confirmar_email && $novo_email === $confirmar_email) {
 				if ($novo_email !== $usuario_atual["email"] && user_exists("email", $novo_email)) {

@@ -16,7 +16,7 @@
 	<main>
 		<header>
 			<h1>Dashboard</h1>
-			<h2>Seja bem vindo, <?= get_user_by_id($_SESSION["id_usuario"])["nome"] ?></h2>
+			<h2>Seja bem vindo, <?= get_user($_SESSION["id_usuario"])["nome"] ?></h2>
 		</header>
 
 		<section id="dashboard_content_profissional">
